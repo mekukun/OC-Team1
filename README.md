@@ -30,4 +30,4 @@ Below is the snapshot of the navigation bar (red box) and the dashboard (green b
 ![Nav + Dashboard](https://i.imgur.com/OaTMV4W.png)
 
 ## DISCLAIMER!
-Each of the HTML files have the same structure but not necessarily means they have the exactly the same code. So, please be careful.
+Each of the HTML files have the same structure but not necessarily means they have exactly the same code. So, please be careful.
