@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+i {
+    padding: 0.5rem;
+}
+
+main {
+    min-height: 100vh;
+    background: linear-gradient(to right top, #5ab9ea, #c1c8e4);
+}
+
+/* styles for navigation bar */
+nav {
+    /* text-align: center; */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-weight: 400;
+    font-size: 1rem;
+    /* font-family: 'Poppins', sans-serif; */
+    float: left;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(to right, rgba(255,255,255,0.8), rgba(255,255,255,0.3));
+    z-index: 2;
+    backdrop-filter: blur(2rem);
+    position: sticky;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.container{
+    /* height: 40vh; */
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: red; */
+}
+
+.bottom{
+    align-items: center;
+}
+
+.navcontrol{
+    padding: 0.5rem;
+    margin: 0.5rem 0rem;
+    /* background-color: #5ab9ea; */
+}
+
+.navcontrol i{
+    backdrop-filter: blur(0.1rem);
+    margin-right: 0.2rem;
+    /* background-color: white; */
+    border-radius: 0.5rem; 
+    /* box-shadow: 0 0 0.2rem 0.05rem grey; */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.selected{
+    border-radius: 0.5rem;
+    font-weight: bold;
+    /* background-color: white;  */
+    backdrop-filter: blur(0.1rem);
+    box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.1);
+}
+
+.navcontrol:hover {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    /* background-color: white;  */
+    backdrop-filter: blur(0.1rem);
+    box-shadow: 3px 3px 30px rgba(0, 0, 0, 0.1);
+}
+
+.selected i{
+    background-color: #5680e9;
+    color: white;
+}
+
+.profilebox{
+    color: white;
+    background: linear-gradient(to right bottom, #5680E9, #8860D0);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 0.5rem; 
+}
+
+.profilebox i{
+    color: black;
+    background-color: white;
+    border-radius: 0.5rem; 
+    /* box-shadow: 0 0 0.2rem 0.05rem grey; */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.wordprofilebox{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 1rem 0rem;
+} 
+
+.profilebox button{
+    padding: 0.2rem 5rem;
+    font-weight: bold;
+    border-style: none;
+    border-radius: 0.5rem; 
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    transition: transform .2s
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.logout button{
+    background: white;
+    margin-top: 1rem;
+    padding: 0.5rem 4.7rem;
+    font-weight: bold;
+    color: red;
+    border-style: solid;
+    border-color: red;
+    border-radius: 0.5rem; 
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    transition: transform .2s
+}
+
+.logout i{
+    padding: 0.2rem;
+}
+
+/* styles for dashboard */
+.dashboard {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-weight: 400;
+    font-size: 1rem;
+    float: top;
+    display: flex;
+    height: 8vh;
+    justify-content: space-between;
+    /* background-color: green; */
+}
+
+.leftdash{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: flex-start;
+   /* background-color: red; */
+}
+
+.up{
+    display: flex;
+    flex-direction: row;
+    font-size: 0.85rem;
+    /* background-color: red; */
+}
+
+.rightdash{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    font-weight: bold;
+    /* background-color: blue; */
+}
+
+.rightdash a{
+    margin: 0.2rem;
+    /* background-color: red; */
+}
+
+.status {
+    background:rgb(60,179,113);
+    color: white;
+    /* border-style: solid; */
+    border-radius: 1rem;
+    padding: 0rem 0.8rem;
+    margin: 0.2rem;
+    box-shadow: 0px 0px 10px rgba(60,179,113, 0.8);
+}
+
+.red{
+    background: red;
+    box-shadow: 0px 0px 10px rgba(	
+        255, 0, 0, 0.8);
+}
+
+form input{
+    padding: 0.2rem 0.8rem;
+    min-height: 1rem;
+    margin: 0.5rem;
+    border: unset;
+    border-radius: 0.8rem;
+    outline-color: rgb(84 105 212 / 0.5);
+    background-color: rgb(255, 255, 255);
+}
