@@ -4,11 +4,11 @@ A repository for Team 1's online community system. The theme used is `glass` and
 ## Partitions
 There are two partitions.
 
-### User
+### Resident
 - profile.html
 - registervisitor.html
 - reportcovquarantinestats.html
-- viewnearbyfacilities
+- viewnearbyfacilities.html
 
 ### Admin
 
