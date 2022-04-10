@@ -29,5 +29,8 @@ Below is the snapshot of the navigation bar (red box) and the dashboard (green b
 
 ![Nav + Dashboard](https://i.imgur.com/OaTMV4W.png)
 
+## Want to Add Images from Local Directory?
+Please create a new folder named `img` in the `assets` folder. Put your images in there. This is to organize our codes and assets neatly.
+
 ## DISCLAIMER!
 Each of the HTML files have the same structure but not necessarily means they have exactly the same code. So, please be careful.
