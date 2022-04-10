@@ -16,7 +16,7 @@ There are two partitions.
 - managecovreport.html
 - manageresidents.html
 
-## assets
+### assets
 - css
   - stylesheet.css
 
