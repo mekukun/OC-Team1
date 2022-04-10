@@ -4,17 +4,21 @@ A repository for Team 1's online community system. The theme used is `glass` and
 ## Partitions
 There are two partitions.
 
-### Resident
+### resident
 - profile.html
 - registervisitor.html
 - reportcovquarantinestats.html
 - viewnearbyfacilities.html
 
-### Admin
+### admin
 
 - profileadmin.html
 - managecovreport.html
 - manageresidents.html
+
+### assets
+- css
+  - stylesheet.css
 
 ## What do we have now?
 
@@ -28,6 +32,9 @@ Below is the snapshot of the navigation bar (red box) and the dashboard (green b
 
 
 ![Nav + Dashboard](https://i.imgur.com/OaTMV4W.png)
+
+## Want to Add Images from Local Directory?
+Please create a new folder named `img` in the `assets` folder. Put your images in there. This is to organize our codes and assets neatly.
 
 ## DISCLAIMER!
 Each of the HTML files have the same structure but not necessarily means they have exactly the same code. So, please be careful.
