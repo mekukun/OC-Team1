@@ -315,7 +315,87 @@ a {
 }
 
 .reportactivity {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70vh;
   width: 25vw;
+}
+
+.upperactivity i {
+  color: rgb(60, 179, 113);
+  padding: 0 0.2rem 0 0;
+}
+
+.upperactivity > span {
+  font-weight: bold;
+}
+
+.upperactivity div span:nth-last-of-type(2) {
+  font-weight: bold;
+}
+
+.bottomactivity {
+  /* background-color: red; */
+  height: 85%;
+  width: 100%;
+  overflow: auto;
+}
+
+.bottomactivity::-webkit-scrollbar {
+  display: none;
+}
+
+.activity {
+  display: flex;
+  flex-direction: row;
+  /* background-color: blue; */
+  margin-bottom: 1rem;
+}
+
+.activitytext {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 1rem;
+}
+
+.activitytext span {
+  padding: 0 0 0.2rem 0;
+}
+
+.activitytext span:nth-last-of-type(2) {
+  font-weight: bold;
+}
+
+.activitytext span:nth-last-of-type(1) {
+  font-size: small;
+  font-weight: bold;
+  color: #565656;
+}
+
+#newreport i {
+  color: red;
+}
+
+#inspectionbegin i {
+  color: #5ab9ea;
+}
+
+#delete i {
+  color: #dc143c;
+}
+
+#call i {
+  color: #ff8c00;
+}
+
+#validate i {
+  color: #198754;
+}
+
+#note i {
+  color: #008b8b;
 }
 
 .btn {
