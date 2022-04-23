@@ -21,6 +21,7 @@
       as="script"
       crossorigin="anonymous"
     ></script>
+    <script src="../assets/js/covreporteditbtn.js"></script>
   </head>
   <body>
     <nav>
@@ -147,7 +148,7 @@
                   <thead>
                     <tr>
                       <th scope="col">Report ID</th>
-                      <th scope="col">Date</th>
+                      <th scope="col">Last Update</th>
                       <th scope="col">Status</th>
                       <th scope="col">Last Activity</th>
                     </tr>
@@ -160,8 +161,17 @@
                         <i class="fa-solid fa-circle fa-xs" id="pending"></i
                         >Pending
                       </td>
-                      <td></td>
-                      <td><i class="fa-solid fa-pen-to-square"></i></td>
+                      <td>Report Submission</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#report423"
+                        >
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">#321</th>
@@ -170,8 +180,17 @@
                         <i class="fa-solid fa-circle fa-xs" id="inprogress"></i
                         >In progress
                       </td>
-                      <td>Inspection</td>
-                      <td><i class="fa-solid fa-pen-to-square"></i></td>
+                      <td>Room Inspection</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal"
+                        >
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">#53</th>
@@ -181,7 +200,16 @@
                         >Rejected
                       </td>
                       <td></td>
-                      <td><i class="fa-solid fa-pen-to-square"></i></td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#423"
+                        >
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">#100</th>
@@ -190,8 +218,17 @@
                         <i class="fa-solid fa-circle fa-xs" id="inprogress"></i
                         >In progress
                       </td>
-                      <td>Call resident</td>
-                      <td><i class="fa-solid fa-pen-to-square"></i></td>
+                      <td>Resident Called</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#423"
+                        >
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">#13</th>
@@ -200,8 +237,17 @@
                         <i class="fa-solid fa-circle fa-xs" id="inprogress"></i
                         >In progress
                       </td>
-                      <td>Validate</td>
-                      <td><i class="fa-solid fa-pen-to-square"></i></td>
+                      <td>Report Validation</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#423"
+                        >
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">#102</th>
@@ -211,67 +257,130 @@
                         >Rejected
                       </td>
                       <td></td>
-                      <td><i class="fa-solid fa-pen-to-square"></i></td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#423"
+                        >
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </td>
                     </tr>
                     <tr>
                       <th scope="row">#123</th>
-                      <td>21 APRIL 2022</td>
+                      <td>15 APRIL 2022</td>
                       <td>
                         <i class="fa-solid fa-circle fa-xs" id="completed"></i
                         >Completed
                       </td>
-                      <td></td>
-                      <td><i class="fa-solid fa-pen-to-square"></i></td>
+                      <td>Quarantine Finished</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#423"
+                        >
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </td>
                     </tr>
                     <tr>
-                      <th scope="row">#321</th>
-                      <td>20 APRIL 2022</td>
+                      <th scope="row">#42</th>
+                      <td>14 APRIL 2022</td>
                       <td>
                         <i class="fa-solid fa-circle fa-xs" id="inprogress"></i
                         >In progress
                       </td>
-                      <td>Inspection</td>
-                      <td><i class="fa-solid fa-pen-to-square"></i></td>
+                      <td>Room Inspection</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#423"
+                        >
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </td>
                     </tr>
                     <tr>
-                      <th scope="row">#53</th>
-                      <td>19 APRIL 2022</td>
+                      <th scope="row">#65</th>
+                      <td>13 APRIL 2022</td>
                       <td>
                         <i class="fa-solid fa-circle fa-xs" id="delete"></i
                         >Rejected
                       </td>
                       <td></td>
-                      <td><i class="fa-solid fa-pen-to-square"></i></td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#423"
+                        >
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </td>
                     </tr>
                     <tr>
-                      <th scope="row">#100</th>
-                      <td>18 APRIL 2022</td>
+                      <th scope="row">#111</th>
+                      <td>12 APRIL 2022</td>
                       <td>
                         <i class="fa-solid fa-circle fa-xs" id="inprogress"></i
                         >In progress
                       </td>
-                      <td>Call resident</td>
-                      <td><i class="fa-solid fa-pen-to-square"></i></td>
+                      <td>Resident Called</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#423"
+                        >
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </td>
                     </tr>
                     <tr>
-                      <th scope="row">#13</th>
-                      <td>17 APRIL 2022</td>
+                      <th scope="row">#155</th>
+                      <td>11 APRIL 2022</td>
                       <td>
                         <i class="fa-solid fa-circle fa-xs" id="inprogress"></i
                         >In progress
                       </td>
-                      <td>Validate</td>
-                      <td><i class="fa-solid fa-pen-to-square"></i></td>
+                      <td>Report Validation</td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#423"
+                        >
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </td>
                     </tr>
                     <tr>
-                      <th scope="row">#102</th>
-                      <td>16 APRIL 2022</td>
+                      <th scope="row">#67</th>
+                      <td>10 APRIL 2022</td>
                       <td>
                         <i class="fa-solid fa-circle fa-xs" id="delete"></i
                         >Rejected
                       </td>
                       <td></td>
-                      <td><i class="fa-solid fa-pen-to-square"></i></td>
+                      <td>
+                        <button
+                          type="button"
+                          class="btn p-0"
+                          data-bs-toggle="modal"
+                          data-bs-target="#423"
+                        >
+                          <i class="fa-solid fa-eye"></i>
+                        </button>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -377,5 +486,119 @@
         </div>
       </div>
     </main>
+    <!-- Modal -->
+    <div class="modal fade" id="report423" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Report #423</h5>
+            <button onclick="covreporteditbtn()" class="btn p-0" id="editbtn">
+              <i class="fa-solid fa-pen-to-square p-2"></i>
+            </button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body d-flex flex-column">
+            <div class="row mb-2">
+              <div class="col-md-auto">
+                <span class="modalsubtitle">Name:</span>
+                <span>Muluk</span>
+              </div>
+              <div class="col-md-auto mb-2">
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="reportvalidation"
+                    required
+                    disabled
+                  />
+                  <label
+                    class="form-check-label modalsubtitle"
+                    for="reportvalidation"
+                    >Validate</label
+                  >
+                  <div class="invalid-feedback">
+                    Please validate to start process the report.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-md-auto">
+                <span class="modalsubtitle">Room No:</span>
+                <span>124A</span>
+              </div>
+              <div class="col-md-auto">
+                <span class="modalsubtitle">Contact number:</span>
+                <span>+60128763922</span>
+              </div>
+            </div>
+            <div class="d-flex flex-column mb-2">
+              <span class="modalsubtitle">Description:</span>
+              <span
+                >I have to quarantine for 14 days due to my result on the
+                Covid-19 test early in the morning. It was positive.</span
+              >
+            </div>
+            <div class="row">
+              <div class="col">
+                <span class="modalsubtitle">Last Activity Executed</span>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="callresidentactivitycheck"
+                    name="radio-stacked"
+                    required
+                    disabled
+                  />
+                  <label
+                    class="form-check-label"
+                    for="callresidentactivitycheck"
+                    >Call the resident.</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="roominspectioncheck"
+                    name="radio-stacked"
+                    required
+                    disabled
+                  />
+                  <label class="form-check-label" for="roominspectioncheck"
+                    >Begin room inspection.</label
+                  >
+                  <div class="invalid-feedback">
+                    More example invalid feedback text
+                  </div>
+                </div>
+              </div>
+              <div class="col mb-3">
+                <label for="reportnote" class="form-label modalsubtitle"
+                  >Note</label
+                >
+                <textarea
+                  class="form-control"
+                  id="reportnote"
+                  rows="3"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button type="button" class="btn text-danger">Delete</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

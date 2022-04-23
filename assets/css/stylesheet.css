@@ -378,6 +378,24 @@ a {
   color: #565656;
 }
 
+tr td:nth-last-of-type(1) {
+  padding: 0;
+}
+
+tr td:nth-last-of-type(3) {
+  padding: 0;
+}
+
+td button {
+  color: black !important;
+  box-shadow: none !important;
+}
+
+td button:hover {
+  color: white !important;
+  background: linear-gradient(to right bottom, #5680e9, #8860d0);
+}
+
 #newreport {
   color: red;
 }
@@ -403,7 +421,7 @@ a {
 }
 
 #completed {
-  color: #008b8b;
+  color: rgb(60, 179, 113);
 }
 
 #pending {
@@ -412,6 +430,22 @@ a {
 
 #inprogress {
   color: #9400d3;
+}
+
+.modal-footer button {
+  box-shadow: none !important;
+}
+
+.modalsubtitle {
+  font-weight: bold !important;
+}
+
+#editbtn {
+  box-shadow: none !important;
+}
+
+#editbtn:hover {
+  color: rgb(60, 179, 113);
 }
 
 .btn {
