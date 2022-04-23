@@ -22,10 +22,15 @@
       crossorigin="anonymous"
     ></script>
     <script src="../assets/js/covreporteditbtn.js"></script>
+    <script src="../assets/js/covreportcolumn.js"></script>
+    <script src="../assets/js/covreportactivity.js"></script>
+    <!-- <script src="../assets/js/covreportmodal.js"></script> -->
   </head>
   <body>
     <nav>
-      <div class="icontainer">LOGO HERE</div>
+      <div class="bottom icontainer" id="logo">
+        <img src="../assets/img/logo.png" width="230" height="80" />
+      </div>
       <hr />
       <div class="icontainer">
         <a href="manageresidents.html">
@@ -153,236 +158,7 @@
                       <th scope="col">Last Activity</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">#423</th>
-                      <td>21 APRIL 2022</td>
-                      <td>
-                        <i class="fa-solid fa-circle fa-xs" id="pending"></i
-                        >Pending
-                      </td>
-                      <td>Report Submission</td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#report423"
-                        >
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">#321</th>
-                      <td>20 APRIL 2022</td>
-                      <td>
-                        <i class="fa-solid fa-circle fa-xs" id="inprogress"></i
-                        >In progress
-                      </td>
-                      <td>Room Inspection</td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#exampleModal"
-                        >
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">#53</th>
-                      <td>19 APRIL 2022</td>
-                      <td>
-                        <i class="fa-solid fa-circle fa-xs" id="delete"></i
-                        >Rejected
-                      </td>
-                      <td></td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#423"
-                        >
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">#100</th>
-                      <td>18 APRIL 2022</td>
-                      <td>
-                        <i class="fa-solid fa-circle fa-xs" id="inprogress"></i
-                        >In progress
-                      </td>
-                      <td>Resident Called</td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#423"
-                        >
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">#13</th>
-                      <td>17 APRIL 2022</td>
-                      <td>
-                        <i class="fa-solid fa-circle fa-xs" id="inprogress"></i
-                        >In progress
-                      </td>
-                      <td>Report Validation</td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#423"
-                        >
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">#102</th>
-                      <td>16 APRIL 2022</td>
-                      <td>
-                        <i class="fa-solid fa-circle fa-xs" id="delete"></i
-                        >Rejected
-                      </td>
-                      <td></td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#423"
-                        >
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">#123</th>
-                      <td>15 APRIL 2022</td>
-                      <td>
-                        <i class="fa-solid fa-circle fa-xs" id="completed"></i
-                        >Completed
-                      </td>
-                      <td>Quarantine Finished</td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#423"
-                        >
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">#42</th>
-                      <td>14 APRIL 2022</td>
-                      <td>
-                        <i class="fa-solid fa-circle fa-xs" id="inprogress"></i
-                        >In progress
-                      </td>
-                      <td>Room Inspection</td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#423"
-                        >
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">#65</th>
-                      <td>13 APRIL 2022</td>
-                      <td>
-                        <i class="fa-solid fa-circle fa-xs" id="delete"></i
-                        >Rejected
-                      </td>
-                      <td></td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#423"
-                        >
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">#111</th>
-                      <td>12 APRIL 2022</td>
-                      <td>
-                        <i class="fa-solid fa-circle fa-xs" id="inprogress"></i
-                        >In progress
-                      </td>
-                      <td>Resident Called</td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#423"
-                        >
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">#155</th>
-                      <td>11 APRIL 2022</td>
-                      <td>
-                        <i class="fa-solid fa-circle fa-xs" id="inprogress"></i
-                        >In progress
-                      </td>
-                      <td>Report Validation</td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#423"
-                        >
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">#67</th>
-                      <td>10 APRIL 2022</td>
-                      <td>
-                        <i class="fa-solid fa-circle fa-xs" id="delete"></i
-                        >Rejected
-                      </td>
-                      <td></td>
-                      <td>
-                        <button
-                          type="button"
-                          class="btn p-0"
-                          data-bs-toggle="modal"
-                          data-bs-target="#423"
-                        >
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
+                  <tbody id="reporttable"></tbody>
                 </table>
               </div>
             </div>
@@ -395,97 +171,13 @@
                   <span>this month</span>
                 </div>
               </div>
-              <div class="bottomactivity">
-                <div class="activity" id="newreport">
-                  <i class="fa-solid fa-circle-exclamation"></i>
-                  <div class="activitytext">
-                    <span>New report #423</span>
-                    <span>21 APRIL 2022 7:20PM</span>
-                  </div>
-                </div>
-                <div class="activity" id="inspectionbegin">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                  <div class="activitytext">
-                    <span>Inspection begin for report #321</span>
-                    <span>20 APRIL 2022 6:00PM</span>
-                  </div>
-                </div>
-                <div class="activity" id="delete">
-                  <i class="fa-solid fa-trash"></i>
-                  <div class="activitytext">
-                    <span>Delete report #53</span>
-                    <span>19 APRIL 2022 10:00AM</span>
-                  </div>
-                </div>
-                <div class="activity" id="call">
-                  <i class="fa-solid fa-phone"></i>
-                  <div class="activitytext">
-                    <span>Call the resident of report #100</span>
-                    <span>18 APRIL 2022 3:00PM</span>
-                  </div>
-                </div>
-                <div class="activity" id="validate">
-                  <i class="fa-solid fa-check"></i>
-                  <div class="activitytext">
-                    <span>Validate report #13</span>
-                    <span>17 APRIL 2022 12:00PM</span>
-                  </div>
-                </div>
-                <div class="activity" id="note">
-                  <i class="fa-solid fa-notes-medical"></i>
-                  <div class="activitytext">
-                    <span>Add a note to report #102</span>
-                    <span>16 APRIL 2022 11:00AM</span>
-                  </div>
-                </div>
-                <div class="activity" id="completed">
-                  <i class="fa-solid fa-square-check"></i>
-                  <div class="activitytext">
-                    <span>Complete report #123</span>
-                    <span>15 APRIL 2022 7:20PM</span>
-                  </div>
-                </div>
-                <div class="activity" id="inspectionbegin">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                  <div class="activitytext">
-                    <span>Inspection begin for report #42</span>
-                    <span>14 APRIL 2022 6:00PM</span>
-                  </div>
-                </div>
-                <div class="activity" id="delete">
-                  <i class="fa-solid fa-trash"></i>
-                  <div class="activitytext">
-                    <span>Delete report #65</span>
-                    <span>13 APRIL 2022 10:00AM</span>
-                  </div>
-                </div>
-                <div class="activity" id="call">
-                  <i class="fa-solid fa-phone"></i>
-                  <div class="activitytext">
-                    <span>Call the resident of report #111</span>
-                    <span>12 APRIL 2022 3:00PM</span>
-                  </div>
-                </div>
-                <div class="activity" id="validate">
-                  <i class="fa-solid fa-check"></i>
-                  <div class="activitytext">
-                    <span>Validate report #155</span>
-                    <span>11 APRIL 2022 12:00PM</span>
-                  </div>
-                </div>
-                <div class="activity" id="note">
-                  <i class="fa-solid fa-notes-medical"></i>
-                  <div class="activitytext">
-                    <span>Add a note to report #67</span>
-                    <span>10 APRIL 2022 11:00AM</span>
-                  </div>
-                </div>
-              </div>
+              <div class="bottomactivity" id="activitylist"></div>
             </div>
           </div>
         </div>
       </div>
     </main>
+    <div class="modalblock"></div>
     <!-- Modal -->
     <div class="modal fade" id="report423" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -548,6 +240,19 @@
             <div class="row">
               <div class="col">
                 <span class="modalsubtitle">Last Activity Executed</span>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    class="form-check-input"
+                    id="defaultactivity"
+                    name="radio-stacked"
+                    required
+                    disabled
+                  />
+                  <label class="form-check-label" for="defaultactivity"
+                    >Default</label
+                  >
+                </div>
                 <div class="form-check">
                   <input
                     type="radio"
