@@ -10,5 +10,7 @@ function covreporteditbtn() {
 
 function deleteRow(r) {
   var i = r.parentNode.parentNode.rowIndex;
+  var ref = r.parentNode.parentNode.children[0].innerText;
   document.getElementById("reporttable").deleteRow(i - 1);
+  callActivityRef(ref);
 }

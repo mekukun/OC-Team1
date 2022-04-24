@@ -1,11 +1,69 @@
-fetch("../assets/js/covreportdetail.json")
-  .then((response) => response.json())
-  .then((data) => {
-    addActivity(data);
-  });
+callActivity();
 
-function addActivity(data) {
-  let activityDiv = document.getElementById("activitylist");
+function callActivity() {
+  fetch("../assets/js/covreportdetail.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const activityDiv = document.getElementById("activitylist");
+      displayActivity(data, activityDiv);
+    });
+}
+
+function callActivityRef(ref) {
+  fetch("../assets/js/covreportdetail.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const activityDiv = document.getElementById("activitylist");
+      addDeleteAct(ref, activityDiv);
+      displayActivity(data, activityDiv);
+    });
+}
+
+function addDeleteAct(ref, activityDiv) {
+  let str =
+    '<div class="activity" id="delete"><i class="fa-solid fa-trash"></i><div class="activitytext"><span>Delete report ' +
+    ref +
+    "</span><span>" +
+    getactivityDate() +
+    "</span></div></div>";
+  activityDiv.innerHTML = str + activityDiv.innerHTML;
+}
+
+function getactivityDate() {
+  let date = "";
+  const months = [
+    "JANUARY",
+    "FEBRUARY",
+    "MARCH",
+    "APRIL",
+    "MAY",
+    "JUNE",
+    "JULY",
+    "AUGUST",
+    "SEPTEMBER",
+    "OCTOBER",
+    "NOVEMBER",
+    "DECEMBER",
+  ];
+
+  const d = new Date();
+  let month = months[d.getMonth()];
+  date = d.getDate() + " " + month + " " + d.getFullYear() + " " + getTime(d);
+  return date;
+}
+
+function getTime(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  var strTime = hours + ":" + minutes + ampm;
+  return strTime;
+}
+
+function displayActivity(data, activityDiv) {
   for (let item of data) {
     activityType(item, activityDiv);
   }
