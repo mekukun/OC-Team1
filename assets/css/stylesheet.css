@@ -382,7 +382,11 @@ tr td:nth-last-of-type(1) {
   padding: 0;
 }
 
-tr td:nth-last-of-type(3) {
+tr td:nth-last-of-type(2) {
+  padding: 0;
+}
+
+tr td:nth-last-of-type(4) {
   padding: 0;
 }
 

@@ -5,7 +5,8 @@
       "reportdate": "21 APRIL 2022",
       "reportstatus": "pending",
       "lastactivity": "Report Submission",
-      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report423\"><i class=\"fa-solid fa-eye\"></i></button>"
+      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report423\"><i class=\"fa-solid fa-eye\"></i></button>",
+      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
       "modalid": "report423",
@@ -26,7 +27,8 @@
       "reportdate": "20 APRIL 2022",
       "reportstatus": "inprogress",
       "lastactivity": "Room Inspection",
-      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report321\"><i class=\"fa-solid fa-eye\"></i></button>"
+      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report321\"><i class=\"fa-solid fa-eye\"></i></button>",
+      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
       "modalid": "report321",
@@ -47,7 +49,8 @@
       "reportdate": "19 APRIL 2022",
       "reportstatus": "rejected",
       "lastactivity": "",
-      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report53\"><i class=\"fa-solid fa-eye\"></i></button>"
+      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report53\"><i class=\"fa-solid fa-eye\"></i></button>",
+      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
       "modalid": "report53",
@@ -68,7 +71,8 @@
       "reportdate": "18 APRIL 2022",
       "reportstatus": "inprogress",
       "lastactivity": "Resident Called",
-      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report100\"><i class=\"fa-solid fa-eye\"></i></button>"
+      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report100\"><i class=\"fa-solid fa-eye\"></i></button>",
+      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
       "modalid": "report100",
@@ -89,7 +93,8 @@
       "reportdate": "17 APRIL 2022",
       "reportstatus": "inprogress",
       "lastactivity": "Report Validation",
-      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report13\"><i class=\"fa-solid fa-eye\"></i></button>"
+      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report13\"><i class=\"fa-solid fa-eye\"></i></button>",
+      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
       "modalid": "report13",
@@ -110,7 +115,8 @@
       "reportdate": "16 APRIL 2022",
       "reportstatus": "rejected",
       "lastactivity": "",
-      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report102\"><i class=\"fa-solid fa-eye\"></i></button>"
+      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report102\"><i class=\"fa-solid fa-eye\"></i></button>",
+      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
       "modalid": "report102",
@@ -131,7 +137,8 @@
       "reportdate": "15 APRIL 2022",
       "reportstatus": "completed",
       "lastactivity": "Quarantine Finished",
-      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report123\"><i class=\"fa-solid fa-eye\"></i></button>"
+      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report123\"><i class=\"fa-solid fa-eye\"></i></button>",
+      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
       "modalid": "report123",
@@ -152,7 +159,8 @@
       "reportdate": "14 APRIL 2022",
       "reportstatus": "inprogress",
       "lastactivity": "Room Inspection",
-      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report42\"><i class=\"fa-solid fa-eye\"></i></button>"
+      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report42\"><i class=\"fa-solid fa-eye\"></i></button>",
+      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
       "modalid": "report42",
@@ -173,7 +181,8 @@
       "reportdate": "13 APRIL 2022",
       "reportstatus": "rejected",
       "lastactivity": "",
-      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report65\"><i class=\"fa-solid fa-eye\"></i></button>"
+      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report65\"><i class=\"fa-solid fa-eye\"></i></button>",
+      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
       "modalid": "report65",
@@ -194,7 +203,8 @@
       "reportdate": "12 APRIL 2022",
       "reportstatus": "inprogress",
       "lastactivity": "Resident Called",
-      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report111\"><i class=\"fa-solid fa-eye\"></i></button>"
+      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report111\"><i class=\"fa-solid fa-eye\"></i></button>",
+      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
       "modalid": "report111",
@@ -215,7 +225,8 @@
       "reportdate": "11 APRIL 2022",
       "reportstatus": "inprogress",
       "lastactivity": "Report Validation",
-      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report155\"><i class=\"fa-solid fa-eye\"></i></button>"
+      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report155\"><i class=\"fa-solid fa-eye\"></i></button>",
+      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
       "modalid": "report155",
@@ -236,7 +247,8 @@
       "reportdate": "10 APRIL 2022",
       "reportstatus": "rejected",
       "lastactivity": "",
-      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report67\"><i class=\"fa-solid fa-eye\"></i></button>"
+      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report67\"><i class=\"fa-solid fa-eye\"></i></button>",
+      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
       "modalid": "report67",
