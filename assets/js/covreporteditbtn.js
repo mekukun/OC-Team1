@@ -8,6 +8,16 @@ function covreporteditbtn() {
   document.getElementById("reportnote").removeAttribute("disabled");
 }
 
+function covreportcloseedit() {
+  document.getElementById("reportvalidation").setAttribute("disabled", "");
+  document.getElementById("defaultactivity").setAttribute("disabled", "");
+  document
+    .getElementById("callresidentactivitycheck")
+    .setAttribute("disabled", "");
+  document.getElementById("roominspectioncheck").setAttribute("disabled", "");
+  document.getElementById("reportnote").setAttribute("disabled", "");
+}
+
 function deleteRow(r) {
   var i = r.parentNode.parentNode.rowIndex;
   var ref = r.parentNode.parentNode.children[0].innerText;
