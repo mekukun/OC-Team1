@@ -811,6 +811,37 @@ legend {
   margin-top: 5px;
 }
 
+/* quarantinestatus page */
+.chartTable {
+  color: green;
+  background: linear-gradient(to right bottom, #ccccff, #62deec);
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  border-radius: 0.5rem;
+  max-height: inherit;
+}
+
+.showHide button {
+  background: #70aded;
+  margin-top: 1rem;
+  padding: 0.5rem 4.7rem;
+  font-weight: bold;
+  color: Black;
+  border-style: solid;
+  border-color: #70aded;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.action_btn {
+  width: 200px;
+  margin: 0 auto;
+  display: inline;
+}
+
 .btn {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;

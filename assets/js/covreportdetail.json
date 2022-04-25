@@ -5,11 +5,11 @@
       "reportdate": "21 APRIL 2022",
       "reportstatus": "pending",
       "lastactivity": "Report Submission",
-      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report423\"><i class=\"fa-solid fa-eye\"></i></button>",
-      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
+      "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report53\"><i class=\"fa-solid fa-eye\"></i></button>",
+      "buttondelete": "<button type=\"button\" class=\"btn p-0 deletereportbutton\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
-      "modalid": "report423",
+      "modalid": "423",
       "residentname": "Rina",
       "reportvalidation": false,
       "roomnumber": "220A",
@@ -28,10 +28,10 @@
       "reportstatus": "inprogress",
       "lastactivity": "Room Inspection",
       "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report321\"><i class=\"fa-solid fa-eye\"></i></button>",
-      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
+      "buttondelete": "<button type=\"button\" class=\"btn p-0 deletereportbutton\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
-      "modalid": "report321",
+      "modalid": "321",
       "residentname": "Yuuta",
       "reportvalidation": true,
       "roomnumber": "10A",
@@ -50,10 +50,10 @@
       "reportstatus": "rejected",
       "lastactivity": "",
       "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report53\"><i class=\"fa-solid fa-eye\"></i></button>",
-      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
+      "buttondelete": "<button type=\"button\" class=\"btn p-0 deletereportbutton\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
-      "modalid": "report53",
+      "modalid": "53",
       "residentname": "Kuro",
       "reportvalidation": false,
       "roomnumber": "330A",
@@ -72,10 +72,10 @@
       "reportstatus": "inprogress",
       "lastactivity": "Resident Called",
       "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report100\"><i class=\"fa-solid fa-eye\"></i></button>",
-      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
+      "buttondelete": "<button type=\"button\" class=\"btn p-0 deletereportbutton\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
-      "modalid": "report100",
+      "modalid": "100",
       "residentname": "Dazai",
       "reportvalidation": true,
       "roomnumber": "96A",
@@ -94,10 +94,10 @@
       "reportstatus": "inprogress",
       "lastactivity": "Report Validation",
       "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report13\"><i class=\"fa-solid fa-eye\"></i></button>",
-      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
+      "buttondelete": "<button type=\"button\" class=\"btn p-0 deletereportbutton\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
-      "modalid": "report13",
+      "modalid": "13",
       "residentname": "Xenon",
       "reportvalidation": true,
       "roomnumber": "30A",
@@ -116,10 +116,10 @@
       "reportstatus": "rejected",
       "lastactivity": "",
       "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report102\"><i class=\"fa-solid fa-eye\"></i></button>",
-      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
+      "buttondelete": "<button type=\"button\" class=\"btn p-0 deletereportbutton\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
-      "modalid": "report102",
+      "modalid": "102",
       "residentname": "Aiko",
       "reportvalidation": false,
       "roomnumber": "160A",
@@ -138,10 +138,10 @@
       "reportstatus": "completed",
       "lastactivity": "Quarantine Finished",
       "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report123\"><i class=\"fa-solid fa-eye\"></i></button>",
-      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
+      "buttondelete": "<button type=\"button\" class=\"btn p-0 deletereportbutton\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
-      "modalid": "report123",
+      "modalid": "123",
       "residentname": "Gura",
       "reportvalidation": true,
       "roomnumber": "120A",
@@ -160,10 +160,10 @@
       "reportstatus": "inprogress",
       "lastactivity": "Room Inspection",
       "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report42\"><i class=\"fa-solid fa-eye\"></i></button>",
-      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
+      "buttondelete": "<button type=\"button\" class=\"btn p-0 deletereportbutton\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
-      "modalid": "report42",
+      "modalid": "42",
       "residentname": "Reyna",
       "reportvalidation": true,
       "roomnumber": "129A",
@@ -182,10 +182,10 @@
       "reportstatus": "rejected",
       "lastactivity": "",
       "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report65\"><i class=\"fa-solid fa-eye\"></i></button>",
-      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
+      "buttondelete": "<button type=\"button\" class=\"btn p-0 deletereportbutton\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
-      "modalid": "report65",
+      "modalid": "65",
       "residentname": "AJ",
       "reportvalidation": false,
       "roomnumber": "100A",
@@ -204,10 +204,10 @@
       "reportstatus": "inprogress",
       "lastactivity": "Resident Called",
       "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report111\"><i class=\"fa-solid fa-eye\"></i></button>",
-      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
+      "buttondelete": "<button type=\"button\" class=\"btn p-0 deletereportbutton\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
-      "modalid": "report111",
+      "modalid": "111",
       "residentname": "Gura",
       "reportvalidation": true,
       "roomnumber": "120A",
@@ -226,10 +226,10 @@
       "reportstatus": "inprogress",
       "lastactivity": "Report Validation",
       "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report155\"><i class=\"fa-solid fa-eye\"></i></button>",
-      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
+      "buttondelete": "<button type=\"button\" class=\"btn p-0 deletereportbutton\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
-      "modalid": "report155",
+      "modalid": "155",
       "residentname": "Bang",
       "reportvalidation": true,
       "roomnumber": "12A",
@@ -248,10 +248,10 @@
       "reportstatus": "rejected",
       "lastactivity": "",
       "button": "<button type=\"button\" class=\"btn p-0\" data-bs-toggle=\"modal\" data-bs-target=\"#report67\"><i class=\"fa-solid fa-eye\"></i></button>",
-      "buttondelete": "<button type=\"button\" class=\"btn p-0\" onclick=\"deleteRow(this)\"><i class=\"fa-solid fa-trash\"></i></button>"
+      "buttondelete": "<button type=\"button\" class=\"btn p-0 deletereportbutton\"><i class=\"fa-solid fa-trash\"></i></button>"
     },
     "reporteditdetail": {
-      "modalid": "report67",
+      "modalid": "67",
       "residentname": "Muluk",
       "reportvalidation": false,
       "roomnumber": "124A",

@@ -21,9 +21,11 @@
       as="script"
       crossorigin="anonymous"
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="../assets/js/covreporteditbtn.js"></script>
     <script src="../assets/js/covreportcolumn.js"></script>
     <script src="../assets/js/covreportactivity.js"></script>
+    <script src="../assets/js/covreportdeletereport.js"></script>
     <!-- <script src="../assets/js/covreportmodal.js"></script> -->
   </head>
   <body>
@@ -180,7 +182,7 @@
       </div>
     </main>
     <div class="modalblock"></div>
-    <!-- Modal -->
+    <!-- editModal -->
     <div
       class="modal fade"
       data-bs-backdrop="static"
@@ -331,6 +333,46 @@
               onclick="covreportcloseedit()"
             >
               Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- deletereportModal -->
+    <div
+      class="modal fade"
+      id="deletereportModal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      aria-labelledby="staticBackdropLabel"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              <span id="deleteModaltitle"></span>
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body d-flex flex-column align-items-center">
+            <span id="deleteModalbody"></span>
+            <span>This process cannot be undone.</span>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <button
+              type="button"
+              data-bs-dismiss="modal"
+              id="reportmodaldeleteButton"
+              class="btn btn-danger"
+            >
+              Delete
             </button>
           </div>
         </div>

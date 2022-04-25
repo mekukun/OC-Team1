@@ -15,14 +15,29 @@
       type="text/css"
       href="../assets/css/stylesheet.css"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../assets/css/VisitorStylesheet.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script
       src="https://kit.fontawesome.com/c2eb2d7176.js"
       crossorigin="anonymous"
     ></script>
+    <style>
+      .divider {
+        width: 5px;
+        height: auto;
+        display: inline-block;
+      }
+    </style>
   </head>
   <body>
     <nav>
-      <div class="icontainer">LOGO HERE</div>
+      <div class="bottom icontainer" id="logo">
+        <img src="../assets/img/logo.png" width="230" height="80" />
+      </div>
       <hr />
       <div class="icontainer">
         <a href="viewnearbyfacilities.html">
@@ -91,9 +106,286 @@
             ></a>
           </div>
         </div>
-        <div>
-          <!-- enter your code here -->
+      </div>
+      <div class="face">
+        <div class="showHide">
+          <center>
+            <div class="action_btn">
+              <button onclick="report()">
+                <span>Report</span>
+              </button>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="action_btn">
+              <button onclick="states()">
+                <span>Total Cases</span>
+              </button>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="action_btn">
+              <button onclick="daily()">
+                <span>Daily Statistics</span>
+              </button>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="action_btn">
+              <button onclick="weekly()">
+                <span>Weekly Statistics</span>
+              </button>
+            </div>
+          </center>
         </div>
+        <div id="makeReport" class="chartTable">
+          <center>
+            <div class="formcontainer">
+              <div class="user-details">
+                <div class="title">Make a Report</div>
+                <form action="#">
+                  <hr />
+
+                  <u><h4>Residential Information</h4></u>
+                  <div class="extra-Service">
+                    <span class="ex-title" style="font-weight: bold"
+                      >Block</span
+                    >
+                    <br />
+                    <select name="block" id="block">
+                      <option value="Block A">Block A</option>
+                      <option value="Block B">Block B</option>
+                      <option value="Block C">Block C</option>
+                      <option value="Block D">Block D</option>
+                    </select>
+                  </div>
+                  <br />
+                  <div class="extra-Service">
+                    <span class="ex-title" style="font-weight: bold"
+                      >Floor Level</span
+                    >
+                    <br />
+                    <select name="level" id="level">
+                      <option value="Level 1">Level 1</option>
+                      <option value="Level 2">Level 2</option>
+                      <option value="Level 3">Level 3</option>
+                      <option value="Level 4">Level 4</option>
+                    </select>
+                  </div>
+                  <br />
+                  <div class="input-box">
+                    <span class="details" style="font-weight: bold"
+                      >Room Number</span
+                    >
+                    <br /><input
+                      class="a"
+                      type="Number"
+                      placeholder="Room Number"
+                      required
+                    />
+                    <hr />
+                  </div>
+
+                  <u><h4>Report Description</h4></u>
+                  <div class="input-box">
+                    <span class="details" style="font-weight: bold"
+                      >Description</span
+                    >
+                    <br />
+                    <input
+                      class="email"
+                      type="email"
+                      placeholder="Description"
+                      required
+                    />
+                  </div>
+                  <div class="buttonV">
+                    <input type="submit" value="Submit" />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </center>
+        </div>
+        <div id="daily" class="chartTable" style="display: none">
+          <canvas id="myChart3" style="width: 100%; max-width: 400px"></canvas>
+
+          <script>
+            var xValues = ["Block A", "Block B", "Block C", "Block D"];
+            var yValues = [43, 12, 37, 77];
+            var barColors = ["#b91d47", "#00aba9", "#2b5797", "#e8c3b9"];
+
+            new Chart("myChart3", {
+              type: "pie",
+              data: {
+                labels: xValues,
+                datasets: [
+                  {
+                    backgroundColor: barColors,
+                    data: yValues,
+                  },
+                ],
+              },
+              options: {
+                title: {
+                  display: true,
+                  text: "Active Cases (Daily)",
+                  fontSize: 25,
+                },
+              },
+            });
+          </script>
+        </div>
+
+        <div id="weekly" class="chartTable" style="display: none">
+          <canvas id="myChart2" style="width: 100%; max-width: 1000px"></canvas>
+          <script>
+            var xValues = [
+              "11/04",
+              "12/04",
+              "13/04",
+              "14/04",
+              "15/04",
+              "16/04",
+              "17/04",
+            ];
+            var yValues = [7, 8, 8, 9, 9, 9, 10, 11, 14];
+
+            new Chart("myChart2", {
+              type: "line",
+              data: {
+                labels: xValues,
+                datasets: [
+                  {
+                    fill: false,
+                    lineTension: 0,
+                    backgroundColor: "rgba(0,0,255,1.0)",
+                    borderColor: "rgba(0,0,255,0.1)",
+                    data: yValues,
+                  },
+                ],
+              },
+              options: {
+                legend: { display: false },
+                title: {
+                  display: true,
+                  text: "Active Cases (Weekly)",
+                  fontSize: 25,
+                },
+                scales: {
+                  yAxes: [{ ticks: { min: 0, max: 16 } }],
+                },
+              },
+            });
+          </script>
+        </div>
+        <div id="states" class="chartTable" style="display: none">
+          <canvas id="myChart" style="width: 100%; max-width: 800px"></canvas>
+          <script>
+            var xValues = ["Block A", "Block B", "Block C", "Block D"];
+            var yValues = [301, 117, 206, 77];
+            var barColors = ["#b91d47", "#00aba9", "#2b5797", "#e8c3b9"];
+
+            new Chart("myChart", {
+              type: "bar",
+              data: {
+                labels: xValues,
+                datasets: [
+                  {
+                    backgroundColor: barColors,
+                    data: yValues,
+                  },
+                ],
+              },
+              options: {
+                legend: { display: false },
+                title: {
+                  display: true,
+                  text: "Covid-19 Status (Total Cases by States)",
+                  fontSize: 25,
+                },
+              },
+            });
+          </script>
+        </div>
+        <br />
+
+        <script>
+          function daily() {
+            var x = document.getElementById("states");
+            var y = document.getElementById("daily");
+            var z = document.getElementById("weekly");
+            var a = document.getElementById("makeReport");
+            x.style.display = "none";
+            z.style.display = "none";
+            a.style.display = "none";
+
+            if (y.style.display === "none") {
+              y.style.display = "block";
+              y.setAttribute("align", "center");
+            } else {
+              y.style.display = "none";
+              z.setAttribute("align", "center");
+            }
+          }
+
+          function states() {
+            var x = document.getElementById("states");
+            var y = document.getElementById("daily");
+            var z = document.getElementById("weekly");
+            var a = document.getElementById("makeReport");
+            y.style.display = "none";
+            z.style.display = "none";
+            a.style.display = "none";
+            if (x.style.display === "none") {
+              x.style.display = "block";
+              x.setAttribute("align", "center");
+            } else {
+              x.style.display = "none";
+              z.setAttribute("align", "center");
+            }
+          }
+
+          function weekly() {
+            var x = document.getElementById("weekly");
+            var y = document.getElementById("daily");
+            var z = document.getElementById("states");
+            var a = document.getElementById("makeReport");
+
+            y.style.display = "none";
+            z.style.display = "none";
+            a.style.display = "none";
+
+            if (x.style.display === "none") {
+              x.style.display = "block";
+              x.setAttribute("align", "center");
+            } else {
+              x.style.display = "none";
+              z.setAttribute("align", "center");
+            }
+          }
+
+          function report() {
+            var x = document.getElementById("weekly");
+            var y = document.getElementById("daily");
+            var z = document.getElementById("states");
+            var a = document.getElementById("makeReport");
+
+            x.style.display = "none";
+            y.style.display = "none";
+            z.style.display = "none";
+            if (a.style.display === "none") {
+              a.style.display = "block";
+              a.setAttribute("align", "center");
+            } else {
+              a.style.display = "none";
+              z.setAttribute("align", "center");
+            }
+          }
+        </script>
       </div>
     </main>
   </body>

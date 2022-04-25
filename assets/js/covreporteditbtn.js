@@ -19,10 +19,3 @@ function covreportcloseedit() {
   document.getElementById("roominspectioncheck").setAttribute("disabled", "");
   document.getElementById("reportnote").setAttribute("disabled", "");
 }
-
-function deleteRow(r) {
-  var i = r.parentNode.parentNode.rowIndex;
-  var ref = r.parentNode.parentNode.children[0].innerText;
-  document.getElementById("reporttable").deleteRow(i - 1);
-  callActivityRef(ref);
-}

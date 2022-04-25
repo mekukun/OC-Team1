@@ -9,6 +9,7 @@ function addRow(data) {
   let tableRef = document.getElementById("reporttable");
   for (let item of data) {
     row = tableRef.insertRow(-1);
+    row.dataset.id = item.reporteditdetail.modalid;
     for (let key in item.reportlistdetail) {
       var cell = row.insertCell(-1);
       if (key == "reportstatus") {
