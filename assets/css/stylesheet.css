@@ -378,24 +378,24 @@ a {
   color: #565656;
 }
 
-tr td:nth-last-of-type(1) {
+.managecovreport tr td:nth-last-of-type(1) {
   padding: 0;
 }
 
-tr td:nth-last-of-type(2) {
+.managecovreport tr td:nth-last-of-type(2) {
   padding: 0;
 }
 
-tr td:nth-last-of-type(4) {
+.managecovreport tr td:nth-last-of-type(4) {
   padding: 0;
 }
 
-td button {
+.managecovreport td button {
   color: black !important;
   box-shadow: none !important;
 }
 
-td button:hover {
+.managecovreport td button:hover {
   color: white !important;
   background: linear-gradient(to right bottom, #5680e9, #8860d0);
 }

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manage Residents</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/stylesheet.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,25 +14,24 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="../assets/css/stylesheet.css"
+      href="../../assets/css/stylesheet.css"
     />
-    <!--<link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />-->
   </head>
 
   <body>
     <nav>
       <div class="bottom icontainer" id="logo">
-        <img src="../assets/img/logo.png" width="230" height="80" />
+        <img src="../../assets/img/logo.png" width="230" height="80" />
       </div>
       <hr />
       <div class="icontainer">
-        <a href="manageresidents.html">
+        <a href="../manageresidents.html">
           <div class="selected navcontrol">
             <i class="fa-solid fa-house-medical"></i>
             <span>Manage Residents</span>
           </div>
         </a>
-        <a href="managecovreport.html">
+        <a href="../managecovreport.html">
           <div class="navcontrol">
             <i class="fa-solid fa-user-group"></i>
             <span>Manage Cov-19 Reports</span>
@@ -58,12 +58,16 @@
         <div class="dashboard">
           <div class="leftdash">
             <div class="up">
-              <div style="color: grey"><span>Pages /</span></div>
+              <div style="color: grey">
+                <span>Pages / Manage Residents /</span>
+              </div>
               <div style="margin-left: 0.2rem">
-                <span>Manage Residents</span>
+                <span>Resident Details</span>
               </div>
             </div>
-            <div style="font-weight: bold"><span>Resident Listing</span></div>
+            <div style="font-weight: bold">
+              <span>View Resident Details</span>
+            </div>
           </div>
           <div class="rightdash">
             <div>
@@ -72,7 +76,7 @@
               </form>
             </div>
             <div class="status"><span>LOW RISK</span></div>
-            <a href="profileadmin.html">
+            <a href="../profileadmin.html">
               <div><i class="fa-solid fa-user"></i><span>User</span></div>
             </a>
             <a href="index.html">
@@ -83,113 +87,78 @@
             </a>
           </div>
         </div>
-        <div class="d-flex flex-column px-4">
+        <div class="d-flex flex-column px-4 mt-4">
           <!-- enter your code here -->
-          <div class="row">
-            <div class="col-9"></div>
-            <div class="col">
-              <a href="residentmanagement/registerNewResident.html"
-                ><button class="btn btn-success">
-                  Register new resident
-                </button></a
-              >
+          <form>
+            <div class="row mb-2">
+              <div class="col-6">
+                <label for="name" class="form-label">Name</label>
+                <textarea class="form-control" aria-label="name" readonly>
+as</textarea
+                >
+              </div>
+              <div class="col-6">
+                <label for="email" class="form-label">Email address</label>
+                <textarea class="form-control" aria-label="email" readonly>
+dsad</textarea
+                >
+              </div>
             </div>
-          </div>
-
-          <div class="row manageresident">
-            <div class="col">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Tel. Number</th>
-                    <th scope="col">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th>Mark</th>
-                    <td>@mdo</td>
-                    <td>123456789</td>
-                    <td>
-                      <a href="residentmanagement/viewResidentDetails.html"
-                        ><button type="button" class="btn btn-primary">
-                          View Details
-                        </button></a
-                      >
-                      <a href="residentmanagement/editResidentDetails.html"
-                        ><button type="button" class="btn btn-secondary">
-                          Edit Details
-                        </button></a
-                      >
-                      <button
-                        type="button"
-                        class="btn btn-danger deleteResidentButton"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        data-id="1"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>Jacob</th>
-                    <td>@mdo</td>
-                    <td>123456789</td>
-                    <td>
-                      <a href="residentmanagement/viewResidentDetails.html"
-                        ><button type="button" class="btn btn-primary">
-                          View Details
-                        </button></a
-                      >
-                      <a href="residentmanagement/editResidentDetails.html"
-                        ><button type="button" class="btn btn-secondary">
-                          Edit Details
-                        </button></a
-                      >
-                      <button
-                        type="button"
-                        class="btn btn-danger deleteResidentButton"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        data-id="2"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>Otto</th>
-                    <td>@twitter</td>
-                    <td>123456789</td>
-                    <td>
-                      <a href="residentmanagement/viewResidentDetails.html"
-                        ><button type="button" class="btn btn-primary">
-                          View Details
-                        </button></a
-                      >
-                      <a href="residentmanagement/editResidentDetails.html"
-                        ><button type="button" class="btn btn-secondary">
-                          Edit Details
-                        </button></a
-                      >
-                      <button
-                        type="button"
-                        class="btn btn-danger deleteResidentButton"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        data-id="3"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="row mb-2">
+              <div class="col-6">
+                <label for="telNum" class="form-label">Telephone number</label>
+                <textarea class="form-control" aria-label="telNum" readonly>
+sada</textarea
+                >
+              </div>
+              <div class="col-6">
+                <label for="address" class="form-label">Address</label>
+                <textarea
+                  class="form-control"
+                  aria-label="address"
+                  readonly
+                ></textarea>
+              </div>
             </div>
-          </div>
+            <div class="row mb-2">
+              <div class="col-6">
+                <label for="poscode" class="form-label">Poscode</label>
+                <textarea
+                  class="form-control"
+                  aria-label="poscode"
+                  readonly
+                ></textarea>
+              </div>
+              <div class="col-6">
+                <label for="state" class="form-label">State</label>
+                <textarea
+                  class="form-control"
+                  aria-label="state"
+                  readonly
+                ></textarea>
+              </div>
+            </div>
+            <br />
+            <div class="row mb-2">
+              <div class="col-12">
+                <a href="editResidentDetails.html"
+                  ><button type="button" class="btn btn-primary">
+                    Edit
+                  </button></a
+                >
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  id="deleteResidentButton"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  data-id="45"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </form>
           <!-- Modal -->
           <div
             class="modal fade"
@@ -231,7 +200,6 @@
               </div>
             </div>
           </div>
-
           <footer>
             <p class="text-center fst-italic">
               Copyright &#169; 2022 Online Community Service<br />
@@ -254,7 +222,7 @@
     ></script>
     <script src="./assets/js/bootstrap.bundle.js"></script>
     <script>
-      $(document).on("click", ".deleteResidentButton", function () {
+      $(document).on("click", "#deleteResidentButton", function () {
         var residentID = $(this).data("id");
         $(".modal-body #residentID").text(
           "Resident with ID: " + residentID + " will be deleted."
