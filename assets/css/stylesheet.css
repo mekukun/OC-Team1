@@ -544,6 +544,273 @@ legend {
   color: white;
 }
 
+/* profile page */
+.subcontainer .profilepic_card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4;
+  background: none;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.subcontainer .profilepic_card .profile figure img {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+}
+
+.subcontainer .nickname {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2;
+  background: rgba(255, 255, 255, 0.8);
+  border: #5680e9;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+
+.subcontainer .profilepic_card .nickname h1 {
+  color: white;
+  font-weight: bold;
+  font-size: large;
+}
+
+.subcontainer .leftprofile {
+  position: relative;
+  float: left;
+  display: flex;
+  /*justify-content:flex-start;*/
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2;
+  width: 540px;
+  height: 55vh;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 1rem;
+  margin-right: 0.5rem;
+}
+
+.subcontainer .rightprofile {
+  position: relative;
+  float: right;
+  display: flex;
+  /*justify-content:space-evenly;*/
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2;
+  width: 540px;
+  height: 55vh;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.5);
+  margin: 1rem;
+  margin-left: 0.5rem;
+}
+
+.subcontainer .leftprofile .address_card,
+.subcontainer .leftprofile .contactinfo_card,
+.subcontainer .rightprofile .about_card,
+.subcontainer .rightprofile .login_card {
+  border: 1px solid;
+  border-color: grey;
+  padding: 0.5rem;
+  width: 500px;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+/*.subcontainer .address_card {
+  position: relative;
+  float: left;
+  display: flex;
+  justify-content:space-evenly;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2;
+  width: 525px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.3)
+  );
+  margin: 1rem;
+}*/
+
+.subcontainer .address_card .heading,
+.subcontainer .contactinfo_card .heading,
+.subcontainer .about_card .userinfo .heading,
+.subcontainer .login_card .heading {
+  position: relative;
+  font-size: var(--xs-fs);
+  color: rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.subcontainer .address_card .heading .upper h1 {
+  font-size: var(--l-fs);
+  color: var(--f3-color);
+  margin-bottom: var(--m-0-6);
+}
+
+.subcontainer .address_card .heading .upper p {
+  margin-bottom: var(--m-1-8);
+  font-size: var(--m-fs);
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 1.6rem;
+}
+
+/* .subcontainer .about_card{
+  position: relative;
+  float: right;
+  display: flex;
+  justify-content:space-evenly;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2;
+  width: 525px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.3)
+  );
+  margin: 1;
+  margin-right: 1rem;
+}
+*/
+.subcontainer .about_card .userinfo ul {
+  margin-bottom: var(--m-1-5);
+}
+
+.subcontainer .about_card .userinfo ul li {
+  display: flex;
+  margin: var(--m-0-5) 0;
+}
+
+.subcontainer .about_card .userinfo ul li h1 {
+  font-weight: 500;
+  font-size: var(--m-fs);
+  min-width: 12rem;
+}
+
+.subcontainer .about_card .userinfo ul li span {
+  font-size: var(--m-fs);
+}
+
+.subcontainer .about_card .userinfo ul .name span,
+.subcontainer .about_card .userinfo ul .job span,
+.subcontainer .about_card .userinfo ul .sex span,
+.subcontainer .about_card .userinfo ul .birthdate span {
+  color: var(--f5-color);
+}
+
+/*
+.subcontainer .contactinfo_card {
+  position: relative;
+  float: left;
+  display: flex;
+  justify-content:space-evenly;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2;
+  width: 525px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.3)
+  );
+  margin: 0.5rem;
+  margin-left: 1rem;
+}
+*/
+
+.subcontainer .contactinfo_card .contact ul {
+  margin-bottom: var(--m-1-5);
+}
+
+.subcontainer .contactinfo_card .contact ul li {
+  display: flex;
+  margin: var(--m-0-5) 0;
+}
+
+.subcontainer .contactinfo_card .contact ul li h1 {
+  font-weight: 500;
+  font-size: var(--m-fs);
+  min-width: 12rem;
+}
+
+.subcontainer .contactinfo_card .contact ul li span {
+  font-size: var(--m-fs);
+}
+
+.subcontainer .contactinfo_card .cotact ul .number span,
+.subcontainer .contactinfo_card .cotact ul .email span {
+  color: var(--f5-color);
+}
+
+.subcontainer .login_card .logindetails ul {
+  margin-bottom: var(--m-1-5);
+}
+
+.subcontainer .login_card .logindetails ul li {
+  display: flex;
+  margin: var(--m-0-5) 0;
+}
+
+.subcontainer .login_card .logindetails ul li h1 {
+  font-weight: 500;
+  font-size: var(--m-fs);
+  min-width: 12rem;
+}
+
+.subcontainer .login_card .logindetails ul li span {
+  font-size: var(--m-fs);
+}
+
+.subcontainer .login_card .logindetails ul .username span,
+.subcontainer .login_card .logindetails ul .password span {
+  color: var(--f5-color);
+}
+
+.subcontainer .rightprofile .button_area .edit button {
+  background: rgba(13, 110, 253, 0.25);
+  color: black;
+  padding: 0.2rem 5rem;
+  width: 500px;
+  font-weight: bold;
+  border-style: none;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 5px rgba(5, 4, 4, 0.2);
+  transition: transform 0.2s;
+  margin-bottom: 5px;
+}
+
+.subcontainer .rightprofile .button_area .delete button {
+  background: rgba(220, 53, 69, 0.9);
+  color: black;
+  padding: 0.2rem 5rem;
+  width: 500px;
+  font-weight: bold;
+  border-style: none;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 5px rgba(5, 4, 4, 0.2);
+  transition: transform 0.2s;
+  margin-top: 5px;
+}
+
 .btn {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
