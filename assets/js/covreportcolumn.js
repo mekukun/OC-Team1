@@ -16,18 +16,15 @@ function addRow(data) {
           const reject =
             '<i class="fa-solid fa-circle fa-xs" id="delete"></i>Rejected';
           cell.innerHTML = reject;
-        }
-        if (item.reportlistdetail[key] == "inprogress") {
+        } else if (item.reportlistdetail[key] == "inprogress") {
           const inprogress =
             '<i class="fa-solid fa-circle fa-xs" id="inprogress"></i>In Progress';
           cell.innerHTML = inprogress;
-        }
-        if (item.reportlistdetail[key] == "pending") {
+        } else if (item.reportlistdetail[key] == "pending") {
           const pending =
             '<i class="fa-solid fa-circle fa-xs" id="pending"></i>Pending';
           cell.innerHTML = pending;
-        }
-        if (item.reportlistdetail[key] == "completed") {
+        } else if (item.reportlistdetail[key] == "completed") {
           const completed =
             '<i class="fa-solid fa-circle fa-xs" id="completed"></i>Completed';
           cell.innerHTML = completed;
