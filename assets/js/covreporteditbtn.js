@@ -1,6 +1,7 @@
 function covreporteditbtn() {
   document.getElementById("reportvalidation").removeAttribute("disabled");
   document.getElementById("defaultactivity").removeAttribute("disabled");
+  document.getElementById("notifyuser").removeAttribute("disabled");
   document
     .getElementById("callresidentactivitycheck")
     .removeAttribute("disabled");
@@ -11,6 +12,7 @@ function covreporteditbtn() {
 function covreportcloseedit() {
   document.getElementById("reportvalidation").setAttribute("disabled", "");
   document.getElementById("defaultactivity").setAttribute("disabled", "");
+  document.getElementById("notifyuser").setAttribute("disabled", "");
   document
     .getElementById("callresidentactivitycheck")
     .setAttribute("disabled", "");
