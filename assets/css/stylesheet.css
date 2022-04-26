@@ -343,6 +343,10 @@ a {
   font-weight: bold;
 }
 
+#searchreportid {
+  border-radius: 0.7rem;
+}
+
 .bottomactivity {
   /* background-color: red; */
   height: 85%;
