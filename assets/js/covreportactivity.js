@@ -21,7 +21,7 @@ function callActivityRef(ref) {
 
 function addDeleteAct(ref, activityDiv) {
   let str =
-    '<div class="activity" id="delete"><i class="fa-solid fa-trash"></i><div class="activitytext"><span>Delete report ' +
+    '<div class="activity" id="delete"><i class="fa-solid fa-trash"></i><div class="activitytext"><span>Delete report #' +
     ref +
     "</span><span>" +
     getactivityDate() +
