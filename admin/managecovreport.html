@@ -83,11 +83,6 @@
             </div>
           </div>
           <div class="rightdash">
-            <div>
-              <form>
-                <input type="text" placeholder="Search.." />
-              </form>
-            </div>
             <div class="status"><span>LOW RISK</span></div>
             <a href="profileadmin.html"
               ><div><i class="fa-solid fa-user"></i><span>User</span></div></a
@@ -98,7 +93,7 @@
           <div class="statsboard">
             <div class="stats glasscard">
               <div class="statsbody">
-                <span>Today's Report</span>
+                <span>Today's Reports</span>
                 <div>
                   <span>23</span>
                   <span>+55%</span>
@@ -118,33 +113,44 @@
             </div>
             <div class="stats glasscard">
               <div class="statsbody">
-                <span>Today's Report</span>
+                <span>Today's Visitors</span>
                 <div>
-                  <span>23</span>
-                  <span>+55%</span>
+                  <span>13</span>
+                  <span id="decrease">-15%</span>
                 </div>
               </div>
-              <i class="fa-solid fa-hand-holding-medical fa-lg"></i>
+              <i class="fa-solid fa-users fa-lg"></i>
             </div>
             <div class="stats glasscard">
               <div class="statsbody">
-                <span>Today's Report</span>
+                <span>Completed Report</span>
                 <div>
-                  <span>23</span>
-                  <span>+55%</span>
+                  <span>10</span>
+                  <span>+5%</span>
                 </div>
               </div>
-              <i class="fa-solid fa-hand-holding-medical fa-lg"></i>
+              <i class="fa-solid fa-file-circle-check fa-lg"></i>
             </div>
           </div>
           <div class="reportboard">
             <div class="reportlist glasscard">
-              <div class="upperactivity">
-                <span>Reports</span>
-                <div class="my-2">
-                  <i class="fa-solid fa-check-double"></i>
-                  <span>63 completed</span>
-                  <span>this month</span>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="upperactivity">
+                  <span>Reports</span>
+                  <div class="my-2">
+                    <i class="fa-solid fa-check-double"></i>
+                    <span>63 completed</span>
+                    <span>this month</span>
+                  </div>
+                </div>
+                <div class="form-outline w-50">
+                  <input
+                    type="search"
+                    id="searchreportid"
+                    class="form-control text-center"
+                    placeholder="Enter Report ID without #"
+                    aria-label="Search"
+                  />
                 </div>
               </div>
               <div class="wrapaccord">

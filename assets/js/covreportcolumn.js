@@ -34,3 +34,25 @@ function addRow(data) {
     }
   }
 }
+
+function retrievecolumn() {
+  fetch("../assets/js/covreportdetail.json")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data[0].reportlistdetail.reportid);
+      addRow(data);
+    });
+}
+
+$(document).keypress("#searchreportid", function (event) {
+  var keycode = event.keyCode || event.which;
+  if (keycode == "13") {
+    if ($("#searchreportid").val() == "") {
+      $("tr:first-child").remove();
+      retrievecolumn();
+    } else {
+      let reportidsearched = $("#searchreportid").val();
+      $("tr:not([data-id=" + reportidsearched + "])").remove();
+    }
+  }
+});

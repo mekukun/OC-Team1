@@ -294,6 +294,10 @@ a {
   color: limegreen;
 }
 
+.statsbody #decrease {
+  color: #be0000;
+}
+
 .reportboard {
   display: flex;
   flex-direction: row;
