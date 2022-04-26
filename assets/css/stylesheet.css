@@ -400,6 +400,10 @@ a {
   background: linear-gradient(to right bottom, #5680e9, #8860d0);
 }
 
+.managecovreport td button.deletereportbutton:hover {
+  background: red !important;
+}
+
 #newreport {
   color: red;
 }
