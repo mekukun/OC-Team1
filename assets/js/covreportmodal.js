@@ -34,3 +34,59 @@ function lastexec(item) {
     $("#notifyuser").prop("checked", true);
   }
 }
+
+$(document).on("click", ".editreportbutton", function (e) {
+  e.preventDefault();
+  $("#rejectreport").prop("checked", false);
+  $("#completereport").prop("checked", false);
+  $("#reportvalidation").prop("checked", false);
+  $("#rejectreport").prop("disabled", true);
+  $("#completereport").prop("disabled", true);
+  $("#reportvalidation").prop("disabled", true);
+  $("#defaultactivity").prop("disabled", true);
+  $("#notifyuser").prop("disabled", true);
+  $("#callresidentactivitycheck").prop("disabled", true);
+  $("#roominspectioncheck").prop("disabled", true);
+  $("#reportnote").prop("disabled", true);
+});
+
+$(document).on("change", "#reportvalidation", function (e) {
+  e.preventDefault();
+  if ($(this).is(":checked")) {
+    $("#rejectreport").prop("disabled", true);
+    $("#rejectreport").prop("checked", false);
+    $("#completereport").prop("disabled", false);
+  } else {
+    $("#rejectreport").prop("disabled", false);
+    $("#completereport").prop("disabled", true);
+    $("#completereport").prop("checked", false);
+  }
+});
+
+$(document).on("change", "#rejectreport", function (e) {
+  e.preventDefault();
+  if ($(this).is(":checked")) {
+    $("#reportvalidation").prop("disabled", true);
+    $("#completereport").prop("disabled", true);
+  } else {
+    $("#reportvalidation").prop("disabled", false);
+    $("#completereport").prop("disabled", true);
+  }
+});
+
+$(document).on("click", "#editbtn", function (e) {
+  e.preventDefault();
+  $("#reportvalidation").prop("disabled", false);
+  $("#defaultactivity").prop("disabled", false);
+  $("#notifyuser").prop("disabled", false);
+  $("#callresidentactivitycheck").prop("disabled", false);
+  $("#roominspectioncheck").prop("disabled", false);
+  $("#reportnote").prop("disabled", false);
+  if ($("#reportvalidation").is(":checked")) {
+    $("#rejectreport").prop("disabled", true);
+    $("#completereport").prop("disabled", false);
+  } else {
+    $("#rejectreport").prop("disabled", false);
+    $("#completereport").prop("disabled", true);
+  }
+});

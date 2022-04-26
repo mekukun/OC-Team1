@@ -22,7 +22,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="../assets/js/covreporteditbtn.js"></script>
     <script src="../assets/js/covreportcolumn.js"></script>
     <script src="../assets/js/covreportactivity.js"></script>
     <script src="../assets/js/covreportdeletereport.js"></script>
@@ -196,14 +195,13 @@
             <h5 class="modal-title" id="exampleModalLabel">
               <span id="editModaltitle"></span>
             </h5>
-            <button onclick="covreporteditbtn()" class="btn p-0" id="editbtn">
+            <button class="btn p-0" id="editbtn">
               <i class="fa-solid fa-pen-to-square p-2"></i>
             </button>
             <button
               type="button"
               class="btn-close"
               id="closemodalbutton"
-              onclick="covreportcloseedit()"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
@@ -220,6 +218,7 @@
                     type="checkbox"
                     class="form-check-input"
                     id="reportvalidation"
+                    data-checkbox
                     required
                     disabled
                   />
@@ -231,6 +230,40 @@
                   <div class="invalid-feedback">
                     Please validate to start process the report.
                   </div>
+                </div>
+              </div>
+              <div class="col-md-auto mb-2">
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="completereport"
+                    data-checkbox
+                    required
+                    disabled
+                  />
+                  <label
+                    class="form-check-label modalsubtitle"
+                    for="completereport"
+                    >Completed</label
+                  >
+                </div>
+              </div>
+              <div class="col-md-auto mb-2">
+                <div class="form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="rejectreport"
+                    data-checkbox
+                    required
+                    disabled
+                  />
+                  <label
+                    class="form-check-label modalsubtitle"
+                    for="rejectreport"
+                    >Reject</label
+                  >
                 </div>
               </div>
             </div>
@@ -304,9 +337,6 @@
                   <label class="form-check-label" for="roominspectioncheck"
                     >Begin room inspection.</label
                   >
-                  <div class="invalid-feedback">
-                    More example invalid feedback text
-                  </div>
                 </div>
               </div>
               <div class="col mb-3">
@@ -326,7 +356,6 @@
             <button
               type="button"
               data-bs-dismiss="modal"
-              onclick="covreportcloseedit()"
               class="btn btn-primary"
             >
               Save changes
