@@ -43,11 +43,12 @@ function fs() {
           icon: "error",
         });
       }
-      else {
+      else if (willDelete) {
         swal("THANK YOU! successfully submitted!!", {
           icon: "success",
-
         });
+      } else{
+        
       }
 
     })
