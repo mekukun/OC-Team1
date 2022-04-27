@@ -906,6 +906,369 @@ legend {
   transition: transform 0.2s;
 }
 
+/*Terms and FAQ page*/
+#TermsFAQMain h1 {
+  text-align: center;
+  padding: 20px 0px 20px 0px;
+  text-decoration: underline;
+  background: linear-gradient(to right top, #eeeff5, #80d4ff);
+  border-radius: 5%;
+  font-size: xx-large;
+  color: rgba(9, 48, 55, 0.845);
+}
+
+#FAQ dt {
+  font-weight: bold;
+  font-size: large;
+}
+
+#FAQ dd {
+  font-size: 0.9rem;
+  margin-bottom: 1em;
+  padding-left: 1em;
+}
+
+#Terms li {
+  font-size: 0.9rem;
+  margin-bottom: 1em;
+  margin-left: 2%;
+}
+#Terms p {
+  font-size: 0.9rem;
+  margin-bottom: 1em;
+}
+#Terms h3 {
+  margin-bottom: 1em;
+  text-decoration: underline;
+}
+
+.btnTerms {
+  background: linear-gradient(
+    to right,
+    rgb(8, 113, 134),
+    rgba(255, 255, 255, 0.3)
+  );
+  border: none;
+  text-align: center;
+  padding: 5px;
+  border-radius: 12px;
+  font-size: x-large;
+  color: #ffffff;
+  font-weight: bolder;
+  padding: 15px 65px;
+  margin-top: 25px;
+  margin-left: 5px;
+}
+
+#navTerms {
+  padding-top: 35vh;
+  position: fixed;
+}
+
+/*Register Visitor*/
+
+/* #mainV {
+    min-height: 100vh;
+    background: linear-gradient(to right top, #5ab9ea, #343f68);
+} */
+
+.dashboard2 {
+  padding-left: 1.4rem;
+  padding-right: 1.5rem;
+  padding-top: 2%;
+  margin-left: 20.93%;
+  margin-top: 0.5%;
+  font-weight: 400;
+  align-items: flex-start;
+  font-size: 1rem;
+  float: top;
+  display: flex;
+  height: 88.3vh;
+  width: fit-content;
+  justify-content: space-between;
+  overflow-y: scroll;
+  border: #00b8be outset thin;
+  border-left-color: cornflowerblue;
+  border-top-left-radius: cornflowerblue;
+  border-top-right-radius: rgb(184, 138, 37);
+  border-right: rgb(184, 138, 37);
+  border-radius: 99px;
+}
+.dashboard2::-webkit-scrollbar {
+  display: none;
+}
+
+.leftdash2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-bottom: 3%;
+}
+
+.formcontainer {
+  max-width: 645px;
+  width: 95%;
+  padding: 25px 30px;
+  border-radius: 60px;
+  padding-bottom: 3%;
+  z-index: 5;
+  transition: all 1.3s ease-out;
+  background: linear-gradient(135deg, #fff, #c0ebf5);
+}
+
+.formcontainer:hover {
+  max-width: 655px;
+  width: 100%;
+  padding: 25px 30px;
+  border-radius: 60px;
+  padding-bottom: 3%;
+  border-bottom: 100px blue;
+  z-index: 5;
+  transition: all 1.3s ease-in;
+  background: linear-gradient(135deg, #fff, #c0ebf5);
+}
+
+.formcontainer .title {
+  font-size: 25px;
+  font-weight: 500px;
+  position: relative;
+}
+
+.formcontainer .title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background: #8860d0;
+  background: linear-gradient(135deg, #84ceeb, #9b59b6);
+}
+
+.formcontainer form .user-details {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px 0px 12px 0px;
+  overflow-y: scroll;
+  z-index: 1;
+  transition: all 4s ease-in-out;
+}
+.formcontainer form .user-details::-webkit-scrollbar {
+  display: none;
+}
+
+form .user-details .input-box {
+  transition: all 1s ease-in;
+  display: grid;
+  padding: 5px;
+}
+
+.user-details .input-box input {
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 11px;
+  font-size: 0px;
+  border-bottom-width: 2.3px;
+  transition: all 0.2s ease;
+  block-size: 25.5px;
+}
+
+.user-details .input-box input:hover {
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 13.5px;
+  font-size: 15.5px;
+  border-bottom-width: 3.5px;
+  transition: all 0.3s ease;
+  background-color: #84ceeb;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid:hover {
+  border-color: #84ceeb;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid {
+  border-color: #8c59b6;
+  background-color: #84ceeb;
+  font-size: large;
+}
+
+form .extra-Service .ex-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+form .extra-Service .Category {
+  display: flex;
+  width: 80%;
+  margin: 4px 0px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.extra-Service .Categor label {
+  /*not working*/
+  display: flex;
+  align-items: center;
+}
+
+.extra-Service .Categor .dot {
+  height: 18px;
+  width: 18px;
+  background: red;
+  background-color: #d9c31fca;
+  border-radius: 50%;
+  margin-right: 9px;
+  border: 5px solid red;
+  transition: all 0.2s ease;
+}
+
+#dot-1:checked ~ .Categor label .one,
+#dot-2:checked ~ .Categor label .two,
+#dot-3:checked ~ .Categor label .three {
+  border-color: #84ceeb;
+  background: #8c59b6;
+}
+
+form .buttonV {
+  padding-left: 2px;
+  height: 45px;
+  margin: 45px 0;
+}
+
+form .buttonV input {
+  height: 99%;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  letter-spacing: 1px;
+  font-size: 23px;
+  font-weight: 850;
+  border: none;
+  background: linear-gradient(135deg, #84ceeb, #9b59b6);
+  align-items: center;
+  border-radius: 5px;
+  transition: all 2.9s ease;
+}
+
+form .buttonV input:hover {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #fff;
+  letter-spacing: 60px;
+  font-size: 25px;
+  font-weight: 850;
+  border: none;
+  padding-left: 7px;
+  background: linear-gradient(135deg, #9b59b6, #84ceeb);
+  align-items: center;
+  transition: all 3.1s ease;
+  transform-origin: 90%;
+}
+
+@media (max-width: 584px) {
+  .formcontainer {
+    max-width: 100%;
+  }
+
+  form .user-details .input-box {
+    display: grid;
+    padding: 5px;
+    width: 100%;
+  }
+
+  form .extra-Service .ex-title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .formcontainer form .user-details {
+    max-height: 300px;
+    overflow-y: scroll;
+    transition: all 4s ease-in-out;
+  }
+
+  .formcontainer form .user-details {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0px 12px 0px;
+  }
+
+  .user-details::-webkit-scrollbar {
+    width: 0%;
+    transition: all 10s ease-in-out;
+  }
+}
+
+.user-details .name,
+.address,
+.info,
+.booking .details {
+  font-weight: 500;
+  margin-bottom: 5px;
+  padding-bottom: 4.2%;
+}
+
+.user-details .details1 {
+  font-weight: 700;
+  margin-top: 8px;
+  margin-bottom: 5px;
+  padding-bottom: 1.6%;
+  transition: all 1.5s ease-in;
+}
+
+.user-details .name,
+.address .globe,
+.info .globe,
+.booking .globe {
+  display: inline-flex;
+}
+
+.user-details .name .input-box,
+.address .globe .input-box,
+.info .input-box {
+  padding-right: 20%;
+}
+
+.globeS {
+  display: inline-flex;
+}
+
+.b {
+  width: 13px;
+}
+
+.b:hover {
+  width: 20px;
+}
+
+.a,
+.ab {
+  width: 197px;
+}
+
+.address-Input,
+.email {
+  width: 509.9px;
+}
+
+.user-details .info .input-box {
+  /* height: 45px;
+  width: 100%; */
+  padding-right: 20%;
+}
+
+.user-details .booking .input-box {
+  /* height: 45px;
+  width: 100%; */
+  padding-right: 20%;
+}
+
 /* External CSS */
 .text-center {
   text-align: center !important;
