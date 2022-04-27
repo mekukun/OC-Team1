@@ -977,10 +977,10 @@ legend {
 
 /*Register Visitor*/
 
-/* #mainV {
-    min-height: 100vh;
-    background: linear-gradient(to right top, #5ab9ea, #343f68);
-} */
+#mainV {
+  min-height: 100vh;
+  background: linear-gradient(to right top, #5ab9ea, #343f68);
+}
 
 .dashboard2 {
   padding-left: 1.4rem;
