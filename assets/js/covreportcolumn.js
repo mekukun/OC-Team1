@@ -48,7 +48,7 @@ $(document).keypress("#searchreportid", function (event) {
   var keycode = event.keyCode || event.which;
   if (keycode == "13") {
     if ($("#searchreportid").val() == "") {
-      $("tr:first-child").remove();
+      $("tr").remove();
       retrievecolumn();
     } else {
       let reportidsearched = $("#searchreportid").val();
