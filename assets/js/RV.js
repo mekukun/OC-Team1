@@ -10,7 +10,7 @@ const Pphone = document.getElementById("Pphone");
 
 const email = document.getElementById("email");
 const checkIn = document.getElementById("checkIn");
-const checkOut = document.getElementById("checkOut");
+const checkOut = document.getElementById("Car");
 const roomNum = document.getElementById("roomNum");
 const guestNum = document.getElementById("guestNum");
 
@@ -31,7 +31,7 @@ function fs() {
       Pphone.value.length == 0 ||
       checkIn.value.length == 0 ||
       checkOut.value.length == 0 ||
-      guestNum.value.length == 0
+      roomNum.value.length == 0
     ) {
       swal("submission Failed!", {
         icon: "error",

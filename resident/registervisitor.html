@@ -18,7 +18,7 @@
 
 <body>
   <nav>
-    <div class=" bottom icontainer"><img src="../assets/img/logo.png" width="230" height="100"></div>
+    <div class="bottom icontainer"><img src="../assets/img/logo.png" width="230" height="100"></div>
     <hr />
     <div class="icontainer">
       <a href="viewnearbyfacilities.html">
@@ -84,14 +84,14 @@
                 <div class="user-details">
 
                   <!-- Name -->
-                  <div class="name">
+                  <div style="margin-right: 40%;" class="name">
                     <div class="input-box">
                       <span class="details">First Name</span>
                       <input type="text" placeholder="Enter Your First Name" id="Fname" required>
                     </div>
                     <div class="input-box">
                       <span class="details">Last Name</span>
-                      <input type="text" placeholder="Enter Your Last Name" id="Lname" required>
+                      <input style="padding-left: 0%;" type="text" placeholder="Enter Your Last Name" id="Lname" required>
                     </div><br>
                     <hr>
                   </div><br>
@@ -110,15 +110,6 @@
                       </div>
                     </div>
 
-                    <div class="input-box">
-                      <span class="details">Postal Code</span>
-                      <input class="a" type="Number" min="1" placeholder="Enter Postal/Zip Code" id="post" >
-                    </div>
-
-                    <div class="input-box">
-                      <span class="details">Address</span>
-                      <input class="address-Input" type="text" placeholder="Enter Your Address" id="address" >
-                    </div>
 
                   </div>
 
@@ -148,25 +139,27 @@
 
                     <div class="globe">
                       <div class="input-box">
-                        <span class="details">Check-in Date</span>
+                        <span class="details">visiting Date</span>
                         <input class="ab" type="date" placeholder="Date" id="checkIn" required >
                       </div>
 
                       <div class="input-box">
-                        <span class="details">Check-out Date</span>
-                        <input class="ab" type="date" placeholder="Date" id="checkOut" required >
+                        <span class="details">Car Number</span>
+                        <input class="ab" type="text" placeholder="Number" id="Car" required>
                       </div>
+
+
                     </div>
 
                     <div class="globe">
                       <div class="input-box">
-                        <span class="details">Number of Room</span>
-                        <input class="ab" type="number" min="1" placeholder="No.of Rooms" id="roomNum" >
+                        <span class="details">Unit Number</span>
+                        <input class="ab" type="number" min="1" placeholder="No.of Rooms" id="roomNum" required>
                       </div>
 
                       <div class="input-box">
                         <span class="details">Number of Adults Guests</span> <!-- Max 3 adults per room-->
-                        <input class="ab" type="number" min="1" placeholder="No.of adults" id="guestNum" required>
+                        <input class="ab" type="number" min="1" placeholder="No.of adults" id="guestNum" >
                       </div>
                     </div><br><br>
 
@@ -186,25 +179,25 @@
                     </div>
 
                     <div class="extra-Service">
-                      <span class="ex-title">Shuttle Service</span>
+                      <span class="ex-title">coming by </span>
                       <input type="radio" name="carService" id="dot-1">
                       <input type="radio" name="carService" id="dot-2">
                       <input type="radio" name="carService" id="dot-3">
                       <div class="Category">
                         <label for="dot-1">
                           <span class="dot one"></span>
-                          <span class="Options">Normal:<i>15RM</i></span>
-                          <!--(15)-->
+                          <span class="Options">Small car</span>
+                          
                         </label>
                         <label for="dot-2">
                           <span class="dot one"></span>
-                          <span class="Options">Jeep:<i>32RM</i></span>
-                          <!--(32RM)-->
+                          <span class="Options">Jeep</span>
+                          
                         </label>
                         <label for="dot-3">
                           <span class="dot one"></span>
-                          <span class="Options">Luxury Service:<i>150RM</i></span>
-                          <!--(150 going up)-->
+                          <span class="Options">On foot</span>
+                          
                         </label>
                       </div>
                     </div>
