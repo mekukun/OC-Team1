@@ -10,8 +10,9 @@ $type = $_POST["userType"]; //resident || admin
 if($type=="admin"){ //go to admin table
     $result = mysqli_query($connection,"SELECT * FROM admin WHERE email='$email' AND password='$password'");
     if (mysqli_num_rows($result)!=0){ //email and password correct
+            $_SESSION["email"] = $email;
+            $_SESSION["password"] = $password;
             header("Location:../../admin/profileadmin.html");
-            exit();
     }
     else{
         header("location:../../login.php?msg=failed");
@@ -21,6 +22,8 @@ if($type=="admin"){ //go to admin table
 else{ //go to resident table
     $result = mysqli_query($connection,"SELECT * FROM resident  WHERE email='$email' AND password='$password'");
     if (mysqli_num_rows($result)!=0){ //email and password correct
+            $_SESSION["email"] = $email;
+            $_SESSION["password"] = $password;
             header("Location: ../../resident/profile.html");
     }
     else{
