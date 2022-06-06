@@ -8,9 +8,7 @@ CREATE TABLE `Resident` (
 	`password` varchar(25) NOT NULL,
 	`name` varchar(50) NOT NULL,
 	`tel_number` varchar(25),
-	`address` varchar(255),
-	`postcode` INT(25),
-	`state` varchar(25),
+	`unit_no` varchar(255),
 	PRIMARY KEY (`resident_id`)
 );
 
@@ -24,12 +22,14 @@ CREATE TABLE `Admin` (
 
 CREATE TABLE `COV_REPORT` (
 	`ReportID` INT NOT NULL AUTO_INCREMENT,
-	`LastActivityDate` DATE NOT NULL,
+	`resident_id` INT NOT NULL,
+	`Description` VARCHAR(255) NOT NULL,
+	`LastActivityDate` VARCHAR(255) NOT NULL,
 	`ReportStatus` VARCHAR(255) NOT NULL,
 	`LastActivity` VARCHAR(255) NOT NULL,
-	`RoomNo` VARCHAR(255) NOT NULL,
 	`Note` VARCHAR(255),
-	PRIMARY KEY (`ReportID`)
+	PRIMARY KEY (`ReportID`),
+	FOREIGN KEY (resident_id) REFERENCES resident(resident_id)
 );
 
 CREATE TABLE `ACTIVE_CASES` (
