@@ -155,7 +155,8 @@ session_start();
                 <tbody>
 
                   <?php
-                  $sql = "SELECT * FROM (SELECT * FROM cov_report) result ORDER BY LastActivityDate DESC";
+
+                  $sql = "SELECT * FROM cov_report ORDER BY LastActivityDate DESC, LastActivityHour DESC";
                   $result = mysqli_query($connection, $sql);
                   while ($res = $result->fetch_assoc()) {
                     $reportid = $res["ReportID"];
@@ -163,8 +164,12 @@ session_start();
                     $reportstatus = $res["ReportStatus"];
                     $lastactivity = $res["LastActivity"];
 
-                    echo "<tr><td>#$reportid</td>";
-                    echo "<td>$lastdate</td>";
+                    $reallastdate = strtoupper(date("j F Y", strtotime($lastdate)));
+                    // $lasthour = $res["LastActivityHour"];
+                    // $reallasthour = date("g:iA", strtotime($lasthour));
+
+                    echo "<tr data-id = \"$reportid\"><td>#$reportid</td>";
+                    echo "<td>$reallastdate</td>";
                     echo "<td>$reportstatus</td>";
                     echo "<td>$lastactivity</td>";
                     echo "<td><button type=\"button\" class=\"btn p-0 editreportbutton\" ><i class=\"fa-solid fa-eye\"></i></button></td>";
