@@ -3,6 +3,23 @@ include_once('../assets/php/config.php');
 session_start();
 ?>
 
+<?php
+function getcirclecolor($reportstatus)
+{
+  if ($reportstatus == "rejected") {
+    return "<i class=\"fa-solid fa-circle fa-xs\" id=\"delete\"></i>";
+  } else if ($reportstatus == "inprogress") {
+    return "<i class=\"fa-solid fa-circle fa-xs\" id=\"inprogress\"></i>";
+  } else if ($reportstatus == "pending") {
+    return "<i class=\"fa-solid fa-circle fa-xs\" id=\"pending\"></i>";
+  } else if ($reportstatus == "completed") {
+    return "<i class=\"fa-solid fa-circle fa-xs\" id=\"completed\"></i>";
+  } else if ($reportstatus == "New") {
+    return "<i class=\"fa-solid fa-circle fa-xs\" id=\"new\"></i>";
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -152,34 +169,33 @@ session_start();
                     <th scope="col">Last Activity</th>
                   </tr>
                 </thead>
-                <tbody>
+                <?php
+                $sql = "SELECT * FROM cov_report ORDER BY LastActivityDate DESC, LastActivityHour DESC";
+                $result = mysqli_query($connection, $sql);
+                while ($res = $result->fetch_assoc()) {
+                  $reportid = $res["ReportID"];
+                  $lastdate = $res["LastActivityDate"];
+                  $reportstatus = $res["ReportStatus"];
+                  $lastactivity = $res["LastActivity"];
+                  $lasthour = $res["LastActivityHour"];
 
-                  <?php
-
-                  $sql = "SELECT * FROM cov_report ORDER BY LastActivityDate DESC, LastActivityHour DESC";
-                  $result = mysqli_query($connection, $sql);
-                  while ($res = $result->fetch_assoc()) {
-                    $reportid = $res["ReportID"];
-                    $lastdate = $res["LastActivityDate"];
-                    $reportstatus = $res["ReportStatus"];
-                    $lastactivity = $res["LastActivity"];
-
-                    $reallastdate = strtoupper(date("j F Y", strtotime($lastdate)));
-                    // $lasthour = $res["LastActivityHour"];
-                    // $reallasthour = date("g:iA", strtotime($lasthour));
-
-                    echo "<tr data-id = \"$reportid\"><td>#$reportid</td>";
-                    echo "<td>$reallastdate</td>";
-                    echo "<td>$reportstatus</td>";
-                    echo "<td>$lastactivity</td>";
-                    echo "<td><button type=\"button\" class=\"btn p-0 editreportbutton\" ><i class=\"fa-solid fa-eye\"></i></button></td>";
-                    echo "<td><button type=\"button\" class=\"btn p-0 deletereportbutton\"><i class=\"fa-solid fa-trash\"></i></button></td></tr>";
-                  }
-
-                  $connection->close();
-                  ?>
-
-                </tbody>
+                  $reallastdate = strtoupper(date("j F Y", strtotime($lastdate)));
+                  $circlecolor = getcirclecolor($reportstatus);
+                ?>
+                  <tbody>
+                    <tr data-id=<?php echo $reportid; ?>>
+                      <td>#<?php echo $reportid; ?></td>
+                      <td><?php echo $reallastdate; ?></td>
+                      <td><?php echo $circlecolor, $reportstatus; ?></td>
+                      <td><?php echo $lastactivity; ?></td>
+                      <td><button type="button" class="btn p-0 editreportbutton"><i class="fa-solid fa-eye"></i></button></td>
+                      <td><button type="button" class="btn p-0 deletereportbutton"><i class="fa-solid fa-trash"></i></button></td>
+                      </td>
+                    </tr>
+                  </tbody>
+                <?php
+                }
+                ?>
                 <tbody id="reporttable"></tbody>
               </table>
             </div>
@@ -193,7 +209,21 @@ session_start();
                 <span>this month</span>
               </div>
             </div>
-            <div class="bottomactivity" id="activitylist"></div>
+            <div class="bottomactivity" id="activitylist">
+              <?php
+              $result = mysqli_query($connection, $sql);
+              while ($res = $result->fetch_assoc()) {
+                $reportid = $res["ReportID"];
+                $lastdate = $res["LastActivityDate"];
+                $lasthour = $res["LastActivityHour"];
+
+                $reallasthour = date("g:iA", strtotime($lasthour));
+                $reallastdate = strtoupper(date("j F Y", strtotime($lastdate)));
+
+                echo "<div class=\"activity\" id=\"inspectionbegin\"><i class=\"fa-solid fa-magnifying-glass\"></i><div class=\"activitytext\"><span>Inspection begin for report  #$reportid </span><span> $reallastdate $reallasthour </span></div></div>";
+              }
+              ?>
+            </div>
           </div>
         </div>
       </div>
