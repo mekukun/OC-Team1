@@ -30,8 +30,6 @@ function lastexec(item) {
     $("#roominspectioncheck").prop("checked", true);
   } else if (item.reporteditdetail.lastexec == "calltheresident") {
     $("#callresidentactivitycheck").prop("checked", true);
-  } else if (item.reporteditdetail.lastexec == "notifyuser") {
-    $("#notifyuser").prop("checked", true);
   }
 }
 
@@ -44,7 +42,6 @@ $(document).on("click", ".editreportbutton", function (e) {
   $("#completereport").prop("disabled", true);
   $("#reportvalidation").prop("disabled", true);
   $("#defaultactivity").prop("disabled", true);
-  $("#notifyuser").prop("disabled", true);
   $("#callresidentactivitycheck").prop("disabled", true);
   $("#roominspectioncheck").prop("disabled", true);
   $("#reportnote").prop("disabled", true);
@@ -78,7 +75,6 @@ $(document).on("click", "#editbtn", function (e) {
   e.preventDefault();
   $("#reportvalidation").prop("disabled", false);
   $("#defaultactivity").prop("disabled", false);
-  $("#notifyuser").prop("disabled", false);
   $("#callresidentactivitycheck").prop("disabled", false);
   $("#roominspectioncheck").prop("disabled", false);
   $("#reportnote").prop("disabled", false);

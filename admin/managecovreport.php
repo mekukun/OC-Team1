@@ -6,16 +6,14 @@ session_start();
 <?php
 function getcirclecolor($reportstatus)
 {
-  if ($reportstatus == "rejected") {
+  if ($reportstatus == "Rejected") {
     return "<i class=\"fa-solid fa-circle fa-xs\" id=\"delete\"></i>";
-  } else if ($reportstatus == "inprogress") {
+  } else if ($reportstatus == "In Progress") {
     return "<i class=\"fa-solid fa-circle fa-xs\" id=\"inprogress\"></i>";
-  } else if ($reportstatus == "pending") {
+  } else if ($reportstatus == "Pending") {
     return "<i class=\"fa-solid fa-circle fa-xs\" id=\"pending\"></i>";
-  } else if ($reportstatus == "completed") {
+  } else if ($reportstatus == "Completed") {
     return "<i class=\"fa-solid fa-circle fa-xs\" id=\"completed\"></i>";
-  } else if ($reportstatus == "New") {
-    return "<i class=\"fa-solid fa-circle fa-xs\" id=\"new\"></i>";
   }
 }
 ?>
@@ -36,7 +34,7 @@ function getcirclecolor($reportstatus)
   <script src="../assets/js/covreportcolumn.js"></script>
   <script src="../assets/js/covreportactivity.js"></script>
   <script src="../assets/js/covreportdeletereport.js"></script>
-  <script src="../assets/js/covreportmodal.js"></script>
+  <!-- <script src="../assets/js/covreportmodal.js"></script> -->
 </head>
 
 <body>
@@ -216,11 +214,10 @@ function getcirclecolor($reportstatus)
                 $reportid = $res["ReportID"];
                 $lastdate = $res["LastActivityDate"];
                 $lasthour = $res["LastActivityHour"];
+                $lastactivity = $res["LastActivity"];
 
                 $reallasthour = date("g:iA", strtotime($lasthour));
                 $reallastdate = strtoupper(date("j F Y", strtotime($lastdate)));
-
-                echo "<div class=\"activity\" id=\"inspectionbegin\"><i class=\"fa-solid fa-magnifying-glass\"></i><div class=\"activitytext\"><span>Inspection begin for report  #$reportid </span><span> $reallastdate $reallasthour </span></div></div>";
               }
               ?>
             </div>
@@ -231,7 +228,7 @@ function getcirclecolor($reportstatus)
   </main>
   <div class="modalblock"></div>
   <!-- editModal -->
-  <div class="modal fade" id="editreportModal" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" tabindex="-1" aria-hidden="true">
+  <!-- <div class="modal fade" id="editreportModal" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -246,7 +243,7 @@ function getcirclecolor($reportstatus)
         <div class="modal-body d-flex flex-column">
           <div class="row mb-2">
             <div class="col-md-auto">
-              <span class="modalsubtitle">Name:</span>
+              <span class="modalsubtitle">Name: </span>
               <span id="residentname"></span>
             </div>
             <div class="col-md-auto mb-2">
@@ -318,7 +315,97 @@ function getcirclecolor($reportstatus)
         </div>
       </div>
     </div>
+  </div> -->
+
+  <!-- ################################################################################ -->
+
+  <!-- editModal -->
+  <div class="modal fade" id="editmodal" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            <span id="editModaltitle"></span>
+          </h5>
+          <button class="btn p-0" id="editbtn">
+            <i class="fa-solid fa-pen-to-square p-2"></i>
+          </button>
+          <button type="button" class="btn-close" id="closemodalbutton" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex flex-column">
+          <div class="row mb-2">
+            <div class="col-md-auto">
+              <span class="modalsubtitle">Name:</span>
+              <span id="residentname"></span>
+            </div>
+            <div class="col-md-auto mb-2">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="reportvalidation" data-checkbox required disabled />
+                <label class="form-check-label modalsubtitle" for="reportvalidation">Validate</label>
+                <div class="invalid-feedback">
+                  Please validate to start process the report.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-auto mb-2">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="completereport" data-checkbox required disabled />
+                <label class="form-check-label modalsubtitle" for="completereport">Completed</label>
+              </div>
+            </div>
+            <div class="col-md-auto mb-2">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="rejectreport" data-checkbox required disabled />
+                <label class="form-check-label modalsubtitle" for="rejectreport">Reject</label>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-auto">
+              <span class="modalsubtitle">Unit No:</span>
+              <span id="unitnumber"></span>
+            </div>
+            <div class="col-md-auto">
+              <span class="modalsubtitle">Contact number:</span>
+              <span id="contactnumber"></span>
+            </div>
+          </div>
+          <div class="d-flex flex-column mb-2">
+            <span class="modalsubtitle">Description:</span>
+            <span id="reportdesc"></span>
+          </div>
+          <div class="row">
+            <div class="col">
+              <span class="modalsubtitle">Last Activity Executed</span>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="defaultactivity" name="radio-stacked" required disabled />
+                <label class="form-check-label" for="defaultactivity">None</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="callresidentactivitycheck" name="radio-stacked" required disabled />
+                <label class="form-check-label" for="callresidentactivitycheck">Resident Confirmation</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="roominspectioncheck" name="radio-stacked" required disabled />
+                <label class="form-check-label" for="roominspectioncheck">Room Inspection</label>
+              </div>
+            </div>
+            <div class="col mb-3">
+              <label for="reportnote" class="form-label modalsubtitle">Note</label>
+              <textarea class="form-control" id="reportnote" rows="3" disabled></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" data-bs-dismiss="modal" class="btn btn-primary">
+            Save changes
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- ############################################################################################ -->
 
   <!-- deletereportModal -->
   <div class="modal fade" id="deletereportModal" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" tabindex="-1" aria-hidden="true">
@@ -343,5 +430,74 @@ function getcirclecolor($reportstatus)
     </div>
   </div>
 </body>
+
+<script>
+  $(document).ready(function() {
+    $('.editreportbutton').on('click', function() {
+
+      $id = $(this).closest("tr").data("id");
+      $infoarr = [];
+
+      $(".modal-title #editModaltitle").text("Report #" + $id);
+
+      $.ajax({
+        url: "modalprocess.php",
+        method: "post",
+        data: {
+          id: $id
+        },
+        success: function(result) {
+          $infoarr = result;
+          console.log($infoarr);
+          $('#residentname').text($infoarr['name']);
+          $('#unitnumber').text($infoarr['unit_no']);
+          $('#contactnumber').text($infoarr['tel_number']);
+          $('#reportdesc').text($infoarr['Description']);
+          $('#reportnote').text($infoarr['Note']);
+          $("#reportvalidation").prop("checked", () => {
+            if ($infoarr['ReportStatus'] == 'In Progress' || $infoarr['ReportStatus'] == 'Completed') {
+              return true;
+            } else {
+              return false;
+            }
+          });
+          $("#completereport").prop("checked", () => {
+            if ($infoarr['ReportStatus'] == 'Completed') {
+              return true;
+            } else {
+              return false;
+            }
+          });
+          $("#rejectreport").prop("checked", () => {
+            if ($infoarr['ReportStatus'] == 'Rejected') {
+              return true;
+            } else {
+              return false;
+            }
+          });
+          $("#defaultactivity").prop("checked", true);
+          $("#roominspectioncheck").prop("checked", () => {
+            if ($infoarr['LastActivity'] == 'Room Inspection') {
+              return true;
+            } else {
+              return false;
+            }
+          });
+          $("#callresidentactivitycheck").prop("checked", () => {
+            if ($infoarr['LastActivity'] == 'Resident Confirmation') {
+              return true;
+            } else {
+              return false;
+            }
+          });
+        },
+        dataType: "json"
+      });
+
+      $('#editmodal').modal('show');
+
+    });
+  });
+</script>
 
 </html>
