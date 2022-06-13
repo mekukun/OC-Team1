@@ -397,7 +397,7 @@ function getcirclecolor($reportstatus)
           </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
-          <button type="button" data-bs-dismiss="modal" class="btn btn-primary">
+          <button type="button" id="submitbtn" data-bs-dismiss="modal" class="btn btn-primary">
             Save changes
           </button>
         </div>
@@ -495,6 +495,46 @@ function getcirclecolor($reportstatus)
       });
 
       $('#editmodal').modal('show');
+
+      $('#submitbtn').on('click', function() {
+
+        $note = $('#reportnote').text();
+        $reportstatus = "Pending";
+        $lastactivity = "Report Submission";
+
+        if ($('#reportvalidation').is(":checked")) {
+          $reportstatus = "In Progress";
+          $lastactivity = "Report Validation";
+        }
+        if ($('#completereport').is(":checked")) {
+          $reportstatus = "Completed";
+          $lastactivity = "Report Closed";
+        }
+        if ($('#rejectreport').is(":checked")) {
+          $reportstatus = "Rejected"
+          $lastactivity = "Report Closed";
+        }
+
+        if ($('#callresidentactivitycheck').is(":checked")) {
+          $lastactivity = "Resident Confirmation";
+        } else if ($('#roominspectioncheck').is(":checked")) {
+          $lastactivity = "Room Inspection";
+        }
+
+        $.ajax({
+          url: "modalupdateprocess.php",
+          method: "post",
+          data: {
+            id: $id,
+            reportstatus: $reportstatus,
+            lastactivity: $lastactivity,
+            note: $note
+          },
+          success: function(result) {
+            location.reload();
+          }
+        });
+      });
 
     });
 
