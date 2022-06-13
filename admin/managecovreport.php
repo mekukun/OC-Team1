@@ -33,7 +33,7 @@ function getcirclecolor($reportstatus)
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="../assets/js/covreportcolumn.js"></script>
   <script src="../assets/js/covreportactivity.js"></script>
-  <script src="../assets/js/covreportdeletereport.js"></script>
+  <!-- <script src="../assets/js/covreportdeletereport.js"></script> -->
   <!-- <script src="../assets/js/covreportmodal.js"></script> -->
 </head>
 
@@ -498,7 +498,7 @@ function getcirclecolor($reportstatus)
 
       $('#submitbtn').on('click', function() {
 
-        $note = $('#reportnote').text();
+        $note = $('#reportnote').val();
         $reportstatus = "Pending";
         $lastactivity = "Report Submission";
 
@@ -536,6 +536,29 @@ function getcirclecolor($reportstatus)
         });
       });
 
+    });
+
+    $('.deletereportbutton').on("click", function() {
+      $id = $(this).closest("tr").data("id");
+      $(".modal-title #deleteModaltitle").text("Report #" + $id);
+      $(".modal-body #deleteModalbody").text(
+        "Are you sure you want to delete Report #" + $id + "?"
+      );
+
+      $("#deletereportModal").modal("show");
+
+      $('#reportmodaldeleteButton').on("click", function() {
+        $.ajax({
+          url: "modaldeleteprocess.php",
+          method: "post",
+          data: {
+            id: $id,
+          }
+        });
+
+        $("#deletereportModal").modal("hide");
+        callActivityRef($id);
+      });
     });
 
     $('#rejectreport').on('change', function() {
