@@ -436,6 +436,7 @@ function getcirclecolor($reportstatus)
     $('.editreportbutton').on('click', function() {
 
       $id = $(this).closest("tr").data("id");
+      reset();
       $infoarr = [];
 
       $(".modal-title #editModaltitle").text("Report #" + $id);
@@ -448,7 +449,6 @@ function getcirclecolor($reportstatus)
         },
         success: function(result) {
           $infoarr = result;
-          console.log($infoarr);
           $('#residentname').text($infoarr['name']);
           $('#unitnumber').text($infoarr['unit_no']);
           $('#contactnumber').text($infoarr['tel_number']);
@@ -497,6 +497,56 @@ function getcirclecolor($reportstatus)
       $('#editmodal').modal('show');
 
     });
+
+    $('#rejectreport').on('change', function() {
+      if ($(this).is(":checked")) {
+        $("#reportvalidation").prop("disabled", true);
+        $("#completereport").prop("disabled", true);
+      } else {
+        $("#reportvalidation").prop("disabled", false);
+        $("#completereport").prop("disabled", true);
+      }
+    });
+
+    $('#reportvalidation').on('change', function() {
+      if ($(this).is(":checked")) {
+        $("#rejectreport").prop("disabled", true);
+        $("#rejectreport").prop("checked", false);
+        $("#completereport").prop("disabled", false);
+      } else {
+        $("#rejectreport").prop("disabled", false);
+        $("#completereport").prop("disabled", true);
+        $("#completereport").prop("checked", false);
+      }
+    });
+
+    $('#editbtn').on('click', function() {
+      $("#reportvalidation").prop("disabled", false);
+      $("#defaultactivity").prop("disabled", false);
+      $("#callresidentactivitycheck").prop("disabled", false);
+      $("#roominspectioncheck").prop("disabled", false);
+      $("#reportnote").prop("disabled", false);
+      if ($("#reportvalidation").is(":checked")) {
+        $("#rejectreport").prop("disabled", true);
+        $("#completereport").prop("disabled", false);
+      } else {
+        $("#rejectreport").prop("disabled", false);
+        $("#completereport").prop("disabled", true);
+      }
+    });
+
+    function reset() {
+      $("#rejectreport").prop("checked", false);
+      $("#completereport").prop("checked", false);
+      $("#reportvalidation").prop("checked", false);
+      $("#rejectreport").prop("disabled", true);
+      $("#completereport").prop("disabled", true);
+      $("#reportvalidation").prop("disabled", true);
+      $("#defaultactivity").prop("disabled", true);
+      $("#callresidentactivitycheck").prop("disabled", true);
+      $("#roominspectioncheck").prop("disabled", true);
+      $("#reportnote").prop("disabled", true);
+    }
   });
 </script>
 
