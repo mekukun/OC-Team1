@@ -64,14 +64,7 @@ function getactivityinfo($activity)
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manage Covid-19 Reports</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../assets/css/stylesheet.css" />
-  <script rel="preload" src="https://kit.fontawesome.com/c2eb2d7176.js" as="script" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <!-- <script src="../assets/js/covreportcolumn.js"></script> -->
-  <!-- <script src="../assets/js/covreportactivity.js"></script> -->
-  <!-- <script src="../assets/js/covreportdeletereport.js"></script> -->
-  <!-- <script src="../assets/js/covreportmodal.js"></script> -->
 </head>
 
 <body>
@@ -206,7 +199,14 @@ function getactivityinfo($activity)
                 </thead>
                 <tbody>
                   <?php
-                  $sql = "SELECT * FROM cov_report ORDER BY LastActivityDate DESC, LastActivityHour DESC";
+
+                  if (isset($_GET['searchid'])) {
+                    $searchid = $_GET['searchid'];
+                    $sql = "SELECT * FROM cov_report WHERE ReportID = '$searchid' ORDER BY LastActivityDate DESC, LastActivityHour DESC";
+                  } else {
+                    $sql = "SELECT * FROM cov_report ORDER BY LastActivityDate DESC, LastActivityHour DESC";
+                  }
+
                   $result = mysqli_query($connection, $sql);
                   while ($res = $result->fetch_assoc()) {
                     $reportid = $res["ReportID"];
@@ -391,203 +391,219 @@ function getactivityinfo($activity)
       </div>
     </div>
   </div>
-</body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script rel="preload" src="https://kit.fontawesome.com/c2eb2d7176.js" as="script" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function() {
 
-<script>
-  $(document).ready(function() {
-    $('.editreportbutton').on('click', function() {
+      $('.editreportbutton').on('click', function() {
 
-      $id = $(this).closest("tr").data("id");
-      reset();
-      $oldnote = "";
+        $id = $(this).closest("tr").data("id");
+        reset();
+        $oldnote = "";
 
-      $(".modal-title #editModaltitle").text("Report #" + $id);
-
-      $.ajax({
-        url: "modalprocess.php",
-        method: "post",
-        data: {
-          id: $id
-        },
-        success: function(result) {
-          $infoarr = result;
-          $('#residentname').text($infoarr['name']);
-          $('#unitnumber').text($infoarr['unit_no']);
-          $('#contactnumber').text($infoarr['tel_number']);
-          $('#reportdesc').text($infoarr['Description']);
-          $oldnote = $infoarr['Note'];
-          $('#reportnote').text($oldnote);
-          $("#reportvalidation").prop("checked", () => {
-            if ($infoarr['ReportStatus'] == 'In Progress' || $infoarr['ReportStatus'] == 'Completed') {
-              return true;
-            } else {
-              return false;
-            }
-          });
-          $("#completereport").prop("checked", () => {
-            if ($infoarr['ReportStatus'] == 'Completed') {
-              return true;
-            } else {
-              return false;
-            }
-          });
-          $("#rejectreport").prop("checked", () => {
-            if ($infoarr['ReportStatus'] == 'Rejected') {
-              return true;
-            } else {
-              return false;
-            }
-          });
-          $("#defaultactivity").prop("checked", true);
-          $("#roominspectioncheck").prop("checked", () => {
-            if ($infoarr['LastActivity'] == 'Room Inspection') {
-              return true;
-            } else {
-              return false;
-            }
-          });
-          $("#callresidentactivitycheck").prop("checked", () => {
-            if ($infoarr['LastActivity'] == 'Resident Confirmation') {
-              return true;
-            } else {
-              return false;
-            }
-          });
-        },
-        dataType: "json"
-      });
-
-      $('#editmodal').modal('show');
-
-      $('#submitbtn').on('click', function() {
-
-        $newnote = $('#reportnote').val();
-        $reportstatus = "Pending";
-        $lastactivity = "Report Submission";
-        $activity = "";
-
-        if ($('#reportvalidation').is(":checked")) {
-          $reportstatus = "In Progress";
-          $lastactivity = "Report Validation";
-          $activity = "Validate report";
-        }
-
-        if ($('#callresidentactivitycheck').is(":checked")) {
-          $lastactivity = "Resident Confirmation";
-          $activity = "Call the respondent of report";
-        } else if ($('#roominspectioncheck').is(":checked")) {
-          $lastactivity = "Room Inspection";
-          $activity = "Inspection begin for report";
-        }
-
-        if (!($oldnote === $newnote)) {
-          $activity = "Update note in report";
-        }
-
-        if ($('#completereport').is(":checked")) {
-          $reportstatus = "Completed";
-          $lastactivity = "Report Closed";
-          $activity = "Complete report";
-        }
-        if ($('#rejectreport').is(":checked")) {
-          $reportstatus = "Rejected"
-          $lastactivity = "Report Closed";
-          $activity = "Reject report";
-        }
+        $(".modal-title #editModaltitle").text("Report #" + $id);
 
         $.ajax({
-          url: "modalupdateprocess.php",
+          url: "modalprocess.php",
           method: "post",
           data: {
-            id: $id,
-            reportstatus: $reportstatus,
-            lastactivity: $lastactivity,
-            note: $newnote,
-            activity: $activity
+            id: $id
           },
           success: function(result) {
-            location.reload(true);
+            $infoarr = result;
+            $('#residentname').text($infoarr['name']);
+            $('#unitnumber').text($infoarr['unit_no']);
+            $('#contactnumber').text($infoarr['tel_number']);
+            $('#reportdesc').text($infoarr['Description']);
+            $oldnote = $infoarr['Note'];
+            $('#reportnote').text($oldnote);
+            $("#reportvalidation").prop("checked", () => {
+              if ($infoarr['ReportStatus'] == 'In Progress' || $infoarr['ReportStatus'] == 'Completed') {
+                return true;
+              } else {
+                return false;
+              }
+            });
+            $("#completereport").prop("checked", () => {
+              if ($infoarr['ReportStatus'] == 'Completed') {
+                return true;
+              } else {
+                return false;
+              }
+            });
+            $("#rejectreport").prop("checked", () => {
+              if ($infoarr['ReportStatus'] == 'Rejected') {
+                return true;
+              } else {
+                return false;
+              }
+            });
+            $("#defaultactivity").prop("checked", true);
+            $("#roominspectioncheck").prop("checked", () => {
+              if ($infoarr['LastActivity'] == 'Room Inspection') {
+                return true;
+              } else {
+                return false;
+              }
+            });
+            $("#callresidentactivitycheck").prop("checked", () => {
+              if ($infoarr['LastActivity'] == 'Resident Confirmation') {
+                return true;
+              } else {
+                return false;
+              }
+            });
+          },
+          dataType: "json"
+        });
+
+        $('#editmodal').modal('show');
+
+        $('#submitbtn').on('click', function() {
+
+          $newnote = $('#reportnote').val();
+          $reportstatus = "Pending";
+          $lastactivity = "Report Submission";
+          $activity = "";
+
+          if ($('#reportvalidation').is(":checked")) {
+            $reportstatus = "In Progress";
+            $lastactivity = "Report Validation";
+            $activity = "Validate report";
           }
+
+          if ($('#callresidentactivitycheck').is(":checked")) {
+            $lastactivity = "Resident Confirmation";
+            $activity = "Call the respondent of report";
+          } else if ($('#roominspectioncheck').is(":checked")) {
+            $lastactivity = "Room Inspection";
+            $activity = "Inspection begin for report";
+          }
+
+          if (!($oldnote === $newnote)) {
+            $activity = "Update note in report";
+          }
+
+          if ($('#completereport').is(":checked")) {
+            $reportstatus = "Completed";
+            $lastactivity = "Report Closed";
+            $activity = "Complete report";
+          }
+          if ($('#rejectreport').is(":checked")) {
+            $reportstatus = "Rejected"
+            $lastactivity = "Report Closed";
+            $activity = "Reject report";
+          }
+
+          $.ajax({
+            url: "modalupdateprocess.php",
+            method: "post",
+            data: {
+              id: $id,
+              reportstatus: $reportstatus,
+              lastactivity: $lastactivity,
+              note: $newnote,
+              activity: $activity
+            },
+            success: function(result) {
+              location.reload(true);
+            }
+          });
+        });
+
+      });
+
+      $('.deletereportbutton').on("click", function() {
+        $id = $(this).closest("tr").data("id");
+        $(".modal-title #deleteModaltitle").text("Report #" + $id);
+        $(".modal-body #deleteModalbody").text(
+          "Are you sure you want to delete Report #" + $id + "?"
+        );
+
+        $("#deletereportModal").modal("show");
+
+        $('#reportmodaldeleteButton').on("click", function() {
+          $.ajax({
+            url: "modaldeleteprocess.php",
+            method: "post",
+            data: {
+              id: $id,
+            },
+            success: function(result) {
+              location.reload(true);
+            }
+          });
         });
       });
 
-    });
-
-    $('.deletereportbutton').on("click", function() {
-      $id = $(this).closest("tr").data("id");
-      $(".modal-title #deleteModaltitle").text("Report #" + $id);
-      $(".modal-body #deleteModalbody").text(
-        "Are you sure you want to delete Report #" + $id + "?"
-      );
-
-      $("#deletereportModal").modal("show");
-
-      $('#reportmodaldeleteButton').on("click", function() {
-        $.ajax({
-          url: "modaldeleteprocess.php",
-          method: "post",
-          data: {
-            id: $id,
-          },
-          success: function(result) {
-            location.reload(true);
+      $('#searchreportid').on('keypress', function(event) {
+        var keycode = event.keyCode || event.which;
+        if (keycode == "13") {
+          if ($("#searchreportid").val() == "") {
+            window.location.href = "managecovreport.php";
+          } else {
+            $searchid = $("#searchreportid").val();
+            $currentURL = window.location.href + '?searchid=' + $searchid;
+            window.location.href = $currentURL;
           }
-        });
+        }
       });
-    });
 
-    $('#rejectreport').on('change', function() {
-      if ($(this).is(":checked")) {
-        $("#reportvalidation").prop("disabled", true);
-        $("#completereport").prop("disabled", true);
-      } else {
+      $('#rejectreport').on('change', function() {
+        if ($(this).is(":checked")) {
+          $("#reportvalidation").prop("disabled", true);
+          $("#completereport").prop("disabled", true);
+        } else {
+          $("#reportvalidation").prop("disabled", false);
+          $("#completereport").prop("disabled", true);
+        }
+      });
+
+      $('#reportvalidation').on('change', function() {
+        if ($(this).is(":checked")) {
+          $("#rejectreport").prop("disabled", true);
+          $("#rejectreport").prop("checked", false);
+          $("#completereport").prop("disabled", false);
+        } else {
+          $("#rejectreport").prop("disabled", false);
+          $("#completereport").prop("disabled", true);
+          $("#completereport").prop("checked", false);
+        }
+      });
+
+      $('#editbtn').on('click', function() {
         $("#reportvalidation").prop("disabled", false);
-        $("#completereport").prop("disabled", true);
-      }
-    });
+        $("#defaultactivity").prop("disabled", false);
+        $("#callresidentactivitycheck").prop("disabled", false);
+        $("#roominspectioncheck").prop("disabled", false);
+        $("#reportnote").prop("disabled", false);
+        $("#submitbtn").prop("disabled", false);
+        if ($("#reportvalidation").is(":checked")) {
+          $("#rejectreport").prop("disabled", true);
+          $("#completereport").prop("disabled", false);
+        } else {
+          $("#rejectreport").prop("disabled", false);
+          $("#completereport").prop("disabled", true);
+        }
+      });
 
-    $('#reportvalidation').on('change', function() {
-      if ($(this).is(":checked")) {
-        $("#rejectreport").prop("disabled", true);
+      function reset() {
         $("#rejectreport").prop("checked", false);
-        $("#completereport").prop("disabled", false);
-      } else {
-        $("#rejectreport").prop("disabled", false);
-        $("#completereport").prop("disabled", true);
         $("#completereport").prop("checked", false);
-      }
-    });
-
-    $('#editbtn').on('click', function() {
-      $("#reportvalidation").prop("disabled", false);
-      $("#defaultactivity").prop("disabled", false);
-      $("#callresidentactivitycheck").prop("disabled", false);
-      $("#roominspectioncheck").prop("disabled", false);
-      $("#reportnote").prop("disabled", false);
-      $("#submitbtn").prop("disabled", false);
-      if ($("#reportvalidation").is(":checked")) {
+        $("#reportvalidation").prop("checked", false);
         $("#rejectreport").prop("disabled", true);
-        $("#completereport").prop("disabled", false);
-      } else {
-        $("#rejectreport").prop("disabled", false);
         $("#completereport").prop("disabled", true);
+        $("#reportvalidation").prop("disabled", true);
+        $("#defaultactivity").prop("disabled", true);
+        $("#callresidentactivitycheck").prop("disabled", true);
+        $("#roominspectioncheck").prop("disabled", true);
+        $("#reportnote").prop("disabled", true);
+        $("#submitbtn").prop("disabled", true);
       }
     });
-
-    function reset() {
-      $("#rejectreport").prop("checked", false);
-      $("#completereport").prop("checked", false);
-      $("#reportvalidation").prop("checked", false);
-      $("#rejectreport").prop("disabled", true);
-      $("#completereport").prop("disabled", true);
-      $("#reportvalidation").prop("disabled", true);
-      $("#defaultactivity").prop("disabled", true);
-      $("#callresidentactivitycheck").prop("disabled", true);
-      $("#roominspectioncheck").prop("disabled", true);
-      $("#reportnote").prop("disabled", true);
-      $("#submitbtn").prop("disabled", true);
-    }
-  });
-</script>
+  </script>
+</body>
 
 </html>
