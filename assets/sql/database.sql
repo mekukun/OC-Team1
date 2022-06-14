@@ -30,7 +30,18 @@ CREATE TABLE `COV_REPORT` (
 	`LastActivity` VARCHAR(255) NOT NULL,
 	`Note` VARCHAR(255),
 	PRIMARY KEY (`ReportID`),
-	FOREIGN KEY (resident_id) REFERENCES resident(resident_id)
+	FOREIGN KEY (`resident_id`) REFERENCES `resident`(`resident_id`)
+);
+
+CREATE TABLE `ADMIN_ACTIVITY` (
+	`AdminActivityID` INT NOT NULL AUTO_INCREMENT,
+	`ReportID` INT NOT NULL,
+	`admin_id` INT NOT NULL,
+	`Activity` VARCHAR(255) NOT NULL,
+	`ActivityDate` DATE NOT NULL,
+	`ActivityHour` TIME NOT NULL,
+	PRIMARY KEY (`AdminActivityID`),
+	FOREIGN KEY (`admin_id`) REFERENCES `Admin`(`admin_id`)
 );
 
 CREATE TABLE `ACTIVE_CASES` (

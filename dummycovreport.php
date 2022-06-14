@@ -17,7 +17,7 @@ include_once('assets\php\config.php');
     <h1>Enter Report:</h1>
     <form method="POST" action="dummyprocesscov.php">
         Desc: <input type="text" name="description" /><br />
-        <input type="hidden" name="status" value="New" />
+        <input type="hidden" name="status" value="Pending" />
         <input type="hidden" name="lastactivity" value="Report Submitted" />
         <input type="hidden" name="note" value="" />
         <input type="submit">

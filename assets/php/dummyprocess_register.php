@@ -85,15 +85,15 @@ include_once('config.php');
                 }
             }
 
-            $sql = "SELECT email FROM resident WHERE email = '$myEmail'";
+            $sql = "SELECT email FROM admin WHERE email = '$myEmail'";
             $result = mysqli_query($connection, $sql);
             if (mysqli_num_rows($result) != 0) {
                 echo "<h2>Email already exists.</h2>";
                 echo "<a class=\"nav-link\" a href=\"signup.php\">Sign Up </a>";
                 echo "<a class=\"nav-link\" a href=\"login.php\">Log In </a>";
             } else {
-                $stmt = $connection->prepare("INSERT INTO resident(email, password, name, tel_number, unit_no) VALUE (?,?,?,?,?)");
-                $stmt->bind_param("sssss", $myEmail, $password, $mName, $telNo, $unitNo);
+                $stmt = $connection->prepare("INSERT INTO admin(email, password, name) VALUE (?,?,?)");
+                $stmt->bind_param("sss", $myEmail, $password, $mName);
                 $stmt->execute();
 
                 echo "<h2>Registration successfull.</h2>";

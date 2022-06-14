@@ -10,9 +10,11 @@ $type = $_POST["userType"]; //resident || admin
 if ($type == "admin") { //go to admin table
     $result = mysqli_query($connection, "SELECT * FROM admin WHERE email='$email' AND password='$password'");
     if (mysqli_num_rows($result) != 0) { //email and password correct
+        $res = $result->fetch_assoc();
+        $_SESSION['adminid'] = $res['admin_id'];
         $_SESSION["email"] = $email;
         $_SESSION["password"] = $password;
-        header("Location:../../admin/profileadmin.html");
+        header("Location:../../admin/profileadmin.php");
     } else {
         header("location:../../login.php?msg=failed");
         die();

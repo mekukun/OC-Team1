@@ -16,6 +16,43 @@ function getcirclecolor($reportstatus)
     return "<i class=\"fa-solid fa-circle fa-xs\" id=\"completed\"></i>";
   }
 }
+
+function getactivityinfo($activity)
+{
+  $activityinfo = [
+    'id' => '',
+    'class' => ''
+  ];
+  if ($activity == "Inspection begin for report") {
+    $activityinfo['id'] = "inspectionbegin";
+    $activityinfo['class'] = "fa-magnifying-glass";
+    return $activityinfo;
+  } else if ($activity == "Call the respondent of report") {
+    $activityinfo['id'] = "call";
+    $activityinfo['class'] = "fa-phone";
+    return $activityinfo;
+  } else if ($activity == "Validate report") {
+    $activityinfo['id'] = "validate";
+    $activityinfo['class'] = "fa-check";
+    return $activityinfo;
+  } else if ($activity == "Complete report") {
+    $activityinfo['id'] = "completed";
+    $activityinfo['class'] = "fa-square-check";
+    return $activityinfo;
+  } else if ($activity == "Reject report") {
+    $activityinfo['id'] = "reject";
+    $activityinfo['class'] = "fa-circle-exclamation";
+    return $activityinfo;
+  } else if ($activity == "Update note in report") {
+    $activityinfo['id'] = "note";
+    $activityinfo['class'] = "fa-notes-medical";
+    return $activityinfo;
+  } else if ($activity == "Delete report") {
+    $activityinfo['id'] = "delete";
+    $activityinfo['class'] = "fa-trash";
+    return $activityinfo;
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +68,8 @@ function getcirclecolor($reportstatus)
   <link rel="stylesheet" type="text/css" href="../assets/css/stylesheet.css" />
   <script rel="preload" src="https://kit.fontawesome.com/c2eb2d7176.js" as="script" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="../assets/js/covreportcolumn.js"></script>
-  <script src="../assets/js/covreportactivity.js"></script>
+  <!-- <script src="../assets/js/covreportcolumn.js"></script> -->
+  <!-- <script src="../assets/js/covreportactivity.js"></script> -->
   <!-- <script src="../assets/js/covreportdeletereport.js"></script> -->
   <!-- <script src="../assets/js/covreportmodal.js"></script> -->
 </head>
@@ -167,20 +204,20 @@ function getcirclecolor($reportstatus)
                     <th scope="col">Last Activity</th>
                   </tr>
                 </thead>
-                <?php
-                $sql = "SELECT * FROM cov_report ORDER BY LastActivityDate DESC, LastActivityHour DESC";
-                $result = mysqli_query($connection, $sql);
-                while ($res = $result->fetch_assoc()) {
-                  $reportid = $res["ReportID"];
-                  $lastdate = $res["LastActivityDate"];
-                  $reportstatus = $res["ReportStatus"];
-                  $lastactivity = $res["LastActivity"];
-                  $lasthour = $res["LastActivityHour"];
+                <tbody>
+                  <?php
+                  $sql = "SELECT * FROM cov_report ORDER BY LastActivityDate DESC, LastActivityHour DESC";
+                  $result = mysqli_query($connection, $sql);
+                  while ($res = $result->fetch_assoc()) {
+                    $reportid = $res["ReportID"];
+                    $lastdate = $res["LastActivityDate"];
+                    $reportstatus = $res["ReportStatus"];
+                    $lastactivity = $res["LastActivity"];
+                    $lasthour = $res["LastActivityHour"];
 
-                  $reallastdate = strtoupper(date("j F Y", strtotime($lastdate)));
-                  $circlecolor = getcirclecolor($reportstatus);
-                ?>
-                  <tbody>
+                    $reallastdate = strtoupper(date("j F Y", strtotime($lastdate)));
+                    $circlecolor = getcirclecolor($reportstatus);
+                  ?>
                     <tr data-id=<?php echo $reportid; ?>>
                       <td>#<?php echo $reportid; ?></td>
                       <td><?php echo $reallastdate; ?></td>
@@ -190,10 +227,10 @@ function getcirclecolor($reportstatus)
                       <td><button type="button" class="btn p-0 deletereportbutton"><i class="fa-solid fa-trash"></i></button></td>
                       </td>
                     </tr>
-                  </tbody>
-                <?php
-                }
-                ?>
+                  <?php
+                  }
+                  ?>
+                </tbody>
                 <tbody id="reporttable"></tbody>
               </table>
             </div>
@@ -209,15 +246,29 @@ function getcirclecolor($reportstatus)
             </div>
             <div class="bottomactivity" id="activitylist">
               <?php
+              $adminid = $_SESSION['adminid'];
+              $sql = "SELECT * FROM admin_activity WHERE admin_id='$adminid' ORDER BY ActivityDate DESC, ActivityHour DESC";
               $result = mysqli_query($connection, $sql);
               while ($res = $result->fetch_assoc()) {
                 $reportid = $res["ReportID"];
-                $lastdate = $res["LastActivityDate"];
-                $lasthour = $res["LastActivityHour"];
-                $lastactivity = $res["LastActivity"];
+                $lastdate = $res["ActivityDate"];
+                $lasthour = $res["ActivityHour"];
+                $activity = $res["Activity"];
 
                 $reallasthour = date("g:iA", strtotime($lasthour));
                 $reallastdate = strtoupper(date("j F Y", strtotime($lastdate)));
+              ?>
+                <div class="activity" id="<?php echo getactivityinfo($activity)['id']; ?>"><i class="fa-solid <?php echo getactivityinfo($activity)['class']; ?>"></i>
+                  <div class="activitytext">
+                    <span>
+                      <?php echo "$activity #$reportid"; ?>
+                    </span>
+                    <span>
+                      <?php echo "$reallastdate $reallasthour"; ?>
+                    </span>
+                  </div>
+                </div>
+              <?php
               }
               ?>
             </div>
@@ -227,95 +278,6 @@ function getcirclecolor($reportstatus)
     </div>
   </main>
   <div class="modalblock"></div>
-  <!-- editModal -->
-  <!-- <div class="modal fade" id="editreportModal" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">
-            <span id="editModaltitle"></span>
-          </h5>
-          <button class="btn p-0" id="editbtn">
-            <i class="fa-solid fa-pen-to-square p-2"></i>
-          </button>
-          <button type="button" class="btn-close" id="closemodalbutton" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body d-flex flex-column">
-          <div class="row mb-2">
-            <div class="col-md-auto">
-              <span class="modalsubtitle">Name: </span>
-              <span id="residentname"></span>
-            </div>
-            <div class="col-md-auto mb-2">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="reportvalidation" data-checkbox required disabled />
-                <label class="form-check-label modalsubtitle" for="reportvalidation">Validate</label>
-                <div class="invalid-feedback">
-                  Please validate to start process the report.
-                </div>
-              </div>
-            </div>
-            <div class="col-md-auto mb-2">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="completereport" data-checkbox required disabled />
-                <label class="form-check-label modalsubtitle" for="completereport">Completed</label>
-              </div>
-            </div>
-            <div class="col-md-auto mb-2">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="rejectreport" data-checkbox required disabled />
-                <label class="form-check-label modalsubtitle" for="rejectreport">Reject</label>
-              </div>
-            </div>
-          </div>
-          <div class="row mb-2">
-            <div class="col-md-auto">
-              <span class="modalsubtitle">Unit No:</span>
-              <span id="roomnumber"></span>
-            </div>
-            <div class="col-md-auto">
-              <span class="modalsubtitle">Contact number:</span>
-              <span id="contactnumber"></span>
-            </div>
-          </div>
-          <div class="d-flex flex-column mb-2">
-            <span class="modalsubtitle">Description:</span>
-            <span id="reportdesc"></span>
-          </div>
-          <div class="row">
-            <div class="col">
-              <span class="modalsubtitle">Last Activity Executed</span>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" id="defaultactivity" name="radio-stacked" required disabled />
-                <label class="form-check-label" for="defaultactivity">None</label>
-              </div>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" id="notifyuser" name="radio-stacked" required disabled />
-                <label class="form-check-label" for="notifyuser">Notify user to modify report.</label>
-              </div>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" id="callresidentactivitycheck" name="radio-stacked" required disabled />
-                <label class="form-check-label" for="callresidentactivitycheck">Call the resident.</label>
-              </div>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" id="roominspectioncheck" name="radio-stacked" required disabled />
-                <label class="form-check-label" for="roominspectioncheck">Begin room inspection.</label>
-              </div>
-            </div>
-            <div class="col mb-3">
-              <label for="reportnote" class="form-label modalsubtitle">Note</label>
-              <textarea class="form-control" id="reportnote" rows="3" disabled></textarea>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer d-flex justify-content-center">
-          <button type="button" data-bs-dismiss="modal" class="btn btn-primary">
-            Save changes
-          </button>
-        </div>
-      </div>
-    </div>
-  </div> -->
 
   <!-- ################################################################################ -->
 
@@ -437,7 +399,7 @@ function getcirclecolor($reportstatus)
 
       $id = $(this).closest("tr").data("id");
       reset();
-      $infoarr = [];
+      $oldnote = "";
 
       $(".modal-title #editModaltitle").text("Report #" + $id);
 
@@ -453,7 +415,8 @@ function getcirclecolor($reportstatus)
           $('#unitnumber').text($infoarr['unit_no']);
           $('#contactnumber').text($infoarr['tel_number']);
           $('#reportdesc').text($infoarr['Description']);
-          $('#reportnote').text($infoarr['Note']);
+          $oldnote = $infoarr['Note'];
+          $('#reportnote').text($oldnote);
           $("#reportvalidation").prop("checked", () => {
             if ($infoarr['ReportStatus'] == 'In Progress' || $infoarr['ReportStatus'] == 'Completed') {
               return true;
@@ -498,27 +461,38 @@ function getcirclecolor($reportstatus)
 
       $('#submitbtn').on('click', function() {
 
-        $note = $('#reportnote').val();
+        $newnote = $('#reportnote').val();
         $reportstatus = "Pending";
         $lastactivity = "Report Submission";
+        $activity = "";
 
         if ($('#reportvalidation').is(":checked")) {
           $reportstatus = "In Progress";
           $lastactivity = "Report Validation";
-        }
-        if ($('#completereport').is(":checked")) {
-          $reportstatus = "Completed";
-          $lastactivity = "Report Closed";
-        }
-        if ($('#rejectreport').is(":checked")) {
-          $reportstatus = "Rejected"
-          $lastactivity = "Report Closed";
+          $activity = "Validate report";
         }
 
         if ($('#callresidentactivitycheck').is(":checked")) {
           $lastactivity = "Resident Confirmation";
+          $activity = "Call the respondent of report";
         } else if ($('#roominspectioncheck').is(":checked")) {
           $lastactivity = "Room Inspection";
+          $activity = "Inspection begin for report";
+        }
+
+        if (!($oldnote === $newnote)) {
+          $activity = "Update note in report";
+        }
+
+        if ($('#completereport').is(":checked")) {
+          $reportstatus = "Completed";
+          $lastactivity = "Report Closed";
+          $activity = "Complete report";
+        }
+        if ($('#rejectreport').is(":checked")) {
+          $reportstatus = "Rejected"
+          $lastactivity = "Report Closed";
+          $activity = "Reject report";
         }
 
         $.ajax({
@@ -528,10 +502,11 @@ function getcirclecolor($reportstatus)
             id: $id,
             reportstatus: $reportstatus,
             lastactivity: $lastactivity,
-            note: $note
+            note: $newnote,
+            activity: $activity
           },
           success: function(result) {
-            location.reload();
+            location.reload(true);
           }
         });
       });
@@ -553,11 +528,11 @@ function getcirclecolor($reportstatus)
           method: "post",
           data: {
             id: $id,
+          },
+          success: function(result) {
+            location.reload(true);
           }
         });
-
-        $("#deletereportModal").modal("hide");
-        callActivityRef($id);
       });
     });
 
@@ -589,6 +564,7 @@ function getcirclecolor($reportstatus)
       $("#callresidentactivitycheck").prop("disabled", false);
       $("#roominspectioncheck").prop("disabled", false);
       $("#reportnote").prop("disabled", false);
+      $("#submitbtn").prop("disabled", false);
       if ($("#reportvalidation").is(":checked")) {
         $("#rejectreport").prop("disabled", true);
         $("#completereport").prop("disabled", false);
@@ -609,6 +585,7 @@ function getcirclecolor($reportstatus)
       $("#callresidentactivitycheck").prop("disabled", true);
       $("#roominspectioncheck").prop("disabled", true);
       $("#reportnote").prop("disabled", true);
+      $("#submitbtn").prop("disabled", true);
     }
   });
 </script>

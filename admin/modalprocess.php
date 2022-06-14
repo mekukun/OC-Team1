@@ -1,5 +1,6 @@
 <?php
 include_once('../assets/php/config.php');
+session_start();
 ?>
 
 <?php
@@ -9,5 +10,8 @@ FROM resident
 INNER JOIN cov_report ON resident.resident_id=cov_report.resident_id WHERE ReportID = '$id'";
 $info = mysqli_query($connection, $getinfo);
 $infoarr = $info->fetch_assoc();
+
+$connection->close();
+
 echo json_encode($infoarr);
 ?>
