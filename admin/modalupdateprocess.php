@@ -8,17 +8,30 @@ $id = $_POST['id'];
 $reportstatus = $_POST['reportstatus'];
 $lastactivity = $_POST['lastactivity'];
 $note = $_POST['note'];
-$lastdate = date("Y-m-d");
-$lasthour = date('H:i:s');
-$sql = "UPDATE cov_report SET ReportStatus = '$reportstatus', LastActivity = '$lastactivity', Note = '$note', LastActivityDate = '$lastdate', LastActivityHour = '$lasthour' WHERE ReportID = '$id'";
-$result = mysqli_query($connection, $sql);
+$lastdate = date('Y-m-d', strtotime($_POST['lastdate']));
+$lasthour = date('H:i:s', strtotime($_POST['lasthour']));
 
-$adminid = $_SESSION['adminid'];
-$activity = $_POST['activity'];
-$stmt = $connection->prepare("INSERT INTO admin_activity(ReportID, admin_id, Activity, ActivityDate, ActivityHour) VALUE (?,?,?,?,?)");
-$stmt->bind_param("sssss", $id, $adminid, $activity, $lastdate, $lasthour);
-$stmt->execute();
+$stmtCheck = $connection->prepare("SELECT * FROM admin_activity WHERE (ActivityDate = ? AND ActivityHour = ?)");
+$stmtCheck->bind_param("ss", $lastdate, $lasthour);
+$stmtCheck->execute();
+$result = $stmtCheck->get_result();
 
-$stmt->close();
+if (mysqli_num_rows($result) == 0) {
+    $stmtUpdate = $connection->prepare("UPDATE cov_report SET ReportStatus = ?, LastActivity = ?, Note = ?, LastActivityDate = ?, LastActivityHour = ? WHERE ReportID = ?");
+    $stmtUpdate->bind_param("ssssss", $reportstatus, $lastactivity, $note, $lastdate, $lasthour, $id);
+    $stmtUpdate->execute();
+
+    $adminid = $_SESSION['adminid'];
+    $activity = $_POST['activity'];
+
+    $stmt = $connection->prepare("INSERT INTO admin_activity(ReportID, admin_id, Activity, ActivityDate, ActivityHour) VALUE (?,?,?,?,?)");
+    $stmt->bind_param("sssss", $id, $adminid, $activity, $lastdate, $lasthour);
+    $stmt->execute();
+
+    $stmtUpdate->close();
+    $stmt->close();
+}
+
+$stmtCheck->close();
 $connection->close();
 ?>

@@ -202,12 +202,18 @@ function getactivityinfo($activity)
 
                   if (isset($_GET['searchid'])) {
                     $searchid = $_GET['searchid'];
-                    $sql = "SELECT * FROM cov_report WHERE ReportID = '$searchid' ORDER BY LastActivityDate DESC, LastActivityHour DESC";
+
+                    $stmtColumn = $connection->prepare("SELECT * FROM cov_report WHERE ReportID = ? ORDER BY LastActivityDate DESC, LastActivityHour DESC");
+                    $stmtColumn->bind_param("s", $searchid);
+                    $stmtColumn->execute();
+                    $result = $stmtColumn->get_result();
+
+                    $stmtColumn->close();
                   } else {
                     $sql = "SELECT * FROM cov_report ORDER BY LastActivityDate DESC, LastActivityHour DESC";
+                    $result = mysqli_query($connection, $sql);
                   }
 
-                  $result = mysqli_query($connection, $sql);
                   while ($res = $result->fetch_assoc()) {
                     $reportid = $res["ReportID"];
                     $lastdate = $res["LastActivityDate"];
@@ -247,8 +253,13 @@ function getactivityinfo($activity)
             <div class="bottomactivity" id="activitylist">
               <?php
               $adminid = $_SESSION['adminid'];
-              $sql = "SELECT * FROM admin_activity WHERE admin_id='$adminid' ORDER BY ActivityDate DESC, ActivityHour DESC";
-              $result = mysqli_query($connection, $sql);
+
+              $stmtActivity = $connection->prepare("SELECT * FROM admin_activity WHERE admin_id=? ORDER BY ActivityDate DESC, ActivityHour DESC");
+              $stmtActivity->bind_param("s", $adminid);
+              $stmtActivity->execute();
+              $result = $stmtActivity->get_result();
+              $stmtActivity->close();
+
               while ($res = $result->fetch_assoc()) {
                 $reportid = $res["ReportID"];
                 $lastdate = $res["ActivityDate"];
@@ -270,6 +281,7 @@ function getactivityinfo($activity)
                 </div>
               <?php
               }
+              $connection->close();
               ?>
             </div>
           </div>
@@ -397,6 +409,12 @@ function getactivityinfo($activity)
   <script>
     $(document).ready(function() {
 
+      $d = new Date();
+      $month = $d.getMonth() + 1;
+      $day = $d.getDate();
+      $lastdate = $d.getFullYear() + '-' + ($month < 10 ? '0' : '') + $month + '-' + ($day < 10 ? '0' : '') + $day;
+      $lasthour = $d.getHours() + ":" + $d.getMinutes() + ":" + $d.getSeconds();
+
       $('.editreportbutton').on('click', function() {
 
         $id = $(this).closest("tr").data("id");
@@ -505,7 +523,9 @@ function getactivityinfo($activity)
               reportstatus: $reportstatus,
               lastactivity: $lastactivity,
               note: $newnote,
-              activity: $activity
+              activity: $activity,
+              lastdate: $lastdate,
+              lasthour: $lasthour
             },
             success: function(result) {
               location.reload(true);
@@ -530,6 +550,8 @@ function getactivityinfo($activity)
             method: "post",
             data: {
               id: $id,
+              lastdate: $lastdate,
+              lasthour: $lasthour
             },
             success: function(result) {
               location.reload(true);
