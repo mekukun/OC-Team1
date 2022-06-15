@@ -123,7 +123,7 @@ function getactivityinfo($activity)
           </div>
         </div>
         <div class="rightdash">
-          <div class="status"><span>LOW RISK</span></div>
+          <div class="status"><span>ADMIN</span></div>
           <a href="profileadmin.html">
             <div><i class="fa-solid fa-user"></i><span>User</span></div>
           </a>
