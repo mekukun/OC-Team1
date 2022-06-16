@@ -1,5 +1,5 @@
 <?php
-include_once('../assets/php/config.php');
+include_once('config.php');
 session_start();
 ?>
 

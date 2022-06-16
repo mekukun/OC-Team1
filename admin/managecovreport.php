@@ -133,13 +133,13 @@ function getactivityinfo($activity)
         <div class="statsboard">
           <div class="stats glasscard">
             <div class="statsbody">
-              <span>Today's Updates</span>
+              <span>Today's Reports</span>
               <div>
                 <span><?php
                       $todaydate = date("Y-m-d");
                       $yesterday = date("Y-m-d", strtotime("yesterday"));
 
-                      $stmtTodayUpdate = $connection->prepare("SELECT * FROM cov_report WHERE ReportStatus != 'Pending' AND LastActivityDate = ?");
+                      $stmtTodayUpdate = $connection->prepare("SELECT * FROM cov_report WHERE ReportStatus = 'Pending' AND LastActivityDate = ?");
                       $stmtTodayUpdate->bind_param("s", $todaydate);
                       $stmtTodayUpdate->execute();
                       $result = $stmtTodayUpdate->get_result();
@@ -149,7 +149,7 @@ function getactivityinfo($activity)
                       echo $todayReport;
                       ?></span>
                 <?php
-                $stmtYesUpdate = $connection->prepare("SELECT * FROM cov_report WHERE ReportStatus != 'Pending' AND LastActivityDate = ?");
+                $stmtYesUpdate = $connection->prepare("SELECT * FROM cov_report WHERE ReportStatus = 'Pending' AND LastActivityDate = ?");
                 $stmtYesUpdate->bind_param("s", $yesterday);
                 $stmtYesUpdate->execute();
                 $result = $stmtYesUpdate->get_result();
@@ -576,7 +576,7 @@ function getactivityinfo($activity)
         $(".modal-title #editModaltitle").text("Report #" + $id);
 
         $.ajax({
-          url: "modalprocess.php",
+          url: "../assets/php/modalprocess.php",
           method: "post",
           data: {
             id: $id
@@ -674,7 +674,7 @@ function getactivityinfo($activity)
           }
 
           $.ajax({
-            url: "modalupdateprocess.php",
+            url: "../assets/php/modalupdateprocess.php",
             method: "post",
             data: {
               id: $id,
@@ -711,7 +711,7 @@ function getactivityinfo($activity)
 
         $('#reportmodaldeleteButton').on("click", function() {
           $.ajax({
-            url: "modaldeleteprocess.php",
+            url: "../assets/php/modaldeleteprocess.php",
             method: "post",
             data: {
               id: $id,
