@@ -133,10 +133,42 @@ function getactivityinfo($activity)
         <div class="statsboard">
           <div class="stats glasscard">
             <div class="statsbody">
-              <span>Today's Reports</span>
+              <span>Today's Updates</span>
               <div>
-                <span>23</span>
-                <span>+55%</span>
+                <span><?php
+                      $todaydate = date("Y-m-d");
+                      $yesterday = date("Y-m-d", strtotime("yesterday"));
+
+                      $stmtTodayUpdate = $connection->prepare("SELECT * FROM cov_report WHERE ReportStatus != 'Pending' AND LastActivityDate = ?");
+                      $stmtTodayUpdate->bind_param("s", $todaydate);
+                      $stmtTodayUpdate->execute();
+                      $result = $stmtTodayUpdate->get_result();
+
+                      $stmtTodayUpdate->close();
+                      $todayReport = mysqli_num_rows($result);
+                      echo $todayReport;
+                      ?></span>
+                <?php
+                $stmtYesUpdate = $connection->prepare("SELECT * FROM cov_report WHERE ReportStatus != 'Pending' AND LastActivityDate = ?");
+                $stmtYesUpdate->bind_param("s", $yesterday);
+                $stmtYesUpdate->execute();
+                $result = $stmtYesUpdate->get_result();
+
+                $stmtYesUpdate->close();
+                $yesReport = mysqli_num_rows($result);
+
+                $perUpdate = ($todayReport / $yesReport) * 100;
+
+                if ($perUpdate > 100) {
+                  $newper = (int)$perUpdate - 100;
+                  echo "<span id = \"increase\">+$newper%</span>";
+                } else if ($perUpdate < 100) {
+                  $newper = 100 - (int)$perUpdate;
+                  echo "<span id = \"decrease\">-$newper%</span>";
+                } else {
+                  echo "<span id = \"increase\">+0%</span>";
+                }
+                ?>
               </div>
             </div>
             <i class="fa-solid fa-hand-holding-medical fa-lg"></i>
@@ -145,8 +177,37 @@ function getactivityinfo($activity)
             <div class="statsbody">
               <span>Today's Active Cases</span>
               <div>
-                <span>11</span>
-                <span>+61%</span>
+                <span><?php
+                      $stmtTodayCase = $connection->prepare("SELECT * FROM active_cases WHERE Date = ?");
+                      $stmtTodayCase->bind_param("s", $todaydate);
+                      $stmtTodayCase->execute();
+                      $result = $stmtTodayCase->get_result();
+
+                      $stmtTodayCase->close();
+                      $todayCase =  mysqli_num_rows($result);
+                      echo $todayCase;
+                      ?></span>
+                <?php
+                $stmtYesCase = $connection->prepare("SELECT * FROM active_cases WHERE Date = ?");
+                $stmtYesCase->bind_param("s", $yesterday);
+                $stmtYesCase->execute();
+                $result = $stmtYesCase->get_result();
+
+                $stmtYesCase->close();
+                $yesCase = mysqli_num_rows($result);
+
+                $perCase = ($todayCase / $yesCase) * 100;
+
+                if ($perCase > 100) {
+                  $newper = (int)$perCase - 100;
+                  echo "<span id = \"increase\">+$newper%</span>";
+                } else if ($perCase < 100) {
+                  $newper = 100 - (int)$perCase;
+                  echo "<span id = \"decrease\">-$newper%</span>";
+                } else {
+                  echo "<span id = \"increase\">+0%</span>";
+                }
+                ?>
               </div>
             </div>
             <i class="fa-solid fa-virus-covid fa-lg"></i>
@@ -155,8 +216,37 @@ function getactivityinfo($activity)
             <div class="statsbody">
               <span>Today's Visitors</span>
               <div>
-                <span>13</span>
-                <span id="decrease">-15%</span>
+                <span><?php
+                      $stmtTodayV = $connection->prepare("SELECT * FROM booking_details WHERE VisitingDate = ?");
+                      $stmtTodayV->bind_param("s", $todaydate);
+                      $stmtTodayV->execute();
+                      $result = $stmtTodayV->get_result();
+
+                      $stmtTodayV->close();
+                      $todayV = mysqli_num_rows($result);
+                      echo $todayV;
+                      ?></span>
+                <?php
+                $stmtYesV = $connection->prepare("SELECT * FROM booking_details WHERE VisitingDate = ?");
+                $stmtYesV->bind_param("s", $yesterday);
+                $stmtYesV->execute();
+                $result = $stmtYesV->get_result();
+
+                $stmtYesV->close();
+                $yesV = mysqli_num_rows($result);
+
+                $perV = ($todayV / $yesV) * 100;
+
+                if ($perV > 100) {
+                  $newper = (int)$perV - 100;
+                  echo "<span id = \"increase\">+$newper%</span>";
+                } else if ($perCase < 100) {
+                  $newper = 100 - (int)$perV;
+                  echo "<span id = \"decrease\">-$newper%</span>";
+                } else {
+                  echo "<span id = \"increase\">+0%</span>";
+                }
+                ?>
               </div>
             </div>
             <i class="fa-solid fa-users fa-lg"></i>
@@ -165,8 +255,37 @@ function getactivityinfo($activity)
             <div class="statsbody">
               <span>Completed Report</span>
               <div>
-                <span>10</span>
-                <span>+5%</span>
+                <span><?php
+                      $stmtComReport = $connection->prepare("SELECT * FROM cov_report WHERE ReportStatus = 'Completed' AND LastActivityDate = ?");
+                      $stmtComReport->bind_param("s", $todaydate);
+                      $stmtComReport->execute();
+                      $result = $stmtComReport->get_result();
+
+                      $stmtComReport->close();
+                      $todayComReport =  mysqli_num_rows($result);
+                      echo $todayComReport;
+                      ?></span>
+                <?php
+                $stmtComReport = $connection->prepare("SELECT * FROM cov_report WHERE ReportStatus = 'Completed' AND LastActivityDate = ?");
+                $stmtComReport->bind_param("s", $yesterday);
+                $stmtComReport->execute();
+                $result = $stmtComReport->get_result();
+
+                $stmtComReport->close();
+                $yesComReport = mysqli_num_rows($result);
+
+                $perComReport = ($todayComReport / $yesComReport) * 100;
+
+                if ($perComReport > 100) {
+                  $newper = (int)$perComReport - 100;
+                  echo "<span id = \"increase\">+$newper%</span>";
+                } else if ($perComReport < 100) {
+                  $newper = 100 - (int)$perComReport;
+                  echo "<span id = \"decrease\">-$newper%</span>";
+                } else {
+                  echo "<span id = \"increase\">+0%</span>";
+                }
+                ?>
               </div>
             </div>
             <i class="fa-solid fa-file-circle-check fa-lg"></i>
@@ -179,7 +298,18 @@ function getactivityinfo($activity)
                 <span>Reports</span>
                 <div class="my-2">
                   <i class="fa-solid fa-check-double"></i>
-                  <span>63 completed</span>
+                  <span><?php
+                        $monthnow = date('m');
+
+                        $stmtmonthReport = $connection->prepare("SELECT * FROM cov_report WHERE ReportStatus = 'Completed' AND month(LastActivityDate) = ?");
+                        $stmtmonthReport->bind_param("s", $monthnow);
+                        $stmtmonthReport->execute();
+                        $result = $stmtmonthReport->get_result();
+
+                        $stmtmonthReport->close();
+                        $monthReport =  mysqli_num_rows($result);
+                        echo $monthReport;
+                        ?> completed</span>
                   <span>this month</span>
                 </div>
               </div>
@@ -244,10 +374,38 @@ function getactivityinfo($activity)
           <div class="reportactivity glasscard">
             <div class="upperactivity">
               <span>Activity Overview</span>
-              <div class="my-2">
-                <i class="fa-solid fa-arrow-up"></i>
-                <span>24%</span>
-                <span>this month</span>
+              <div class="my-2 activityoverview">
+                <?php
+                $monthlast = date('m', strtotime("-1 month"));
+
+                $stmtcurmonthActivity = $connection->prepare("SELECT * FROM admin_activity WHERE month(ActivityDate) = ?");
+                $stmtcurmonthActivity->bind_param("s", $monthnow);
+                $stmtcurmonthActivity->execute();
+                $result = $stmtcurmonthActivity->get_result();
+
+                $stmtcurmonthActivity->close();
+                $curmonthActivity =  mysqli_num_rows($result);
+
+                $stmtlastmonthActivity = $connection->prepare("SELECT * FROM admin_activity WHERE month(ActivityDate) = ?");
+                $stmtlastmonthActivity->bind_param("s", $monthlast);
+                $stmtlastmonthActivity->execute();
+                $result = $stmtlastmonthActivity->get_result();
+
+                $stmtlastmonthActivity->close();
+                $lastmonthActivity =  mysqli_num_rows($result);
+
+                $permonthActivity = ($curmonthActivity / $lastmonthActivity) * 100;
+
+                if ($permonthActivity > 100) {
+                  $newper = (int)$permonthActivity - 100;
+                  echo "<i class=\"fa-solid fa-arrow-up\"></i><span>+$newper%</span><span> this month</span>";
+                } else if ($permonthActivity < 100) {
+                  $newper = 100 - (int)$permonthActivity;
+                  echo "<i class=\"fa-solid fa-arrow-down\"></i><span>-$newper%</span><span> this month</span>";
+                } else {
+                  echo "<i class=\"fa-solid fa-arrow-up\"></i><span>+0%</span><span> this month</span>";
+                }
+                ?>
               </div>
             </div>
             <div class="bottomactivity" id="activitylist">
@@ -409,12 +567,6 @@ function getactivityinfo($activity)
   <script>
     $(document).ready(function() {
 
-      $d = new Date();
-      $month = $d.getMonth() + 1;
-      $day = $d.getDate();
-      $lastdate = $d.getFullYear() + '-' + ($month < 10 ? '0' : '') + $month + '-' + ($day < 10 ? '0' : '') + $day;
-      $lasthour = $d.getHours() + ":" + $d.getMinutes() + ":" + $d.getSeconds();
-
       $('.editreportbutton').on('click', function() {
 
         $id = $(this).closest("tr").data("id");
@@ -481,6 +633,12 @@ function getactivityinfo($activity)
 
         $('#submitbtn').on('click', function() {
 
+          $d = new Date();
+          $month = $d.getMonth() + 1;
+          $day = $d.getDate();
+          $lastdate = $d.getFullYear() + '-' + ($month < 10 ? '0' : '') + $month + '-' + ($day < 10 ? '0' : '') + $day;
+          $lasthour = $d.getHours() + ":" + $d.getMinutes() + ":" + $d.getSeconds();
+
           $newnote = $('#reportnote').val();
           $reportstatus = "Pending";
           $lastactivity = "Report Submission";
@@ -536,6 +694,13 @@ function getactivityinfo($activity)
       });
 
       $('.deletereportbutton').on("click", function() {
+
+        $d = new Date();
+        $month = $d.getMonth() + 1;
+        $day = $d.getDate();
+        $lastdate = $d.getFullYear() + '-' + ($month < 10 ? '0' : '') + $month + '-' + ($day < 10 ? '0' : '') + $day;
+        $lasthour = $d.getHours() + ":" + $d.getMinutes() + ":" + $d.getSeconds();
+
         $id = $(this).closest("tr").data("id");
         $(".modal-title #deleteModaltitle").text("Report #" + $id);
         $(".modal-body #deleteModalbody").text(
@@ -567,7 +732,7 @@ function getactivityinfo($activity)
             window.location.href = "managecovreport.php";
           } else {
             $searchid = $("#searchreportid").val();
-            $currentURL = window.location.href + '?searchid=' + $searchid;
+            $currentURL = 'managecovreport.php?searchid=' + $searchid;
             window.location.href = $currentURL;
           }
         }

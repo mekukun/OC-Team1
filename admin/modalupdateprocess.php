@@ -28,6 +28,21 @@ if (mysqli_num_rows($result) == 0) {
     $stmt->bind_param("sssss", $id, $adminid, $activity, $lastdate, $lasthour);
     $stmt->execute();
 
+    $stmtCheckCase = $connection->prepare("SELECT * FROM active_cases WHERE ReportID = ?");
+    $stmtCheckCase->bind_param("s", $id);
+    $stmtCheckCase->execute();
+    $result = $stmtCheckCase->get_result();
+
+    if ($reportstatus == "In Progress" && mysqli_num_rows($result) == 0) {
+
+        $stmtActive = $connection->prepare("INSERT INTO active_cases(Date, ReportID) VALUE (?,?)");
+        $stmtActive->bind_param("ss", $lastdate, $id);
+        $stmtActive->execute();
+
+        $stmtActive->close();
+    }
+
+    $stmtCheckCase->close();
     $stmtUpdate->close();
     $stmt->close();
 }

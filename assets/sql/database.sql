@@ -73,6 +73,4 @@ CREATE TABLE `Booking_details` (
 	PRIMARY KEY (`Booking_ID`)
 );
 
-ALTER TABLE `ACTIVE_CASES` ADD FOREIGN KEY (`ReportID`) REFERENCES `COV_REPORT`(`ReportID`);
-
 ALTER TABLE `visitor_information` ADD FOREIGN KEY (`Booking_ID`) REFERENCES `Booking_details`(`Booking_ID`);
