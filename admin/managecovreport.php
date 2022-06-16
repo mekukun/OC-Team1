@@ -157,16 +157,20 @@ function getactivityinfo($activity)
                 $stmtYesUpdate->close();
                 $yesReport = mysqli_num_rows($result);
 
-                $perUpdate = ($todayReport / $yesReport) * 100;
-
-                if ($perUpdate > 100) {
-                  $newper = (int)$perUpdate - 100;
-                  echo "<span id = \"increase\">+$newper%</span>";
-                } else if ($perUpdate < 100) {
-                  $newper = 100 - (int)$perUpdate;
-                  echo "<span id = \"decrease\">-$newper%</span>";
+                if ($yesReport == 0) {
+                  echo "<span id = \"decrease\">NO INFO</span>";
                 } else {
-                  echo "<span id = \"increase\">+0%</span>";
+                  $perUpdate = ($todayReport / $yesReport) * 100;
+
+                  if ($perUpdate > 100) {
+                    $newper = (int)$perUpdate - 100;
+                    echo "<span id = \"increase\">+$newper%</span>";
+                  } else if ($perUpdate < 100) {
+                    $newper = 100 - (int)$perUpdate;
+                    echo "<span id = \"decrease\">-$newper%</span>";
+                  } else {
+                    echo "<span id = \"increase\">+0%</span>";
+                  }
                 }
                 ?>
               </div>
@@ -196,16 +200,20 @@ function getactivityinfo($activity)
                 $stmtYesCase->close();
                 $yesCase = mysqli_num_rows($result);
 
-                $perCase = ($todayCase / $yesCase) * 100;
-
-                if ($perCase > 100) {
-                  $newper = (int)$perCase - 100;
-                  echo "<span id = \"increase\">+$newper%</span>";
-                } else if ($perCase < 100) {
-                  $newper = 100 - (int)$perCase;
-                  echo "<span id = \"decrease\">-$newper%</span>";
+                if ($yesCase == 0) {
+                  echo "<span id = \"decrease\">NO INFO</span>";
                 } else {
-                  echo "<span id = \"increase\">+0%</span>";
+                  $perCase = ($todayCase / $yesCase) * 100;
+
+                  if ($perCase > 100) {
+                    $newper = (int)$perCase - 100;
+                    echo "<span id = \"increase\">+$newper%</span>";
+                  } else if ($perCase < 100) {
+                    $newper = 100 - (int)$perCase;
+                    echo "<span id = \"decrease\">-$newper%</span>";
+                  } else {
+                    echo "<span id = \"increase\">+0%</span>";
+                  }
                 }
                 ?>
               </div>
@@ -235,16 +243,20 @@ function getactivityinfo($activity)
                 $stmtYesV->close();
                 $yesV = mysqli_num_rows($result);
 
-                $perV = ($todayV / $yesV) * 100;
-
-                if ($perV > 100) {
-                  $newper = (int)$perV - 100;
-                  echo "<span id = \"increase\">+$newper%</span>";
-                } else if ($perCase < 100) {
-                  $newper = 100 - (int)$perV;
-                  echo "<span id = \"decrease\">-$newper%</span>";
+                if ($yesV == 0) {
+                  echo "<span id = \"decrease\">NO INFO</span>";
                 } else {
-                  echo "<span id = \"increase\">+0%</span>";
+                  $perV = ($todayV / $yesV) * 100;
+
+                  if ($perV > 100) {
+                    $newper = (int)$perV - 100;
+                    echo "<span id = \"increase\">+$newper%</span>";
+                  } else if ($perCase < 100) {
+                    $newper = 100 - (int)$perV;
+                    echo "<span id = \"decrease\">-$newper%</span>";
+                  } else {
+                    echo "<span id = \"increase\">+0%</span>";
+                  }
                 }
                 ?>
               </div>
@@ -274,16 +286,20 @@ function getactivityinfo($activity)
                 $stmtComReport->close();
                 $yesComReport = mysqli_num_rows($result);
 
-                $perComReport = ($todayComReport / $yesComReport) * 100;
-
-                if ($perComReport > 100) {
-                  $newper = (int)$perComReport - 100;
-                  echo "<span id = \"increase\">+$newper%</span>";
-                } else if ($perComReport < 100) {
-                  $newper = 100 - (int)$perComReport;
-                  echo "<span id = \"decrease\">-$newper%</span>";
+                if ($yesComReport == 0) {
+                  echo "<span id = \"decrease\">NO INFO</span>";
                 } else {
-                  echo "<span id = \"increase\">+0%</span>";
+                  $perComReport = ($todayComReport / $yesComReport) * 100;
+
+                  if ($perComReport > 100) {
+                    $newper = (int)$perComReport - 100;
+                    echo "<span id = \"increase\">+$newper%</span>";
+                  } else if ($perComReport < 100) {
+                    $newper = 100 - (int)$perComReport;
+                    echo "<span id = \"decrease\">-$newper%</span>";
+                  } else {
+                    echo "<span id = \"increase\">+0%</span>";
+                  }
                 }
                 ?>
               </div>
@@ -394,16 +410,20 @@ function getactivityinfo($activity)
                 $stmtlastmonthActivity->close();
                 $lastmonthActivity =  mysqli_num_rows($result);
 
-                $permonthActivity = ($curmonthActivity / $lastmonthActivity) * 100;
-
-                if ($permonthActivity > 100) {
-                  $newper = (int)$permonthActivity - 100;
-                  echo "<i class=\"fa-solid fa-arrow-up\"></i><span>+$newper%</span><span> this month</span>";
-                } else if ($permonthActivity < 100) {
-                  $newper = 100 - (int)$permonthActivity;
-                  echo "<i class=\"fa-solid fa-arrow-down\"></i><span>-$newper%</span><span> this month</span>";
+                if ($lastmonthActivity == 0) {
+                  echo "<i class=\"fa-solid fa-exclamation\"></i><span>NO INFO</span><span> this month</span>";
                 } else {
-                  echo "<i class=\"fa-solid fa-arrow-up\"></i><span>+0%</span><span> this month</span>";
+                  $permonthActivity = ($curmonthActivity / $lastmonthActivity) * 100;
+
+                  if ($permonthActivity > 100) {
+                    $newper = (int)$permonthActivity - 100;
+                    echo "<i class=\"fa-solid fa-arrow-up\"></i><span>+$newper%</span><span> this month</span>";
+                  } else if ($permonthActivity < 100) {
+                    $newper = 100 - (int)$permonthActivity;
+                    echo "<i class=\"fa-solid fa-arrow-down\"></i><span>-$newper%</span><span> this month</span>";
+                  } else {
+                    echo "<i class=\"fa-solid fa-arrow-up\"></i><span>+0%</span><span> this month</span>";
+                  }
                 }
                 ?>
               </div>
