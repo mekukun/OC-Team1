@@ -133,7 +133,7 @@ function getactivityinfo($activity)
         <div class="statsboard">
           <div class="stats glasscard">
             <div class="statsbody">
-              <span>Today's Reports</span>
+              <span>Today's Pendings</span>
               <div>
                 <span><?php
                       $todaydate = date("Y-m-d");
@@ -486,11 +486,17 @@ function getactivityinfo($activity)
         </div>
         <div class="modal-body d-flex flex-column">
           <div class="row mb-2">
-            <div class="col-md-auto">
+            <div class="col">
               <span class="modalsubtitle">Name:</span>
               <span id="residentname"></span>
             </div>
-            <div class="col-md-auto mb-2">
+            <div class="col text-center">
+              <span class="modalsubtitle">Unit No:</span>
+              <span id="unitnumber"></span>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col d-flex justify-content-center">
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="reportvalidation" data-checkbox required disabled />
                 <label class="form-check-label modalsubtitle" for="reportvalidation">Validate</label>
@@ -499,13 +505,13 @@ function getactivityinfo($activity)
                 </div>
               </div>
             </div>
-            <div class="col-md-auto mb-2">
+            <div class="col d-flex justify-content-center">
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="completereport" data-checkbox required disabled />
                 <label class="form-check-label modalsubtitle" for="completereport">Completed</label>
               </div>
             </div>
-            <div class="col-md-auto mb-2">
+            <div class="col d-flex justify-content-center">
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="rejectreport" data-checkbox required disabled />
                 <label class="form-check-label modalsubtitle" for="rejectreport">Reject</label>
@@ -513,11 +519,7 @@ function getactivityinfo($activity)
             </div>
           </div>
           <div class="row mb-2">
-            <div class="col-md-auto">
-              <span class="modalsubtitle">Unit No:</span>
-              <span id="unitnumber"></span>
-            </div>
-            <div class="col-md-auto">
+            <div class="col">
               <span class="modalsubtitle">Contact number:</span>
               <span id="contactnumber"></span>
             </div>
