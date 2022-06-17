@@ -30,7 +30,6 @@ CREATE TABLE `COV_REPORT` (
 	`LastActivity` VARCHAR(255) NOT NULL,
 	`Note` VARCHAR(255),
 	PRIMARY KEY (`ReportID`),
-	FOREIGN KEY (`resident_id`) REFERENCES `resident`(`resident_id`)
 );
 
 CREATE TABLE `ADMIN_ACTIVITY` (
