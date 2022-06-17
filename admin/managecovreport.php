@@ -133,7 +133,7 @@ function getactivityinfo($activity)
         <div class="statsboard">
           <div class="stats glasscard">
             <div class="statsbody">
-              <span>Today's Pendings</span>
+              <span>Today's New Reports</span>
               <div>
                 <span><?php
                       $todaydate = date("Y-m-d");
@@ -265,7 +265,7 @@ function getactivityinfo($activity)
           </div>
           <div class="stats glasscard">
             <div class="statsbody">
-              <span>Completed Report</span>
+              <span>Completed Reports</span>
               <div>
                 <span><?php
                       $stmtComReport = $connection->prepare("SELECT * FROM cov_report WHERE ReportStatus = 'Completed' AND LastActivityDate = ?");
