@@ -1,6 +1,9 @@
 <?php
 include_once('../assets/php/config.php');
 session_start();
+if (empty($_SESSION['adminid'])) {
+  header("Location: ../login.php");
+}
 ?>
 
 <?php
@@ -102,7 +105,7 @@ function getactivityinfo($activity)
         </div>
       </div>
       <div class="logout">
-        <a href="../login.php"><button>
+        <a href="../assets/php/logout.php"><button>
             <i class="fa-solid fa-right-from-bracket"></i>Logout
           </button></a>
       </div>
@@ -486,16 +489,6 @@ function getactivityinfo($activity)
         </div>
         <div class="modal-body d-flex flex-column">
           <div class="row mb-2">
-            <div class="col">
-              <span class="modalsubtitle">Name:</span>
-              <span id="residentname"></span>
-            </div>
-            <div class="col text-center">
-              <span class="modalsubtitle">Unit No:</span>
-              <span id="unitnumber"></span>
-            </div>
-          </div>
-          <div class="row mb-2">
             <div class="col d-flex justify-content-center">
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="reportvalidation" data-checkbox required disabled />
@@ -520,8 +513,28 @@ function getactivityinfo($activity)
           </div>
           <div class="row mb-2">
             <div class="col">
+              <span class="modalsubtitle">Name:</span>
+              <span id="residentname"></span>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
               <span class="modalsubtitle">Contact number:</span>
               <span id="contactnumber"></span>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <span class="modalsubtitle">Block:</span>
+              <span id="block"></span>
+            </div>
+            <div class="col">
+              <span class="modalsubtitle">Floor:</span>
+              <span id="floor"></span>
+            </div>
+            <div class="col">
+              <span class="modalsubtitle">Unit No:</span>
+              <span id="unitnumber"></span>
             </div>
           </div>
           <div class="d-flex flex-column mb-2">
@@ -606,6 +619,8 @@ function getactivityinfo($activity)
           success: function(result) {
             $infoarr = result;
             $('#residentname').text($infoarr['name']);
+            $('#block').text($infoarr['Block']);
+            $('#floor').text($infoarr['FloorLevel']);
             $('#unitnumber').text($infoarr['unit_no']);
             $('#contactnumber').text($infoarr['tel_number']);
             $('#reportdesc').text($infoarr['Description']);

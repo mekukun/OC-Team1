@@ -20,17 +20,21 @@ CREATE TABLE `Admin` (
 	PRIMARY KEY (`admin_id`)
 );
 
-CREATE TABLE `COV_REPORT` (
-	`ReportID` INT NOT NULL AUTO_INCREMENT,
-	`resident_id` INT NOT NULL,
-	`Description` VARCHAR(255) NOT NULL,
-	`LastActivityDate` DATE NOT NULL,
-	`LastActivityHour` TIME NOT NULL,
-	`ReportStatus` VARCHAR(255) NOT NULL,
-	`LastActivity` VARCHAR(255) NOT NULL,
-	`Note` VARCHAR(255),
-	PRIMARY KEY (`ReportID`),
-);
+CREATE TABLE `cov_report` (
+  `ReportID` int(11) NOT NULL AUTO_INCREMENT,
+  `resident_id` int(11) NOT NULL,
+  `DateCreated` date NOT NULL DEFAULT current_timestamp(),
+  `Description` varchar(255) NOT NULL,
+  `LastActivityDate` date NOT NULL,
+  `LastActivityHour` time NOT NULL,
+  `ReportStatus` varchar(255) NOT NULL,
+  `LastActivity` varchar(255) NOT NULL,
+  `Block` varchar(5) NOT NULL,
+  `FloorLevel` int(5) NOT NULL,
+  `unit_no` varchar(255) NOT NULL,
+  `Note` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ReportID`),
+)
 
 CREATE TABLE `ADMIN_ACTIVITY` (
 	`AdminActivityID` INT NOT NULL AUTO_INCREMENT,

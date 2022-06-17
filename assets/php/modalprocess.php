@@ -6,7 +6,7 @@ session_start();
 <?php
 $id = $_POST['id'];
 
-$stmt = $connection->prepare("SELECT resident.name, resident.unit_no, resident.tel_number, cov_report.Description, cov_report.Note, cov_report.ReportStatus, cov_report.LastActivity
+$stmt = $connection->prepare("SELECT resident.name, cov_report.Block, cov_report.FloorLevel, cov_report.unit_no, resident.tel_number, cov_report.Description, cov_report.Note, cov_report.ReportStatus, cov_report.LastActivity
 FROM resident
 INNER JOIN cov_report ON resident.resident_id=cov_report.resident_id WHERE ReportID = ?");
 $stmt->bind_param("s", $id);
