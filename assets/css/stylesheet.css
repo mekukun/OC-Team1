@@ -290,17 +290,19 @@ a {
   color: #565656;
 }
 
-.statsbody div span:nth-last-of-type(2) {
+.statsbody div span {
   color: #000;
   font-size: 1.5rem;
 }
 
-.statsbody div span:nth-last-of-type(1) {
+.statsbody #increase {
   color: limegreen;
+  font-size: 1.1rem;
 }
 
 .statsbody #decrease {
   color: #be0000;
+  font-size: 1.1rem;
 }
 
 .reportboard {
@@ -332,6 +334,14 @@ a {
   justify-content: space-between;
   height: 70vh;
   width: 25vw;
+}
+
+.activityoverview .fa-arrow-up {
+  color: rgb(60, 179, 113);
+}
+
+.activityoverview .fa-arrow-down {
+  color: #a50000;
 }
 
 .upperactivity i {
@@ -417,7 +427,7 @@ a {
   background: red !important;
 }
 
-#newreport {
+#reject {
   color: red;
 }
 

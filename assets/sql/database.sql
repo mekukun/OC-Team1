@@ -8,9 +8,7 @@ CREATE TABLE `Resident` (
 	`password` varchar(25) NOT NULL,
 	`name` varchar(50) NOT NULL,
 	`tel_number` varchar(25),
-	`address` varchar(255),
-	`postcode` INT(25),
-	`state` varchar(25),
+	`unit_no` varchar(255),
 	PRIMARY KEY (`resident_id`)
 );
 
@@ -24,12 +22,26 @@ CREATE TABLE `Admin` (
 
 CREATE TABLE `COV_REPORT` (
 	`ReportID` INT NOT NULL AUTO_INCREMENT,
+	`resident_id` INT NOT NULL,
+	`Description` VARCHAR(255) NOT NULL,
 	`LastActivityDate` DATE NOT NULL,
+	`LastActivityHour` TIME NOT NULL,
 	`ReportStatus` VARCHAR(255) NOT NULL,
 	`LastActivity` VARCHAR(255) NOT NULL,
-	`RoomNo` VARCHAR(255) NOT NULL,
 	`Note` VARCHAR(255),
-	PRIMARY KEY (`ReportID`)
+	PRIMARY KEY (`ReportID`),
+	FOREIGN KEY (`resident_id`) REFERENCES `resident`(`resident_id`)
+);
+
+CREATE TABLE `ADMIN_ACTIVITY` (
+	`AdminActivityID` INT NOT NULL AUTO_INCREMENT,
+	`ReportID` INT NOT NULL,
+	`admin_id` INT NOT NULL,
+	`Activity` VARCHAR(255) NOT NULL,
+	`ActivityDate` DATE NOT NULL,
+	`ActivityHour` TIME NOT NULL,
+	PRIMARY KEY (`AdminActivityID`),
+	FOREIGN KEY (`admin_id`) REFERENCES `Admin`(`admin_id`)
 );
 
 CREATE TABLE `ACTIVE_CASES` (
@@ -60,7 +72,5 @@ CREATE TABLE `Booking_details` (
 	`Number_of_Adults_Guests` INT NOT NULL,
 	PRIMARY KEY (`Booking_ID`)
 );
-
-ALTER TABLE `ACTIVE_CASES` ADD FOREIGN KEY (`ReportID`) REFERENCES `COV_REPORT`(`ReportID`);
 
 ALTER TABLE `visitor_information` ADD FOREIGN KEY (`Booking_ID`) REFERENCES `Booking_details`(`Booking_ID`);
