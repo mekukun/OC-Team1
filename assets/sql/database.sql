@@ -33,7 +33,7 @@ CREATE TABLE `cov_report` (
   `FloorLevel` int(5) NOT NULL,
   `unit_no` varchar(255) NOT NULL,
   `Note` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ReportID`),
+  PRIMARY KEY (`ReportID`)
 )
 
 CREATE TABLE `ADMIN_ACTIVITY` (
