@@ -142,7 +142,7 @@ function getactivityinfo($activity)
                       $todaydate = date("Y-m-d");
                       $yesterday = date("Y-m-d", strtotime("yesterday"));
 
-                      $stmtTodayUpdate = $connection->prepare("SELECT * FROM cov_report WHERE ReportStatus = 'Pending' AND LastActivityDate = ?");
+                      $stmtTodayUpdate = $connection->prepare("SELECT * FROM cov_report WHERE DateCreated = ?");
                       $stmtTodayUpdate->bind_param("s", $todaydate);
                       $stmtTodayUpdate->execute();
                       $result = $stmtTodayUpdate->get_result();
@@ -152,7 +152,7 @@ function getactivityinfo($activity)
                       echo $todayReport;
                       ?></span>
                 <?php
-                $stmtYesUpdate = $connection->prepare("SELECT * FROM cov_report WHERE ReportStatus = 'Pending' AND LastActivityDate = ?");
+                $stmtYesUpdate = $connection->prepare("SELECT * FROM cov_report WHERE DateCreated = ?");
                 $stmtYesUpdate->bind_param("s", $yesterday);
                 $stmtYesUpdate->execute();
                 $result = $stmtYesUpdate->get_result();
