@@ -352,14 +352,14 @@ function getactivityinfo($activity)
                   if (isset($_GET['searchid'])) {
                     $searchid = $_GET['searchid'];
 
-                    $stmtColumn = $connection->prepare("SELECT * FROM cov_report WHERE ReportID = ? ORDER BY LastActivityDate DESC, LastActivityHour DESC");
+                    $stmtColumn = $connection->prepare("SELECT * FROM cov_report WHERE ReportID = ? ORDER BY LastActivityDate ASC, LastActivityHour ASC");
                     $stmtColumn->bind_param("s", $searchid);
                     $stmtColumn->execute();
                     $result = $stmtColumn->get_result();
 
                     $stmtColumn->close();
                   } else {
-                    $sql = "SELECT * FROM cov_report ORDER BY LastActivityDate DESC, LastActivityHour DESC";
+                    $sql = "SELECT * FROM cov_report ORDER BY LastActivityDate ASC, LastActivityHour ASC";
                     $result = mysqli_query($connection, $sql);
                   }
 
