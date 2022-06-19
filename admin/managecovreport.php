@@ -254,7 +254,7 @@ function getactivityinfo($activity)
                   if ($perV > 100) {
                     $newper = (int)$perV - 100;
                     echo "<span id = \"increase\">+$newper%</span>";
-                  } else if ($perCase < 100) {
+                  } else if ($perV < 100) {
                     $newper = 100 - (int)$perV;
                     echo "<span id = \"decrease\">-$newper%</span>";
                   } else {

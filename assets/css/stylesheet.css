@@ -336,6 +336,10 @@ a {
   width: 25vw;
 }
 
+.activityoverview .fa-exclamation {
+  color: orangered;
+}
+
 .activityoverview .fa-arrow-up {
   color: rgb(60, 179, 113);
 }

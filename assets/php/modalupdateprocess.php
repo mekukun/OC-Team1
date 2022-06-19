@@ -1,6 +1,9 @@
 <?php
 include_once('config.php');
 session_start();
+if (empty($_SESSION['adminid'])) {
+    header("Location: ../../login.php");
+}
 ?>
 
 <?php
