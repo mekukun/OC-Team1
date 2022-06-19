@@ -13,7 +13,7 @@ if ($type == "admin") { //go to admin table
         $res = $result->fetch_assoc();
         $_SESSION['adminid'] = $res['admin_id'];
         $_SESSION["email"] = $email;
-        $_SESSION["password"] = $password;
+        $_SESSION["userType"] = $type;
         header("Location:../../admin/profileadmin.php");
     } else {
         header("location:../../login.php?msg=failed");

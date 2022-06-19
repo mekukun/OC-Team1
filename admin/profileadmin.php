@@ -1,5 +1,14 @@
 <?php
+include_once("../assets/php/config.php");
 session_start();
+
+if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['userType'])) {
+  $adminID = $_SESSION['adminid'];
+  $email = $_SESSION['email'];
+  $userType = $_SESSION['userType'];
+} else {
+  header("Location: ../login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +36,7 @@ session_start();
     </div>
     <hr />
     <div class="icontainer">
-      <a href="manageresidents.html">
+      <a href="manageresidents.php">
         <div class="navcontrol">
           <i class="fa-solid fa-house-medical"></i>
           <span>Manage Residents</span>
@@ -57,7 +66,7 @@ session_start();
 
       <!-- Logout Button -->
       <div class="logout">
-        <a href="../login.php"><button>
+        <a href="../assets/php/logout.php"><button>
             <i class="fa-solid fa-right-from-bracket"></i>Logout
           </button></a>
       </div>
@@ -78,7 +87,7 @@ session_start();
         </div>
         <div class="rightdash">
           <div class="status"><span>ADMIN</span></div>
-          <a href="profileadmin.html">
+          <a href="profileadmin.php">
             <div><i class="fa-solid fa-user"></i><span>User</span></div>
           </a>
         </div>
@@ -95,9 +104,13 @@ session_start();
             </figure>
           </div>
         </section>
-
+        <?php
+        //extract data
+        $result = mysqli_query($connection, "SELECT * FROM admin WHERE admin_id = $adminID");
+        $res = mysqli_fetch_array($result);
+        ?>
         <section class="nickname">
-          <h1>Stickman Black</h1>
+          <h1><?php echo $res['name'] ?></h1>
         </section>
 
         <div class="leftprofile">
@@ -125,7 +138,7 @@ session_start();
 
                 <li class="email">
                   <h1 class="label">Email Address:</h1>
-                  <span class="info">blackstickman@gmail.com</span>
+                  <span class="info"><?php echo $res['email'] ?></span>
                 </li>
               </ul>
             </div>
@@ -140,7 +153,7 @@ session_start();
               <ul>
                 <li class="name">
                   <h1 class="label">Full Name:</h1>
-                  <span class="info"> StickMan Black</span>
+                  <span class="info"> <?php echo $res['name'] ?></span>
                 </li>
 
                 <li class="job">
@@ -167,19 +180,19 @@ session_start();
               <ul>
                 <li class="username">
                   <h1 class="label">Username:</h1>
-                  <span class="info">Blackyy</span>
+                  <span class="info"><?php echo $res['email'] ?></span>
                 </li>
 
                 <li class="password">
                   <h1 class="label">Password:</h1>
-                  <span class="info">xxxxxxxx</span>
+                  <span class="info"><?php echo $res['password'] ?></span>
                 </li>
               </ul>
             </div>
           </section>
 
           <!-- Buttons -->
-          <section class="button_area">
+          <!--<section class="button_area">
             <div class="edit">
               <button>Edit Profile</button>
             </div>
@@ -187,7 +200,8 @@ session_start();
               <button>Delete Account</button>
               <a href="managecovreport.php">cov report</a>
             </div>
-          </section>
+          </section>-->
+
         </div>
       </div>
     </div>
