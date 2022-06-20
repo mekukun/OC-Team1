@@ -1073,22 +1073,26 @@ form.log-in-form {
 }
 
 .dashboard2 {
-  margin-left: 19%; 
-  margin-right: 8%;
-  
+  padding-left: 1.4rem;
+  padding-right: 1.5rem;
+  padding-top: 2%;
+  margin-left: 20.93%;
+  margin-top: 0.5%;
   font-weight: 400;
   align-items: flex-start;
   font-size: 1rem;
   float: top;
   display: flex;
   height: 88.3vh;
-  width: 80%;
+  width: fit-content;
   justify-content: space-between;
   overflow-y: scroll;
   border: #00b8be outset thin;
   border-left-color: cornflowerblue;
   border-top-left-radius: cornflowerblue;
   border-top-right-radius: rgb(184, 138, 37);
+  border-right: rgb(184, 138, 37);
+  border-radius: 99px;
 }
 
 .dashboard2::-webkit-scrollbar {
