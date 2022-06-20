@@ -42,7 +42,7 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
                     <span>Manage Residents</span>
                 </div>
             </a>
-            <a href="managecovreport.html">
+            <a href="managecovreport.php">
                 <div class="navcontrol">
                     <i class="fa-solid fa-user-group"></i>
                     <span>Manage Cov-19 Reports</span>
@@ -156,7 +156,7 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/c2eb2d7176.js" crossorigin="anonymous"></script>
     <script src="../assets/js/jquery.dataTables.min.js"></script>
-    <script src="../assets/js/dataTables.bootstrap5.min.js"></script>                   
+    <script src="../assets/js/dataTables.bootstrap5.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#dataTable').DataTable();

@@ -77,13 +77,13 @@ function getactivityinfo($activity)
     </div>
     <hr />
     <div class="icontainer">
-      <a href="manageresidents.html">
+      <a href="manageResidents.php">
         <div class="navcontrol">
           <i class="fa-solid fa-house-chimney icon-sizing"></i>
           <span>Manage Residents</span>
         </div>
       </a>
-      <a href="managecovreport.html">
+      <a href="managecovreport.php">
         <div class="selected navcontrol">
           <i class="fa-solid fa-flag"></i>
           <span>Manage Cov-19 Reports</span>
@@ -127,7 +127,7 @@ function getactivityinfo($activity)
         </div>
         <div class="rightdash">
           <div class="status"><span>ADMIN</span></div>
-          <a href="profileadmin.html">
+          <a href="managecovreport.php">
             <div><i class="fa-solid fa-user"></i><span>User</span></div>
           </a>
         </div>
@@ -161,7 +161,7 @@ function getactivityinfo($activity)
                 $yesReport = mysqli_num_rows($result);
 
                 if ($yesReport == 0) {
-                  echo "<span id = \"decrease\">NO INFO</span>";
+                  echo "<span id = \"decrease\">N/A</span>";
                 } else {
                   $perUpdate = ($todayReport / $yesReport) * 100;
 
@@ -204,7 +204,7 @@ function getactivityinfo($activity)
                 $yesCase = mysqli_num_rows($result);
 
                 if ($yesCase == 0) {
-                  echo "<span id = \"decrease\">NO INFO</span>";
+                  echo "<span id = \"decrease\">N/A</span>";
                 } else {
                   $perCase = ($todayCase / $yesCase) * 100;
 
@@ -247,7 +247,7 @@ function getactivityinfo($activity)
                 $yesV = mysqli_num_rows($result);
 
                 if ($yesV == 0) {
-                  echo "<span id = \"decrease\">NO INFO</span>";
+                  echo "<span id = \"decrease\">N/A</span>";
                 } else {
                   $perV = ($todayV / $yesV) * 100;
 
@@ -290,7 +290,7 @@ function getactivityinfo($activity)
                 $yesComReport = mysqli_num_rows($result);
 
                 if ($yesComReport == 0) {
-                  echo "<span id = \"decrease\">NO INFO</span>";
+                  echo "<span id = \"decrease\">N/A</span>";
                 } else {
                   $perComReport = ($todayComReport / $yesComReport) * 100;
 
@@ -414,7 +414,7 @@ function getactivityinfo($activity)
                 $lastmonthActivity =  mysqli_num_rows($result);
 
                 if ($lastmonthActivity == 0) {
-                  echo "<i class=\"fa-solid fa-exclamation\"></i><span>NO INFO</span><span> this month</span>";
+                  echo "<i class=\"fa-solid fa-exclamation\"></i><span>N/A</span><span> this month</span>";
                 } else {
                   $permonthActivity = ($curmonthActivity / $lastmonthActivity) * 100;
 
