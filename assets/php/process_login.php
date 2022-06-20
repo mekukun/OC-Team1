@@ -14,7 +14,7 @@ if ($type == "admin") { //go to admin table
         $_SESSION['adminid'] = $res['admin_id'];
         $_SESSION["email"] = $email;
         $_SESSION["userType"] = $type;
-        header("Location:../../admin/profileadmin.php");
+        header("Location:../../admin/managecovreport.php");
     } else {
         header("location:../../login.php?msg=failed");
         die();

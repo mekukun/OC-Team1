@@ -785,7 +785,7 @@ form.log-in-form {
 }
 
 /* profile page */
-.face {
+#faceprofile {
   margin: 1.5px;
   padding: 1.5px;
   position: relative;
