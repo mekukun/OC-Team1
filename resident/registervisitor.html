@@ -12,13 +12,13 @@
   <script src="https://kit.fontawesome.com/c2eb2d7176.js" crossorigin="anonymous"></script>
   <!-- <script src="/assets/js/Visitor.js"></script> -->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+  
 </head>
 
 
 <body>
   <nav>
-    <div class="bottom icontainer"><img src="../assets/img/logo.png" width="230" height="100"></div>
+    <div class="icontainer"><img src="../assets/img/logo.png" width="230" height="150"></div>
     <hr />
     <div class="icontainer">
       <a href="viewnearbyfacilities.html">
@@ -51,7 +51,7 @@
         <div><button onclick="window.location.href='../TermsFAQ.html#FAQ'">FAQ</button></div>
       </div>
       <div class="logout">
-        <a href="../login.php"><button><i class="fa-solid fa-right-from-bracket"></i>Logout</button></a>
+        <a href="..\assets\php\logout.php"><button><i class="fa-solid fa-right-from-bracket"></i>Logout</button></a>
       </div>
     </div>
   </nav>
@@ -67,31 +67,31 @@
           </div>
           <div style="font-weight: bold;"><span>Register Visitor</span></div>
         </div>
-        <div class="rightdash">
-          <div class="status"><span>RESIDENT</span></div>
+        <div class="rightdash"style="-ms-flex-align: center; align-self:flex-end;">
+          <div class="status"><span>LOW RISK</span></div>
           <a href="profile.html">
             <div><i class="fa-solid fa-user"></i><span>User</span></div>
           </a>
         </div>
       </div>
-      <div>
+      <div style="padding-left: 15.7em;">
         <!-- enter code here -->
         <div class="dashboard2">
           <div class="leftdash2">
             <div class="formcontainer">
               <div class="title">Register Visitor</div>
-              <form action="#">
+              <form action="..\assets\php\register-visitor.php" method="post" >
                 <div class="user-details">
 
                   <!-- Name -->
                   <div style="margin-right: 40%;" class="name">
                     <div class="input-box">
                       <span class="details">First Name</span>
-                      <input type="text" placeholder="Enter Your First Name" id="Fname" required>
+                      <input type="text" placeholder="Enter Your First Name" id="Fname" name="Firstname" required>
                     </div>
                     <div class="input-box">
                       <span class="details">Last Name</span>
-                      <input style="padding-left: 0%;" type="text" placeholder="Enter Your Last Name" id="Lname" required>
+                      <input style="padding-left: 0%;" type="text" placeholder="Enter Your Last Name" id="Lname" name="Lastname" required>
                     </div><br>
                     <hr>
                   </div><br>
@@ -101,12 +101,12 @@
                     <div class="globe">
                       <div class="input-box">
                         <span class="details">City </span>
-                        <input class="ab" type="text" placeholder="Eg. Abu Dhabi" id="city" required >
+                        <input class="ab" type="text" placeholder="Eg. Abu Dhabi" id="city" name="City" required >
                       </div>
 
                       <div class="input-box">
                         <span class="details">Province/Country</span>
-                        <input class="ab" type="text" placeholder="Eg. United Arab Emirates" id="prov" required>
+                        prov: <input class="ab" type="text" placeholder="Eg. United Arab Emirates" name="Province" id="prov">
                       </div>
                     </div>
 
@@ -118,18 +118,18 @@
                     <div class="globe">
                       <div class="input-box">
                         <span class="details">Mobile Number </span>
-                        <input class="ab" type="tel" placeholder="+ CountryCode-Number" id="Pphone" required>
+                        <input class="ab" type="tel" placeholder="+ CountryCode-Number" id="Pphone" name="MobileNumber" required>
                       </div>
 
                       <div class="input-box">
                         <span class="details">Home Number</span>
-                        <input class="ab" type="tel" placeholder="Number">
+                        <input class="ab" type="tel" placeholder="text" name="HomeNumber">
                       </div>
                     </div>
 
                     <div class="input-box">
                       <span class="details">Email</span>
-                      <input class="email" type="email" placeholder="email" id="email" required>
+                      <input class="email" type="email" placeholder="email" id="email" name="Email" required>
                     </div>
 
                   </div>
@@ -140,12 +140,12 @@
                     <div class="globe">
                       <div class="input-box">
                         <span class="details">visiting Date</span>
-                        <input class="ab" type="date" placeholder="Date" id="checkIn" required >
+                        <input class="ab" type="date" placeholder="Date" id="checkIn" name="VisitingDate" required >
                       </div>
 
                       <div class="input-box">
                         <span class="details">Car Number</span>
-                        <input class="ab" type="text" placeholder="Number" id="Car" required>
+                        <input class="ab" type="text" placeholder="text" name="CarNumber" id="Car">
                       </div>
 
 
@@ -154,62 +154,15 @@
                     <div class="globe">
                       <div class="input-box">
                         <span class="details">Unit Number</span>
-                        <input class="ab" type="number" min="1" placeholder="No.of Rooms" id="roomNum" required>
+                        <input class="ab" type="number" min="1" placeholder="No.of Rooms" name="UnitNumber" id="roomNum" required>
                       </div>
 
                       <div class="input-box">
                         <span class="details">Number of Adults Guests</span> <!-- Max 3 adults per room-->
-                        <input class="ab" type="number" min="1" placeholder="No.of adults" id="guestNum" >
+                        <input class="ab" type="number" min="1" placeholder="No.of adults" name="Number_of_Adults_Guests" id="guestNum" >
                       </div>
                     </div><br><br>
 
-
-                    <span class="Service-Title">
-                      <h2>Add ON'S </h2>
-                    </span>
-
-                    <div class="input-box">
-                      <div class="globeS">
-                        <span>
-                          <pre>Lease Pocket Wifi  </pre>
-                          <hr>
-                        </span>
-                        <input class="b" type="checkbox">
-                      </div>
-                    </div>
-
-                    <div class="extra-Service">
-                      <span class="ex-title">coming by </span>
-                      <input type="radio" name="carService" id="dot-1">
-                      <input type="radio" name="carService" id="dot-2">
-                      <input type="radio" name="carService" id="dot-3">
-                      <div class="Category">
-                        <label for="dot-1">
-                          <span class="dot one"></span>
-                          <span class="Options">Small car</span>
-                          
-                        </label>
-                        <label for="dot-2">
-                          <span class="dot one"></span>
-                          <span class="Options">Jeep</span>
-                          
-                        </label>
-                        <label for="dot-3">
-                          <span class="dot one"></span>
-                          <span class="Options">On foot</span>
-                          
-                        </label>
-                      </div>
-                    </div>
-                    <div class="input-box">
-                      <span class="details">Notes/Special requirements:</span>
-                      <input style="text-overflow: ellipsis;" type="text" placeholder="#1 addOn">
-                      <input style="text-overflow: ellipsis;" type="text" placeholder="#2 addOn">
-                      <input style="text-overflow: ellipsis;" type="text" placeholder="#3 addOn">
-                      <input style="text-overflow: ellipsis;" type="text" placeholder="#4 addOn">
-                      <input style="text-overflow: ellipsis;" type="text" placeholder="#5 addOn">
-                      <hr>
-                    </div>
                   </div>
                   <!-- Print out price info Information -->
                   <!-- Submit-->
