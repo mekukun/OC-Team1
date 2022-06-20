@@ -31,7 +31,7 @@ if ($type == "admin") { //go to admin table
             $_SESSION["userid"] = $userid;
         }
 
-        header("Location: ../../resident/profile.html?msg=$userid");
+        header("Location: ../../resident/profile.php?msg=$userid");
     } else {
         header("location:../../login.php?msg=failed");
         die();

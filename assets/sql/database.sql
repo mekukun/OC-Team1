@@ -2,15 +2,20 @@ CREATE DATABASE community;
 
 USE community;
 
-CREATE TABLE `Resident` (
-	`resident_id` INT NOT NULL AUTO_INCREMENT,
-	`email` VARCHAR(255) NOT NULL UNIQUE,
-	`password` varchar(25) NOT NULL,
-	`name` varchar(50) NOT NULL,
-	`tel_number` varchar(25),
-	`unit_no` varchar(255),
-	PRIMARY KEY (`resident_id`)
-);
+CREATE TABLE `resident` (
+  `resident_id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(25) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `tel_number` varchar(25) DEFAULT NULL,
+  `unit_no` varchar(255) DEFAULT NULL,
+  `gender` varchar(25) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL,
+  `state` varchar(25) DEFAULT NULL,
+  `photo` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`resident_id`),
+  UNIQUE KEY `email` (`email`)
+)
 
 CREATE TABLE `Admin` (
 	`admin_id` INT NOT NULL AUTO_INCREMENT,
@@ -74,6 +79,33 @@ CREATE TABLE `Booking_details` (
 	`UnitNumber` INT NOT NULL,
 	`Number_of_Adults_Guests` INT NOT NULL,
 	PRIMARY KEY (`Booking_ID`)
+);
+
+CREATE TABLE `restaurant` (
+  `restaurant_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `contact` varchar(20) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  PRIMARY KEY (`restaurant_id`)
+);
+
+CREATE TABLE `grocery` (
+  `grocery_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `contact` varchar(20) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  PRIMARY KEY (`grocery_id`)
+);
+
+CREATE TABLE `medical` (
+  `medical_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `contact` varchar(20) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  PRIMARY KEY (`medical_id`)
 );
 
 ALTER TABLE `visitor_information` ADD FOREIGN KEY (`Booking_ID`) REFERENCES `Booking_details`(`Booking_ID`);
