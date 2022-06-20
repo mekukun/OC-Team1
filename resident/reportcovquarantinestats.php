@@ -34,7 +34,7 @@ if (empty($_SESSION['userid'])) {
 		</div>
 		<hr />
 		<div class="icontainer">
-			<a href="viewnearbyfacilities.html">
+			<a href="viewnearbyfacilities.php">
 				<div class="navcontrol">
 					<i class="fa-solid fa-house-medical"></i>
 					<span>View Nearby Facilities</span>
@@ -84,7 +84,7 @@ if (empty($_SESSION['userid'])) {
 				</div>
 				<div class="rightdash">
 					<div class="status"><span>RESIDENT</span></div>
-					<a href="profile.html">
+					<a href="profile.php">
 						<div><i class="fa-solid fa-user"></i><span>User</span></div>
 					</a>
 				</div>
