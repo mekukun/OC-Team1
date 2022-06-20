@@ -54,7 +54,11 @@
             <div style="font-weight: bold"><span>Need help?</span></div>
             <div><span>Please check our FAQ</span></div>
           </div>
-          <div><button onclick="window.location.href='../../TermsFAQ.html#FAQ'">FAQ</button></div>
+          <div>
+            <button onclick="window.location.href='../../TermsFAQ.html#FAQ'">
+              FAQ
+            </button>
+          </div>
         </div>
         <div class="logout">
           <a href="../../login.php"
@@ -87,29 +91,53 @@
           </div>
         </div>
         <div class="face pt-5">
-              <!-- enter your code here -->
-              <button id="backbtn" onclick="window.location.href='../viewnearbyfacilities.html'">BACK</button>
-              <div style="text-align:center;">
-                <img src="../../assets/img/Dominos.jpg" class="img-fluid" alt="Responsive image" align="middle" height="500" width="650">
-            </div>
-            <br>
-            <p>
-               <strong> Domino's Pizza started with just one store called "DomiNick's" bought by brothers Tom and James Monaghan 
-                for $500 in 1960. James traded his half of the business to Tom in 1965, and as sole owner Tom renamed the business 
-                Domino's Pizza Inc. In 1978 the 200th Domino's store opened, and things really began to cook.<br>
-                By 1983 there were 1,000 Domino's stores, and in the same year Domino's opened its first international store in 
-                Winnipeg, Canada, followed by its first store on the Australasian continent in Queensland, Australia in the same year. 
-                By 1989 Domino's had 5,000 stores in operation, making it the fastest-growing pizza company in the world, with stores 
-                in the UK, Japan, and South America.<br>
-  
-              <h4> <strong> Contact Us</strong> </h4>
-                23, Jalan 14/20, Seksyen 14, <br>
-                46100 Petaling Jaya, Selangor<br>
-                Hotline: 1300-888-333 <br>
-              </strong>   
-              </p>
+          <!-- enter your code here -->
+          <button id="backbtn" onclick="window.location.href='../viewnearbyfacilities.php'">BACK</button>
 
+          <?php
+          include_once('../../assets/php/config.php');
+          session_start();
+          $num = 2;
+          $sql = "SELECT * FROM restaurant WHERE restaurant_id = '".$num."'";
+          $result = $connection->query($sql);
+
+          if ($result->num_rows > 0)
+          {
+          while ($row = $result->fetch_assoc())
+          {
+
+      ?>
+          <div style="text-align: center">
+            <img
+              src="../../assets/img/kfc.webp"
+              class="img-fluid"
+              alt="Responsive image"
+              align="middle"
+              height="600"
+              width="500"
+            />
           </div>
+          <br />
+          <p>
+          <strong> 
+
+        <?php echo $row["description"];?>
+
+          </strong>   
+
+          <h4> <strong> Contact Us</strong> </h4>
+          <strong> 
+        <?php echo $row["contact"];?> 
+          </strong>
+          <h4> <strong> Address</strong> </h4>
+          <strong> 
+        <?php echo $row["address"];?>
+          </strong>
+        </p>
+          <?php
+            }
+            }
+          ?>
         </div>
       </div>
     </main>

@@ -86,27 +86,47 @@
             >
           </div>
         </div>
-        <div class="face pt-4">
+        <div class="face pt-5">
               <!-- enter your code here -->
-              <button id="backbtn" onclick="window.location.href='../viewnearbyfacilities.html'">BACK</button>
-              <div style="text-align:center;">
-              <img src="../../assets/img/speedmart.webp" class="img-fluid"  alt="Responsive image" height="400" width="800">
-              </div>
-              <br>
+              <button id="backbtn" onclick="window.location.href='../viewnearbyfacilities.php'">BACK</button>
+            
+        <?php
+          include_once('../../assets/php/config.php');
+          session_start();
+          $num = 1;
+          $sql = "SELECT * FROM medical WHERE medical_id = '".$num."'";
+          $result = $connection->query($sql);
+
+          if ($result->num_rows > 0)
+          {
+            while ($row = $result->fetch_assoc())
+            {
+    
+        ?>
+            <div style="text-align:center;">
+              <img src="../../assets/img/sjmc.jpg" class="img-fluid"  alt="Responsive image" height="700" width="700">
+             </div>
+             <br>
               <p>
-                 <strong> 99 Speedmart® is a rapidly growing chain of refreshing mini-markets (mini supermarkets) that meets multiracial
-                consumer’s needs for groceries and services, offering unbeatable value and absolute convenience! Our name is a 
-                promise to our customers that we will strive for perfection and efficiency, ensuring that our customers can shop 
-                in an environment that is accessible and welcoming. <br>
- 
+              <strong> 
+
+                <?php echo $row["description"];?>
+
+                </strong>   
+
                 <h4> <strong> Contact Us</strong> </h4>
-                    Beside Jaya one,<br>
-                    Jalan 17/2 Petaling Jaya Selangor <br>
-                    46400 Kuala Lumpur, Malaysia. <br>
-                    Email : customer_service@99speedmart.com.my <br>
-                    Phone : 603 3362 6863
-            </strong>   
-                  </p>
+                <strong> 
+            <?php echo $row["contact"];?> 
+                </strong>
+            <h4> <strong> Address</strong> </h4>
+                <strong> 
+                <?php echo $row["address"];?>
+                </strong>
+                </p>
+          <?php
+                  }
+                  }
+          ?>
 
           </div>
         </div>

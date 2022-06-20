@@ -88,30 +88,45 @@
         </div>
         <div class="face pt-5">
               <!-- enter your code here -->
-              <button id="backbtn" onclick="window.location.href='../viewnearbyfacilities.html'">BACK</button>
-            <div style="text-align:center;">
-              <img src="../../assets/img/kk.jpg" class="img-fluid"  alt="Responsive image" height="400" width="400">
+             <button id="backbtn" onclick="window.location.href='../viewnearbyfacilities.php'">BACK</button>
+
+          <?php
+          include_once('../../assets/php/config.php');
+          session_start();
+          $num = 3;
+          $sql = "SELECT * FROM restaurant WHERE restaurant_id = '".$num."'";
+          $result = $connection->query($sql);
+
+          if ($result->num_rows > 0)
+          {
+          while ($row = $result->fetch_assoc())
+          {
+
+      ?>
+              <div style="text-align:center;">
+                <img src="../../assets/img/Dominos.jpg" class="img-fluid" alt="Responsive image" align="middle" height="500" width="650">
             </div>
             <br>
-              <p>
-                <h>
-                 <strong> KK SUPER MART is the flagship business of the Group. KK SUPER MART is a one-stop convenience chain store
-                      that is well-loved by the locals. Throughout 21 years of serving our customers, it has expanded 
-                      exponentially to more than 579 outlets located mainly in Selangor, Kuala Lumpur, Putrajaya, Melaka, Negeri 
-                      Sembilan, Johor, Pahang and Sarawak. Our goal is to achieve 1,000 outlets with the desire of becoming a household
-                     name throughout Malaysia and beyond the shores.<br>
- 
-                <h4> <strong> Contact Us</strong> </h4>
-                    Beside Jaya one,<br>
-                    Jalan 17/2 Petaling Jaya Selangor <br>
-                    46400 Kuala Lumpur, Malaysia. <br>
-                    Tel: +603 – 9057 3308 <br>
-                    Fax: + 603 – 9057 6308 <br>
-                    Careline: +6016 – 228 1822 <br>
-                </h6>
-            </strong>   
-                  </p>
+            <p>
+              <strong> 
 
+        <?php echo $row["description"];?>
+
+          </strong>   
+
+          <h4> <strong> Contact Us</strong> </h4>
+          <strong> 
+        <?php echo $row["contact"];?> 
+          </strong>
+          <h4> <strong> Address</strong> </h4>
+          <strong> 
+        <?php echo $row["address"];?>
+          </strong>
+        </p>
+          <?php
+            }
+            }
+          ?>
           </div>
         </div>
       </div>

@@ -54,7 +54,11 @@
             <div style="font-weight: bold"><span>Need help?</span></div>
             <div><span>Please check our FAQ</span></div>
           </div>
-          <div><button onclick="window.location.href='../../TermsFAQ.html#FAQ'">FAQ</button></div>
+          <div>
+            <button onclick="window.location.href='../../TermsFAQ.html#FAQ'">
+              FAQ
+            </button>
+          </div>
         </div>
         <div class="logout">
           <a href="../../login.php"
@@ -86,34 +90,56 @@
             >
           </div>
         </div>
-        <div class="face pt-5">
-              <!-- enter your code here -->
-              <button id="backbtn" onclick="window.location.href='../viewnearbyfacilities.html'">BACK</button>
-            <div style="text-align:center;">
-              <img src="../../assets/img/sjmc.jpg" class="img-fluid"  alt="Responsive image" height="700" width="700">
-             </div>
-             <br>
-              <p>
-            <h>
-             <strong> Subang Jaya Medical Centre (SJMC) is the flagship hospital of Ramsay Sime Darby Health Care, a joint venture 
-                 between Ramsay Health Care, Australia and Sime Darby, Malaysia. It is a 444-bed multi-disciplinary and tertiary care 
-                 private hospital located in the bustling subarban township of Subang Jaya, about 30 minute drive to Kuala Lumpur city 
-                 centre and the Kuala Lumpur International Airport (KLIA) via major highways.
-                 The Emergency Department is a 24 hours center that caters for all emergencies. The ER team provides excellent service 
-                 to our customers with a patient centered approach.
-                 <br>
+        <div class="face pt-4">
+          <!-- enter your code here -->
+          <button
+            id="backbtn" onclick="window.location.href='../viewnearbyfacilities.php'">BACK</button>
 
-              <h4> <strong> Contact Us</strong> </h4>
-              Jalan SS 12/1A <br>
-              47500 Subang Jaya,<br>
-              Selangor, Malaysia <br>
-              24 Hours General Careline: +603 5639 1212 <br>
-              International Patient Centre: sjmc.ipc@rsdhealth.com <br>
-            </h6>
-        </strong>   
-              </p>
+            <?php
+          include_once('../../assets/php/config.php');
+          session_start();
+          $num = 2;
+          $sql = "SELECT * FROM medical WHERE medical_id = '".$num."'";
+          $result = $connection->query($sql);
 
+          if ($result->num_rows > 0)
+          {
+            while ($row = $result->fetch_assoc())
+            {
+    
+        ?>
+
+          <div style="text-align: center">
+            <img
+              src="../../assets/img/kpj.jpg"
+              class="img-fluid"
+              alt="Responsive image"
+              align="middle"
+              height="700"
+              width="900"
+            />
           </div>
+          <br />
+          <p>
+            <strong> 
+
+                <?php echo $row["description"];?>
+
+                </strong>   
+
+                <h4> <strong> Contact Us</strong> </h4>
+                <strong> 
+            <?php echo $row["contact"];?> 
+                </strong>
+            <h4> <strong> Address</strong> </h4>
+                <strong> 
+                <?php echo $row["address"];?>
+                </strong>
+                </p>
+          <?php
+                  }
+                  }
+          ?>
         </div>
       </div>
     </main>

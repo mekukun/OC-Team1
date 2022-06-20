@@ -54,11 +54,7 @@
             <div style="font-weight: bold"><span>Need help?</span></div>
             <div><span>Please check our FAQ</span></div>
           </div>
-          <div>
-            <button onclick="window.location.href='../../TermsFAQ.html#FAQ'">
-              FAQ
-            </button>
-          </div>
+          <div><button onclick="window.location.href='../../TermsFAQ.html#FAQ'">FAQ</button></div>
         </div>
         <div class="logout">
           <a href="../../login.php"
@@ -91,48 +87,50 @@
           </div>
         </div>
         <div class="face pt-5">
-          <!-- enter your code here -->
-          <button
-            id="backbtn"
-            onclick="window.location.href='../viewnearbyfacilities.html'"
-          >
-            BACK
-          </button>
-          <div style="text-align: center">
-            <img
-              src="../../assets/img/kfc.webp"
-              class="img-fluid"
-              alt="Responsive image"
-              align="middle"
-              height="600"
-              width="500"
-            />
-          </div>
-          <br />
-          <p>
-            <strong
-              >KFC (Kentucky Fried Chicken) is an American fast food restaurant
-              chain headquartered in Louisville, Kentucky that specializes in
-              fried chicken. It is the world's second-largest restaurant chain
-              (as measured by sales) after McDonald's, with 22,621 locations
-              globally in 150 countries. KFC was founded by Colonel Harland
-              Sanders, an entrepreneur who began selling fried chicken from his
-              roadside restaurant in Corbin, Kentucky during the Great
-              Depression.<br />
-              Sanders identified the potential of the restaurant franchising
-              concept and the first "Kentucky Fried Chicken" franchise opened in
-              Utah in 1952. KFC popularized chicken in the fast-food industry,
-              diversifying the market by challenging the established dominance
-              of the hamburger. By branding himself as "Colonel Sanders",
-              Harland became a prominent figure of American cultural history and
-              his image remains widely used in KFC advertising to this day.<br />
+              <!-- enter your code here -->
+              <button id="backbtn" onclick="window.location.href='../viewnearbyfacilities.php'">BACK</button>
 
-              <h4><strong> Contact Us</strong></h4>
-              2, Jln 21/19, Sea Park,<br />
-              46300 Petaling Jaya, Selangor<br />
-              Phone : 03-7865 3701 <br />
-            </strong>
-          </p>
+              <?php
+          include_once('../../assets/php/config.php');
+          session_start();
+          $num = 3;
+          $sql = "SELECT * FROM grocery WHERE grocery_id = '".$num."'";
+          $result = $connection->query($sql);
+
+          if ($result->num_rows > 0)
+          {
+            while ($row = $result->fetch_assoc())
+            {
+    
+        ?>
+
+            <div style="text-align:center;">
+              <img src="../../assets/img/kk.jpg" class="img-fluid"  alt="Responsive image" height="400" width="400">
+            </div>
+            <br>
+              <p>
+
+                 <strong> 
+
+                 <?php echo $row["description"];?>
+                 
+                </strong>   
+
+                <h4> <strong> Contact Us</strong> </h4>
+                <strong> 
+                <?php echo $row["contact"];?> 
+                </strong>
+            <h4> <strong> Address</strong> </h4>
+             <strong> 
+              <?php echo $row["address"];?>
+              </strong>
+        </p>
+<?php
+            }
+          }
+
+  ?>
+          </div>
         </div>
       </div>
     </main>

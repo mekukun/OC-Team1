@@ -54,11 +54,7 @@
             <div style="font-weight: bold"><span>Need help?</span></div>
             <div><span>Please check our FAQ</span></div>
           </div>
-          <div>
-            <button onclick="window.location.href='../../TermsFAQ.html#FAQ'">
-              FAQ
-            </button>
-          </div>
+          <div><button onclick="window.location.href='../../TermsFAQ.html#FAQ'">FAQ</button></div>
         </div>
         <div class="logout">
           <a href="../../login.php"
@@ -91,39 +87,49 @@
           </div>
         </div>
         <div class="face pt-4">
-          <!-- enter your code here -->
-          <button
-            id="backbtn"
-            onclick="window.location.href='../viewnearbyfacilities.html'"
-          >
-            BACK
-          </button>
-          <div style="text-align: center">
-            <img
-              src="../../assets/img/kpj.jpg"
-              class="img-fluid"
-              alt="Responsive image"
-              align="middle"
-              height="700"
-              width="900"
-            />
-          </div>
-          <br />
-          <p>
-            <strong>
-              We are committed to serving our patients with compassion and high
-              quality care, offering a comprehensive range of medical services,
-              which include world-class facilities and advanced medical
-              technologies. We provide the fastest aid service accross the whole
-              Malaysia. Making sure better patient health is our main goal.
-              <br />
+              <!-- enter your code here -->
+              <button id="backbtn" onclick="window.location.href='../viewnearbyfacilities.php'">BACK</button>
+              
+              <?php
+          include_once('../../assets/php/config.php');
+          session_start();
+          $num = 2;
+          $sql = "SELECT * FROM grocery WHERE grocery_id = '".$num."'";
+          $result = $connection->query($sql);
 
-              <h4><strong> Contact Us</strong></h4>
-              119, Jalan SS 20/10, Damansara Utama <br />
-              47400 Petaling Jaya, Selangor<br />
-              Phone : 03-7718 1000 <br />
-            </strong>
-          </p>
+          if ($result->num_rows > 0)
+          {
+            while ($row = $result->fetch_assoc())
+            {
+               
+        ?>
+              <div style="text-align:center;">
+              <img src="../../assets/img/speedmart.webp" class="img-fluid"  alt="Responsive image" height="400" width="800">
+              </div>
+              <br>
+              <p>
+              <strong> 
+             
+              <?php echo $row["description"];?>
+
+              </strong>
+
+            <h4> <strong> Contact Us</strong> </h4>
+                <strong> 
+                <?php echo $row["contact"];?> 
+                </strong>
+            <h4> <strong> Address</strong> </h4>
+             <strong> 
+              <?php echo $row["address"];?>
+              </strong>
+        </p>
+<?php
+            }
+          }
+
+  ?>
+
+          </div>
         </div>
       </div>
     </main>

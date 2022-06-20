@@ -79,32 +79,49 @@
       <div class="face pt-4">
         <!-- enter your code here -->
 
-        <button id="backbtn" onclick="window.location.href='../viewnearbyfacilities.html'">BACK</button>
+        <button id="backbtn" onclick="window.location.href='../viewnearbyfacilities.php'">BACK</button>
+     
+     <?php
+          include_once('../../assets/php/config.php');
+          session_start();
+          $num = 1;
+          $sql = "SELECT * FROM grocery WHERE grocery_id = '".$num."'";
+          $result = $connection->query($sql);
+
+          if ($result->num_rows > 0)
+          {
+            while ($row = $result->fetch_assoc())
+            {
+              
+            
+        ?>
 
         <div style="text-align:center;">
           <img src="../../assets/img/7eleven.jpg" class="img-fluid" alt="Responsive image" height="400" width="400">
         </div>
         <br>
         <p>
-          <strong> 7-Eleven Malaysia Holdings Berhad through its subsidiary 7-Eleven Malaysia Sdn Bhd is the owner and
-            operator
-            of 7-Eleven stores in Malaysia. Incorporated on 4 June 1984, <br>7-Eleven Malaysia has made its mark in the
-            retailing scene
-            and has been a prominent icon for over 28 years.
-            <br>
-            7-Eleven Malaysia is the single largest convenience store chain with more than 2,400 stores nationwide,
-            serving over 900,000 customers daily.
-            <br>
 
-            <h4> <strong> Contact Us</strong> </h4>
-            Beside Jaya one,<br>
-            Jalan 17/2 Petaling Jaya Selangor <br>
-            46400 Kuala Lumpur, Malaysia. <br>
-            Phone : 03-2142 1136 <br>
-            Fax : 03-2142 1139
-          </strong>
+        <strong>
+
+        <?php echo $row["description"];?>
+
+        </strong>
+
+        <h4> <strong> Contact Us</strong> </h4>
+                <strong> 
+                <?php echo $row["contact"];?> 
+                </strong>
+            <h4> <strong> Address</strong> </h4>
+             <strong> 
+              <?php echo $row["address"];?>
+              </strong>
         </p>
+<?php
+            }
+          }
 
+  ?>
       </div>
     </div>
     </div>

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (empty($_SESSION['userid'])) {
+	header("Location: ../login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -77,6 +84,7 @@
       <div class="d-flex flex-column px-4 mt-4">
         <!-- enter your code here -->
 
+
         <!-- Example single danger button -->
         <div class="row">
           <div class="col">
@@ -86,9 +94,9 @@
                 Restaurant
               </button>
               <ul class="dropdown-menu justify-content-start align-items-center">
-                <li><a class="dropdown-item" href="facilities/McDonalds.html">McDonalds</a></li>
-                <li><a class="dropdown-item" href="facilities/KFC.html">KFC</a></li>
-                <li><a class="dropdown-item" href="facilities/Dominos.html">Dominos</a></li>
+                <li><a class="dropdown-item" href="facilities/McDonalds.php">McDonalds</a></li>
+                <li><a class="dropdown-item" href="facilities/KFC.php">KFC</a></li>
+                <li><a class="dropdown-item" href="facilities/Dominos.php">Dominos</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
@@ -103,8 +111,8 @@
               </button>
 
               <ul class="dropdown-menu justify-content-start align-items-center">
-                <li><a class="dropdown-item" href="facilities/SJMC.html">Subang Jaya Medical Center</a></li>
-                <li><a class="dropdown-item" href="facilities/KPJ.html">KPJ Damansara Specialist Hospital</a></li>
+                <li><a class="dropdown-item" href="facilities/SJMC.php">Subang Jaya Medical Center</a></li>
+                <li><a class="dropdown-item" href="facilities/KPJ.php">KPJ Damansara Specialist Hospital</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
@@ -118,9 +126,9 @@
                 Grocery
               </button>
               <ul class="dropdown-menu justify-content-start align-items-center">
-                <li><a class="dropdown-item" href="facilities/speedmart.html">99 Speedmart</a></li>
-                <li><a class="dropdown-item" href="facilities/7eleven.html">7-Eleven</a></li>
-                <li><a class="dropdown-item" href="facilities/kk.html">KK Supermart</a></li>
+                <li><a class="dropdown-item" href="facilities/speedmart.php">99 Speedmart</a></li>
+                <li><a class="dropdown-item" href="facilities/7eleven.php">7-Eleven</a></li>
+                <li><a class="dropdown-item" href="facilities/kk.php">KK Supermart</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
@@ -135,4 +143,4 @@
   </main>
 </body>
 
-</html>
+</html>  

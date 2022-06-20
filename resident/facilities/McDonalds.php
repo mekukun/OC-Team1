@@ -88,28 +88,48 @@
         </div>
         <div class="face pt-5">
               <!-- enter your code here -->
-              <button id="backbtn" onclick="window.location.href='../viewnearbyfacilities.html'">BACK</button>
+              <button id="backbtn" onclick="window.location.href='../viewnearbyfacilities.php'">BACK</button>
+
+              <?php
+          include_once('../../assets/php/config.php');
+          session_start();
+          $num = 1;
+          $sql = "SELECT * FROM restaurant WHERE restaurant_id = '".$num."'";
+          $result = $connection->query($sql);
+
+          if ($result->num_rows > 0)
+          {
+            while ($row = $result->fetch_assoc())
+            {
+    
+        ?>
+
             <div style="text-align:center;">
               <img src="../../assets/img/McDonalds.jpg" class="img-fluid" alt="Responsive image" align="middle" height="800" width="700">
             </div>
               <br>
               <p>
                 <h>
-                 <strong> McDonald's is an American multinational fast food corporation, founded in 1940 as a 
-                   restaurant operated by Richard and Maurice McDonald, in San Bernardino, California, United States. Now it has branches 
-                   in all over the world. Kuala Lumpur also got many McDonalds in many sectors of the city.<br>
- 
-                <h4> <strong> Contact Us</strong> </h4>
-                    2, Jalan 14/4, Seksyen 14, <br>
-                    46400 Petaling Jaya, Selangor <br>
-                    Tel: +603 – 9057 3308 <br>
-                    Fax: + 603 – 9057 6308 <br>
-                    Careline: +6016 – 228 1822 <br>
-                </h6>
-                </strong>   
-                </p>
-              
+                
+                <strong> 
 
+                <?php echo $row["description"];?>
+
+                </strong>   
+
+                <h4> <strong> Contact Us</strong> </h4>
+                <strong> 
+            <?php echo $row["contact"];?> 
+                </strong>
+            <h4> <strong> Address</strong> </h4>
+                <strong> 
+                <?php echo $row["address"];?>
+                </strong>
+                </p>
+          <?php
+                  }
+                  }
+          ?>
           </div>
         </div>
       </div>
