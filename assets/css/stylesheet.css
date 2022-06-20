@@ -405,6 +405,10 @@ a {
   color: #565656;
 }
 
+.managecovreport tr td {
+  padding: 1rem;
+}
+
 .managecovreport tr td:nth-last-of-type(1) {
   padding: 0;
 }
