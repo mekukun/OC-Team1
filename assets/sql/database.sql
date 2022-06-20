@@ -68,7 +68,6 @@ CREATE TABLE `visitor_information` (
 	`MobileNumber` VARCHAR(255),
 	`HomeNumber` VARCHAR(255),
 	`Email` VARCHAR(255) NOT NULL,
-	`Booking_ID` INT NOT NULL,
 	PRIMARY KEY (`User_ID`)
 );
 
@@ -108,4 +107,4 @@ CREATE TABLE `medical` (
   PRIMARY KEY (`medical_id`)
 );
 
-ALTER TABLE `visitor_information` ADD FOREIGN KEY (`Booking_ID`) REFERENCES `Booking_details`(`Booking_ID`);
+ALTER TABLE `Booking_details` ADD FOREIGN KEY (`Booking_ID`) REFERENCES `visitor_information`(`User_ID`);
