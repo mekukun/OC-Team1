@@ -564,7 +564,7 @@ function getactivityinfo($activity)
           </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
-          <button type="button" id="submitbtn" data-bs-dismiss="modal" class="btn btn-primary">
+          <button type="button" id="submitbtn" data-bs-dismiss="modal" class="btn btn-primary px-0">
             Save changes
           </button>
         </div>
