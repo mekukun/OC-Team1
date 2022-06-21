@@ -10,7 +10,7 @@
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="../assets/css/stylesheet.css" />
+  <link rel="stylesheet" type="text/css" href="../assets/css/profilesheet.css" />
   <script rel="preload" src="https://kit.fontawesome.com/c2eb2d7176.js" as="script" crossorigin="anonymous"></script>
 </head>
 
@@ -24,7 +24,7 @@
     <hr />
     <div class="icontainer">
       <!-- View Nearby Facilities Link -->
-      <a href="viewnearbyfacilities.html">
+      <a href="viewnearbyfacilities.php">
         <div class="navcontrol">
           <i class="fa-solid fa-house-medical"></i>
           <span>View Nearby Facilities</span>
@@ -32,7 +32,7 @@
       </a>
 
       <!-- Register Visitor Link -->
-      <a href="registervisitor.html">
+      <a href="registervisitor.php">
         <div class="navcontrol">
           <i class="fa-solid fa-user-group"></i>
           <span>Register Visitor</span>
@@ -92,18 +92,18 @@
       </div>
 
 
-      <?php
-      include_once('../assets/php/config.php');
-      session_start();
+        <?php
+        include_once('../assets/php/config.php');
+        session_start();
 
-      $sql = "SELECT * FROM resident WHERE resident_id = '" . $_SESSION["userid"] . "'";
-      $result = $connection->query($sql);
+        $sql = "SELECT * FROM resident WHERE resident_id = '" . $_SESSION["userid"] . "'";
+        $result = $connection->query($sql);
 
-      if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
 
 
-      ?>
+        ?>
 
           <!-- Sub Container -->
           <div class="face" id="faceprofile">
@@ -115,7 +115,7 @@
               <!-- Profile Picture and Username -->
               <div class="profile-div">
                 <div class="profile-pic">
-                  <img src="../assets/img/pfp.jpg?>" id="photo" />
+                  <img src="../assets/img/<?php echo $row["photo"]; ?>" id="photo" />
                   <input type="file" id="file">
                   <label for="file" id="uploadBtn">Choose Photo</label>
                 </div>
@@ -137,10 +137,10 @@
                   <input type="text" name="unit_no" value=<?php echo $row["unit_no"]; ?> size="31" readonly><br>
 
                   <label for="postcode">Level:</label><br>
-                  <input type="text" name="address" value=<?php echo $row["address"]; ?> size="31" readonly><br>
+                  <input type="text" name="level" value=<?php echo $row["level"]; ?> size="31" readonly><br>
 
                   <label for="state">Block:</label><br>
-                  <input type="text" name="state" value=<?php echo $row["state"]; ?> size="31" readonly><br>
+                  <input type="text" name="block" value=<?php echo $row["block"]; ?> size="31" readonly>
 
                 </div>
 
@@ -167,49 +167,63 @@
                   <label for="gender">Gender:</label><br>
                   <input type="text" name="gender" value=<?php echo $row["gender"]; ?> size="31" readonly>
 
-                  <br><br>
-
-                  <label for="password">Password:</label><br>
-                  <input type="password" name="password" value=<?php echo $row["password"]; ?> size="31" readonly>
-
-
-
                 </div>
 
-            <?php
 
+                <div class="btn-class">
 
-          }
-        }
-            ?>
+                  <a href="editprofile.php">
+                    <button>Edit Profile</button>
+                  </a>
 
-
-
-
-            <div class="btn-class">
-
-              <a href="editprofile.php">
-                <button>Edit Profile</button>
-              </a>
-
-            </div>
+                  <button type="button" id="deleteProfileButton" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Delete Account
+                  </button>
+                  
+                </div>
               </div>
 
             </div>
 
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><strong>DELETE USER ACCOUNT</strong></h5>
+                  </div>
+                  <div class="modal-body">
+                    <p>Are you sure you want to delete the account? <br>
+                    <strong>WARNING!</strong> This process cannot be undone.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="no" data-bs-dismiss="modal">Cancel</button>
+                    <form action= "../assets/php/deleteProfile.php" method="post">
+                      <input type="submit" value="Delete" >
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <?php
 
 
-
+}
+}
+?>
 
           </div>
 
-
     </div>
-
 
   </main>
 
-  <script src="../assets/js/profile.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/c2eb2d7176.js" crossorigin="anonymous"></script>
+  <script src="../assets/js/bootstrap.bundle.js"></script>
+
 </body>
 
 </html>
