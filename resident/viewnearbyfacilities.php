@@ -17,6 +17,63 @@ if (empty($_SESSION['userid'])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../assets/css/stylesheet.css" />
   <script src="https://kit.fontawesome.com/c2eb2d7176.js" crossorigin="anonymous"></script>
+  <style>
+    .face {
+      margin: 1.5px;
+      padding: 1.5px;
+      position: relative;
+    }
+
+    .banner {
+
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 10px;
+    }
+
+    .banner .banner-img {
+
+      height: 100%;
+      display: block;
+      opacity: 0.5;
+    }
+
+    .row {
+      text-align: center;
+
+    }
+
+    .row .col .btn-group button {
+      padding: 15px 35px;
+      font-size: 23px;
+      margin: 25px;
+    }
+
+    .row .col .btn-group ul li {
+      width: auto;
+    }
+
+    #backbtn {
+      background: linear-gradient(to right,
+          rgba(207, 206, 206, 0.8),
+          rgba(91, 91, 91, 0.696));
+      color: #ffffff;
+      border-radius: 12px;
+      border: none;
+      padding: 5px;
+      font-weight: bolder;
+      margin: 2%;
+      margin-top: 4%;
+      width: 90px;
+      height: 40px;
+    }
+
+    #backbtn:hover {
+      background-color: #494949;
+      color: rgb(0, 0, 0);
+    }
+  </style>
 </head>
 
 <body>
@@ -38,7 +95,7 @@ if (empty($_SESSION['userid'])) {
           <span>Register Visitor</span>
         </div>
       </a>
-      <a href="reportcovquarantinestats.php">
+      <a href="reportcovquarantinestats.html">
         <div class="navcontrol">
           <i class="fa-solid fa-bed"></i>
           <span>Quarantine Status</span>
@@ -81,18 +138,23 @@ if (empty($_SESSION['userid'])) {
           </a>
         </div>
       </div>
-      <div class="d-flex flex-column px-4 mt-4">
+      <div class="face">
         <!-- enter your code here -->
 
 
         <!-- Example single danger button -->
+
+        <div class="banner">
+          <img class="banner-img" src="../assets/img/facility.png" />
+        </div>
+
         <div class="row">
           <div class="col">
-            <div class="btn-group" style="width: 100%;">
+            <div class="btn-group" style="width: 80%;">
               <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 Restaurant
               </button>
-              <ul class="dropdown-menu justify-content-start align-items-center">
+              <ul class="dropdown-menu justify-content-center align-items-center">
                 <li><a class="dropdown-item" href="facilities/McDonalds.php">McDonalds</a></li>
                 <li><a class="dropdown-item" href="facilities/KFC.php">KFC</a></li>
                 <li><a class="dropdown-item" href="facilities/Dominos.php">Dominos</a></li>
@@ -103,7 +165,7 @@ if (empty($_SESSION['userid'])) {
             </div>
           </div>
           <div class="col">
-            <div class="btn-group" style="width: 100%;">
+            <div class="btn-group" style="width: 80%;">
               <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 Medical
               </button>
@@ -118,7 +180,7 @@ if (empty($_SESSION['userid'])) {
             </div>
           </div>
           <div class="col">
-            <div class="btn-group" style="width: 100%;">
+            <div class="btn-group" style="width: 80%;">
               <button type="button" class="btn btn-danger btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 Grocery
               </button>
