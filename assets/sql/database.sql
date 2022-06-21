@@ -10,8 +10,8 @@ CREATE TABLE `resident` (
   `tel_number` varchar(25) DEFAULT NULL,
   `unit_no` varchar(255) DEFAULT NULL,
   `gender` varchar(25) DEFAULT NULL,
-  `address` varchar(50) DEFAULT NULL,
-  `state` varchar(25) DEFAULT NULL,
+  `block` varchar(50) DEFAULT NULL,
+  `level` varchar(25) DEFAULT NULL,
   `photo` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`resident_id`),
   UNIQUE KEY `email` (`email`)
