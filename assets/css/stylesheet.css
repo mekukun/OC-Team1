@@ -487,6 +487,14 @@ a {
   color: rgb(60, 179, 113);
 }
 
+.deletereportmodalbutton {
+  background: #e61919 !important;
+}
+
+.deletereportmodalbutton:hover {
+  background: #ff726f !important;
+}
+
 /* Login page */
 .container_login {
   position: relative;

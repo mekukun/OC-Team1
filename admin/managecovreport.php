@@ -564,7 +564,7 @@ function getactivityinfo($activity)
           </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
-          <button type="button" id="submitbtn" data-bs-dismiss="modal" class="btn btn-primary px-2 py-2 w-auto">
+          <button type="button" id="submitbtn" data-bs-dismiss="modal" class="btn btn-primary p-2 w-auto">
             Save changes
           </button>
         </div>
@@ -589,7 +589,7 @@ function getactivityinfo($activity)
           <span>This process cannot be undone.</span>
         </div>
         <div class="modal-footer d-flex justify-content-center">
-          <button type="button" data-bs-dismiss="modal" id="reportmodaldeleteButton" class="btn btn-danger">
+          <button type="button" data-bs-dismiss="modal" id="reportmodaldeleteButton" class="btn p-2 deletereportmodalbutton">
             Delete
           </button>
         </div>
