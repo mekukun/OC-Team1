@@ -114,19 +114,19 @@ ALTER TABLE `Booking_details` ADD FOREIGN KEY (`Booking_ID`) REFERENCES `visitor
 -- cov_report table
 INSERT INTO `cov_report` (`ReportID`, `resident_id`, `DateCreated`, `Description`, `LastActivityDate`, `LastActivityHour`, `ReportStatus`, `LastActivity`, `Block`, `FloorLevel`, `unit_no`, `Note`) VALUES
 (1, 1, '2022-05-21', 'I have cov-19', '2022-05-21', '09:08:20', 'Completed', 'Report Closed', 'A', 1, 'A123', ''),
-(2, 1, '2022-06-20', 'I have cov-19', '2022-06-20', '01:11:18', 'Completed', 'Report Closed', 'B', 1, 'B123', ''),
-(3, 1, '2022-06-20', 'I have cov-19', '2022-06-20', '09:06:34', 'Pending', 'Report Submission', 'C', 1, 'C123', ''),
-(4, 1, '2022-06-21', 'I have cov-19', '2022-06-21', '09:06:38', 'Pending', 'Report Submission', 'D', 1, 'D123', ''),
-(5, 1, '2022-06-21', 'I have cov-19', '2022-06-21', '09:06:44', 'Pending', 'Report Submission', 'A', 2, 'A234', ''),
-(6, 1, '2022-06-21', 'I have cov-19', '2022-06-21', '09:06:53', 'Pending', 'Report Submission', 'B', 2, 'B234', ''),
-(7, 1, '2022-06-21', 'I have cov-19', '2022-06-21', '09:07:04', 'Pending', 'Report Submission', 'C', 2, 'C234', '');
+(2, 1, '2022-06-21', 'I have cov-19', '2022-06-21', '01:11:18', 'Completed', 'Report Closed', 'B', 1, 'B123', ''),
+(3, 1, '2022-06-21', 'I have cov-19', '2022-06-21', '09:06:34', 'Pending', 'Report Submission', 'C', 1, 'C123', ''),
+(4, 1, '2022-06-22', 'I have cov-19', '2022-06-22', '09:06:38', 'Pending', 'Report Submission', 'D', 1, 'D123', ''),
+(5, 1, '2022-06-22', 'I have cov-19', '2022-06-22', '09:06:44', 'Pending', 'Report Submission', 'A', 2, 'A234', ''),
+(6, 1, '2022-06-22', 'I have cov-19', '2022-06-22', '09:06:53', 'Pending', 'Report Submission', 'B', 2, 'B234', ''),
+(7, 1, '2022-06-22', 'I have cov-19', '2022-06-22', '09:07:04', 'Pending', 'Report Submission', 'C', 2, 'C234', '');
 
 -- admin_activity table
 INSERT INTO `admin_activity` (`AdminActivityID`, `ReportID`, `admin_id`, `Activity`, `ActivityDate`, `ActivityHour`) VALUES
 (1, 1, 1, 'Complete report', '2022-05-21', '09:08:20'),
-(2, 2, 1, 'Complete report', '2022-06-20', '09:11:18');
+(2, 2, 1, 'Complete report', '2022-06-21', '09:11:18');
 
 -- active_cases table
 INSERT INTO `active_cases` (`CaseID`, `Date`, `ReportID`) VALUES
-(1, '2022-06-20', 1),
-(2, '2022-06-20', 2);
+(1, '2022-06-21', 1),
+(2, '2022-06-21', 2);
