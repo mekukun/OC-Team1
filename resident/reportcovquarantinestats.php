@@ -24,6 +24,21 @@ if (empty($_SESSION['userid'])) {
 			height: auto;
 			display: inline-block;
 		}
+		
+		divider2 {
+			width: 5px;
+			height: auto;
+			display: block;
+		}
+		.action_btn {
+		  width: 200px;
+		  margin: 0 auto;
+		  display: inline;
+		  padding: 1rem;
+		  background: linear-gradient(to right bottom, #5680e9, #8860d0);
+		  border: white;
+		  border-radius: 0.5rem;
+		}
 	</style>
 </head>
 
@@ -93,38 +108,36 @@ if (empty($_SESSION['userid'])) {
 		<div class="face">
 			<div class="showHide">
 				<center>
-					<div class="action_btn">
-						<button onclick="report()">
-							<span>Report</span>
-						</button>
+					<button class="action_btn" onclick="report()">
+						<span><b>Report</span>
+					</button>
+					
+					<div class="divider">
 					</div>
+
+					
+					<button class="action_btn" onclick="states()">
+						<span><b>Total Cases</b></span>
+					</button>
+					
 
 					<div class="divider">
 					</div>
 
-					<div class="action_btn">
-						<button onclick="states()">
-							<span>Total Cases</span>
-						</button>
-					</div>
+					
+					<button class="action_btn" onclick="daily()">
+						<span><b>Daily Statistics</b></span>
+					</button>
+					
 
 					<div class="divider">
 					</div>
 
-					<div class="action_btn">
-						<button onclick="daily()">
-							<span>Daily Statistics</span>
-						</button>
-					</div>
-
-					<div class="divider">
-					</div>
-
-					<div class="action_btn">
-						<button onclick="weekly()">
-							<span>Weekly Statistics</span>
-						</button>
-					</div>
+					
+					<button class="action_btn" onclick="weekly()">
+						<span><b>Weekly Statistics</b></span>
+					</button>
+					
 
 
 
@@ -250,11 +263,14 @@ if (empty($_SESSION['userid'])) {
 									<u>
 										<h6 style="font-weight:bold">Report Description</h4>
 									</u>
+									
 									<input type="text" id="description" name="description" style="height:100px; width:300px;" required>
 
-									<div class="buttonD">
-										<input type="submit" value="Submit">
+									<div class="divider2">
+									<br>
 									</div>
+									<input class="action_btn"type="submit" value="Submit">
+									
 								</form>
 							</center>
 						</div>
@@ -556,11 +572,10 @@ if (empty($_SESSION['userid'])) {
 						</div>
 
 						<div class="showHide">
-							<div class="action_btn">
-								<button onclick="report()">
-									<span>Back</span>
-								</button>
-							</div>
+							<button class="action_btn" onclick="report()">
+								<span>Back</span>
+							</button>
+
 						</div>
 					</div>
 				</div>
