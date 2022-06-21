@@ -15,7 +15,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="../assets/css/stylesheet.css"
+      href="../assets/css/profilesheet.css"
     />
     <script
       rel="preload"
@@ -120,18 +120,18 @@
         ?>
 
         <!-- Sub Container -->
-        <div class="face">
+        <div class="face" id="faceprofile">
 
           <!-- Banner -->
           <div class="banner">
-            <img class="banner-image" src="../assets/img/banner01.png"/>
+            <img class="banner-image" src="../assets/img/banner01.png" name="bannerpic"/>
 
             <!-- Profile Picture and Username -->
               <div class="profile-div">
                 <div class="profile-pic">
-                  <img src="../assets/img/pfp.jpg" name=photo id="photo"/>
-                  <input type="file" id="file">
-                  <label for="file" id="uploadBtn">Choose Photo</label>
+                  <img src="../assets/img/<?php echo $row["photo"]; ?>" name="photo" id="photo"/>
+                  <!-- <input type="file" id="file">
+                  <label for="file" id="uploadBtn">Choose Photo</label> -->
                 </div>
 
                 <div class="username">
@@ -140,6 +140,7 @@
               </div>
 
           </div>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
           <form action= "../assets/php/updateProfile.php" method="post">
             
@@ -150,13 +151,13 @@
 
                   <h1>Address</h1>
                   <label for="apartment">Unit No:</label><br>
-                  <input type="text" name="unit_no" value = <?php echo $row["unit_no"];?> size = "31"><br>
+                  <input type="text" name="unit_no" value = <?php echo $row["unit_no"];?> size = "31" readonly><br>
 
                   <label for="address">Level:</label><br>
-                  <input type="text" name="address" value=<?php echo $row["address"]; ?> size = "31"><br>
+                  <input type="text" name="level" value=<?php echo $row["level"]; ?> size = "31" readonly><br>
 
                   <label for="state">Block:</label><br>
-                  <input type="text" name="state" value=<?php echo $row["state"];?> size = "31"><br>
+                  <input type="text" name="block" value=<?php echo $row["block"];?> size = "31" readonly>
                 
                 </div>
               
@@ -175,6 +176,7 @@
               </div>
             
               <div class = "rightprofile">
+
                 <div class = "basic-info">
                   <h1>Basic Information</h1>
                   <label for="name">Name:</label><br>
@@ -183,10 +185,21 @@
                   <label for="gender">Gender:</label><br>
                   <input type="text" name="gender" value=<?php echo $row["gender"];?> size = "31">
 
-                  <br><br>
+                
+                  
+                </div>
 
+                <div class = "account">
+                  <h1>Account</h1>
                   <label for="password">Password:</label><br>
-                  <input type="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,25}$" value=<?php echo $row["password"];?> size = "31">
+                  <input type="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,25}$" value=<?php echo $row["password"];?> size = "31"><br>
+
+
+                  <div class = "pic-btn">
+                    <label for="file" id="uploadBtn">Change Profile Picture</label>
+                    <input type="file" id="file" name="photo" value=<?php echo $row["photo"];?>>
+                  </div>
+
 
                 </div>
 
@@ -200,9 +213,6 @@
                 ?>
 
                 <div class="btn-class">
-
-                  <input type="file" id="file">
-                  <button for="file" id="uploadBtn">Change Profile Picture</button>
                   
                   <input type="submit" value="Update Profile" >
 
@@ -211,6 +221,7 @@
 
             </div>  
           </form>
+
 
 
 
