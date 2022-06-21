@@ -10,7 +10,7 @@
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="../assets/css/profilesheet.css" />
+  <link rel="stylesheet" type="text/css" href="../assets/css/stylesheet.css" />
   <script rel="preload" src="https://kit.fontawesome.com/c2eb2d7176.js" as="script" crossorigin="anonymous"></script>
 </head>
 
@@ -92,18 +92,18 @@
       </div>
 
 
-        <?php
-        include_once('../assets/php/config.php');
-        session_start();
+      <?php
+      include_once('../assets/php/config.php');
+      session_start();
 
-        $sql = "SELECT * FROM resident WHERE resident_id = '" . $_SESSION["userid"] . "'";
-        $result = $connection->query($sql);
+      $sql = "SELECT * FROM resident WHERE resident_id = '" . $_SESSION["userid"] . "'";
+      $result = $connection->query($sql);
 
-        if ($result->num_rows > 0) {
-          while ($row = $result->fetch_assoc()) {
+      if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
 
 
-        ?>
+      ?>
 
           <!-- Sub Container -->
           <div class="face" id="faceprofile">
@@ -179,7 +179,7 @@
                   <button type="button" id="deleteProfileButton" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Delete Account
                   </button>
-                  
+
                 </div>
               </div>
 
@@ -194,12 +194,13 @@
                   </div>
                   <div class="modal-body">
                     <p>Are you sure you want to delete the account? <br>
-                    <strong>WARNING!</strong> This process cannot be undone.</p>
+                      <strong>WARNING!</strong> This process cannot be undone.
+                    </p>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="no" data-bs-dismiss="modal">Cancel</button>
-                    <form action= "../assets/php/deleteProfile.php" method="post">
-                      <input type="submit" value="Delete" >
+                    <form action="../assets/php/deleteProfile.php" method="post">
+                      <input type="submit" value="Delete">
                     </form>
 
                   </div>
@@ -207,12 +208,12 @@
               </div>
             </div>
 
-            <?php
+        <?php
 
 
-}
-}
-?>
+        }
+      }
+        ?>
 
           </div>
 
