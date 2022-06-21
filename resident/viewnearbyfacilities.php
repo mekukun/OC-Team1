@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION['userid'])) {
-	header("Location: ../login.php");
+  header("Location: ../login.php");
 }
 ?>
 
@@ -38,7 +38,7 @@ if (empty($_SESSION['userid'])) {
           <span>Register Visitor</span>
         </div>
       </a>
-      <a href="reportcovquarantinestats.html">
+      <a href="reportcovquarantinestats.php">
         <div class="navcontrol">
           <i class="fa-solid fa-bed"></i>
           <span>Quarantine Status</span>
@@ -56,7 +56,7 @@ if (empty($_SESSION['userid'])) {
         <div><a href="../TermsFAQ.html"><button>FAQ</button></a></div>
       </div>
       <div class="logout">
-         <a href="../login.php"><button><i class="fa-solid fa-right-from-bracket"></i>Logout</button></a>
+        <a href="../login.php"><button><i class="fa-solid fa-right-from-bracket"></i>Logout</button></a>
       </div>
     </div>
   </nav>
@@ -89,8 +89,7 @@ if (empty($_SESSION['userid'])) {
         <div class="row">
           <div class="col">
             <div class="btn-group" style="width: 100%;">
-              <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <button type="button" class="btn btn-primary btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 Restaurant
               </button>
               <ul class="dropdown-menu justify-content-start align-items-center">
@@ -105,8 +104,7 @@ if (empty($_SESSION['userid'])) {
           </div>
           <div class="col">
             <div class="btn-group" style="width: 100%;">
-              <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 Medical
               </button>
 
@@ -121,8 +119,7 @@ if (empty($_SESSION['userid'])) {
           </div>
           <div class="col">
             <div class="btn-group" style="width: 100%;">
-              <button type="button" class="btn btn-danger btn-lg dropdown-toggle" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <button type="button" class="btn btn-danger btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 Grocery
               </button>
               <ul class="dropdown-menu justify-content-start align-items-center">
@@ -143,4 +140,4 @@ if (empty($_SESSION['userid'])) {
   </main>
 </body>
 
-</html>  
+</html>
