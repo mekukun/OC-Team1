@@ -846,10 +846,12 @@ form.log-in-form {
   margin-top: 15px;
   display: inline-block;
   vertical-align: middle;
+  padding: 5px;
   margin-left: auto;
   margin-right: auto;
   font-size: var(--l-fs);
   text-transform: uppercase;
+  font-weight: bold;
 }
 
 #photo {
@@ -859,6 +861,27 @@ form.log-in-form {
 
 #file {
   display: none;
+}
+
+.pic-btn {
+    margin-top: 25px;
+}
+#uploadBtn {
+    height: auto;
+    width: 100%;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    border-radius: 0.5rem;
+    padding: 0.2rem 5rem;
+    margin-top: 5px;
+}
+
+#uploadBtn:hover {
+    background: rgba(5, 20, 220, 0.25);
+    color: black;
+    cursor: pointer;
 }
 
 /*
@@ -919,7 +942,8 @@ form.log-in-form {
 
 .address,
 .contact,
-.basic-info {
+.basic-info,
+.account {
   border: 1px solid;
   border-color: grey;
   background: rgba(255, 255, 255, 0.85);
@@ -930,7 +954,8 @@ form.log-in-form {
 
 .address h1,
 .contact h1,
-.basic-info h1 {
+.basic-info h1,
+.account h1 {
   position: relative;
   font-size: var(--xs-fs);
   color: rgba(0, 0, 0, 0.6);
@@ -958,7 +983,7 @@ form.log-in-form {
 }
 
 .btn-class input {
-  background: rgba(220, 53, 69, 0.9);
+  background: rgba(29, 150, 49, 0.9);
   color: black;
   width: 500px;
   font-weight: bold;
@@ -973,18 +998,12 @@ form.log-in-form {
 }
 
 .btn-class input:hover {
-  background: rgba(216, 10, 30, 0.9);
+  background: rgba(107, 195, 122, 0.9);
   color: black;
-  font-weight: bold;
-  border-style: none;
-  border-radius: 0.5rem;
-  box-shadow: 0px 0px 5px rgba(5, 4, 4, 0.2);
-  transition: transform 0.2s;
-  margin-bottom: 5px;
   cursor: pointer;
 }
 
-.btn-class button {
+.btn-class a button {
   background: rgba(13, 110, 253, 0.25);
   color: black;
   width: 500px;
@@ -998,12 +1017,64 @@ form.log-in-form {
   margin-bottom: 5px;
 }
 
-.btn-class button:hover {
+.btn-class a button:hover {
   background: rgba(5, 20, 220, 0.25);
   color: black;
   cursor: pointer;
 }
 
+.btn-class button {
+    background: rgba(220, 53, 69, 0.9);
+    color: black;
+    width: 500px;
+    font-weight: bold;
+    text-align: center;
+    border-style: none;
+    border-radius: 0.5rem;
+    padding: 0.2rem 5rem;
+    font: size 20px;
+    box-shadow: 0px 0px 5px rgba(5, 4, 4, 0.2);
+    transition: transform 0.2s;
+    margin-bottom: 5px;
+}
+
+.btn-class button:hover {
+    background: rgba(216, 10, 30, 0.9);
+    color: black;
+    cursor: pointer;
+  }
+
+.modal .modal-dialog .modal-content .modal-footer button {
+  background: navy;
+  color: white;
+  width: 85px;
+  border-style: none;
+  border-radius: 0.5rem;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin: 1px;
+}
+
+.modal .modal-dialog .modal-content .modal-footer button:hover {
+  background: rgba(5, 20, 220, 0.50);
+  cursor: pointer;
+}
+
+.modal .modal-dialog .modal-content .modal-footer input {
+    background: red;
+    color: white;
+    width: 85px;
+    border-style: none;
+    border-radius: 0.5rem;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: 1px;
+}
+  
+.modal .modal-dialog .modal-content .modal-footer input:hover {
+    background: rgba(216, 61, 61, 0.50);
+    cursor: pointer;
+}
 /* End Profile Page */
 
 /*Terms and FAQ page*/
