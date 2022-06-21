@@ -127,9 +127,7 @@ function getactivityinfo($activity)
         </div>
         <div class="rightdash">
           <div class="status"><span>ADMIN</span></div>
-          <a href="managecovreport.php">
-            <div><i class="fa-solid fa-user"></i><span>User</span></div>
-          </a>
+          <div><i class="fa-solid fa-user"></i><span>User</span></div>
         </div>
       </div>
       <div class="face">
@@ -697,6 +695,7 @@ function getactivityinfo($activity)
 
           if (!($oldnote === $newnote)) {
             $activity = "Update note in report";
+            $lastactivity = "Note Update";
           }
 
           if ($('#completereport').is(":checked")) {

@@ -406,7 +406,8 @@ a {
 }
 
 .managecovreport tr td {
-  padding: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .managecovreport tr td:nth-last-of-type(1) {
