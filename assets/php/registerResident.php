@@ -51,8 +51,8 @@ if(empty($name) || empty($email) || empty($password) || empty($rpassword)){
         } else {
             $lastID = $lastID + 1;
         }
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        mysqli_query($connection, "INSERT INTO resident(resident_id,email,password,name,tel_number,unit_no,gender,block,level) VALUES('$lastID','$email','$hashed_password','$name','$tel_number','$unit_no','$gender','$block','$level')");
+        //$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        mysqli_query($connection, "INSERT INTO resident(resident_id,email,password,name,tel_number,unit_no,gender,block,level) VALUES('$lastID','$email','$password','$name','$tel_number','$unit_no','$gender','$block','$level')");
 
         //Step 4. Process the results.
         //display success message & the new data can be viewed on index.php
