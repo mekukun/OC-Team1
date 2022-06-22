@@ -113,7 +113,7 @@ if (empty($_SESSION['adminid'])) {
           <div><span>Please check our FAQ</span></div>
         </div>
         <div>
-          <a href="../../TermsFAQ.html"><button>FAQ</button></a>
+          <a href="../TermsFAQ.html"><button>FAQ</button></a>
         </div>
       </div>
       <div class="logout">
