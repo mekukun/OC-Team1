@@ -54,6 +54,12 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
                     <span>Manage Cov-19 Reports</span>
                 </div>
             </a>
+            <a href="Display_visitors_details.php">
+                <div class="navcontrol">
+                    <i class="fa-solid fa-house-medical"></i>
+                    <span>Display Visitors</span>
+                </div>
+            </a>
         </div>
         <hr />
         <div class="bottom container">

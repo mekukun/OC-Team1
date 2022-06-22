@@ -1,14 +1,8 @@
 <?php
 session_start();
-
-if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['userType'])) {
-    $adminID = $_SESSION['adminid'];
-    $email = $_SESSION['email'];
-    $userType = $_SESSION['userType'];
-} else {
+if (empty($_SESSION['adminid'])) {
     header("Location: ../login.php");
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,10 +25,11 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
 
 <body>
     <nav>
-        <div class="container">
-            <img src="../assets/img/logo.png" width="230" height="150">
+        <div class="bottom icontainer">
+            <img src="../assets/img/logo.png" width="230" height="100">
         </div>
         <hr />
+<<<<<<< Updated upstream
         <div class="container">
             <a href="Display_visitors_details.php">
                 <div class="selected navcontrol">
@@ -42,6 +37,9 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
                     <span>Manage Visitors</span>
                 </div>
             </a>
+=======
+        <div class="icontainer">
+>>>>>>> Stashed changes
             <a href="manageresidents.php">
                 <div class="selected navcontrol">
                     <i class="fa-solid fa-house-medical"></i>
@@ -54,9 +52,15 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
                     <span>Manage Cov-19 Reports</span>
                 </div>
             </a>
+            <a href="Display_visitors_details.php">
+                <div class="navcontrol">
+                    <i class="fa-solid fa-house-medical"></i>
+                    <span>Display Visitors</span>
+                </div>
+            </a>
         </div>
         <hr />
-        <div class="bottom container">
+        <div class="bottom icontainer">
             <div class="profilebox">
                 <div><i class="fa-solid fa-circle-question"></i></div>
                 <div class="wordprofilebox">

@@ -104,7 +104,7 @@ if (empty($_SESSION['userid'])) {
                   </div><br>
 
                   <!-- Address -->
-                  <div class="address">
+                  <div class="info">
                     <div class="globe">
                       <div class="input-box">
                         <span class="details">City </span>
@@ -113,7 +113,7 @@ if (empty($_SESSION['userid'])) {
 
                       <div class="input-box">
                         <span class="details">Province/Country</span>
-                        prov: <input class="ab" type="text" placeholder="Eg. United Arab Emirates" name="Province" id="prov">
+                        <input class="ab" type="text" placeholder="Eg. United Arab Emirates" name="Province" id="prov">
                       </div>
                     </div>
 

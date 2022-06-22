@@ -92,7 +92,7 @@ function getactivityinfo($activity)
       <a href="Display_visitors_details.php">
         <div class="navcontrol">
           <i class="fa-solid fa-house-medical"></i>
-          <span>Manage Visitors</span>
+          <span>Display Visitors</span>
         </div>
       </a>
     </div>
