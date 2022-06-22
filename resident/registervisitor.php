@@ -138,13 +138,13 @@ if (empty($_SESSION['userid'])) {
 
                       <div class="input-box">
                         <span class="details">Home Number</span>
-                        <input class="ab" type="tel" placeholder="text" name="HomeNumber">
+                        <input class="ab" type="tel" placeholder="Enter home number" name="HomeNumber">
                       </div>
                     </div>
 
                     <div class="input-box">
                       <span class="details">Email</span>
-                      <input class="email" type="email" placeholder="email" id="email" name="Email" required>
+                      <input class="email" type="email" placeholder="Enter email" id="email" name="Email" required>
                     </div>
 
                   </div>
@@ -160,7 +160,7 @@ if (empty($_SESSION['userid'])) {
 
                       <div class="input-box">
                         <span class="details">Car Number</span>
-                        <input class="ab" type="text" placeholder="text" name="CarNumber" id="Car">
+                        <input class="ab" type="text" placeholder="Enter car number" name="CarNumber" id="Car">
                       </div>
 
 
