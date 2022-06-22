@@ -89,6 +89,12 @@ function getactivityinfo($activity)
           <span>Manage Cov-19 Reports</span>
         </div>
       </a>
+      <a href="Display_visitors_details.php">
+        <div class="navcontrol">
+          <i class="fa-solid fa-house-medical"></i>
+          <span>Manage Visitors</span>
+        </div>
+      </a>
     </div>
     <hr />
     <div class="bottom icontainer">
