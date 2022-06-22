@@ -161,7 +161,7 @@ if (empty($_SESSION['userid'])) {
                     <div class="globe">
                       <div class="input-box">
                         <span class="details">Unit Number</span>
-                        <input class="ab" type="number" min="1" placeholder="No.of Rooms" name="UnitNumber" id="roomNum" required>
+                        <input class="ab" type="text" placeholder="Enter unit number" name="UnitNumber" id="roomNum" required>
                       </div>
 
                       <div class="input-box">
@@ -175,7 +175,7 @@ if (empty($_SESSION['userid'])) {
                   <!-- Submit-->
                 </div>
                 <div class="buttonV">
-                  <input type="submit" id="Submit" onclick="fs()"></input>
+                  <input type="submit" id="Submit"></input>
                 </div>
               </form>
             </div>
@@ -184,6 +184,5 @@ if (empty($_SESSION['userid'])) {
       </div>
   </main>
 </body>
-<script src="../assets/js/RV.js"></script>
 
 </html>

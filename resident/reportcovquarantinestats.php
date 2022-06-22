@@ -261,17 +261,25 @@ if (empty($_SESSION['userid'])) {
 									<span>Unit Number</span>
 									<br><input name="roomNo" class="a" type="text" placeholder="Unit" style="text-align:center;" required>
 									<hr>
-
-									<u>
-										<h6 style="font-weight:bold">Report Description</h4>
-									</u>
-
-									<input type="text" id="description" name="description" style="height:100px; width:300px;" required>
-
+									<label for="quarantineStart">Start of Quarantine:</label>
+									<input type="date" id="startQ" name="startQ">
 									<div class="divider2">
 										<br>
-									</div>
-									<input class="action_btn" type="submit" value="Submit">
+										<label for="quarantineStart">End of Quarantine:</label>
+										<input type="date" id="endQ" name="endQ">
+
+										<div class="divider2">
+											<br>
+											<u>
+												<h6 style="font-weight:bold">Report Description</h4>
+											</u>
+
+											<input type="text" id="description" name="description" style="height:70px; width:350px;" required>
+
+											<div class="divider2">
+												<br>
+											</div>
+											<input class="action_btn" type="submit" value="Submit">
 
 								</form>
 							</center>
@@ -545,6 +553,16 @@ if (empty($_SESSION['userid'])) {
 											echo "<tr>";
 											echo "<th>Level</th>";
 											echo "<td>" . $row["FloorLevel"] . "</td>";
+											echo "</tr>";
+
+											echo "<tr>";
+											echo "<th>Start Quarantine</th>";
+											echo "<td>" . $row["startQuarantine"] . "</td>";
+											echo "</tr>";
+
+											echo "<tr>";
+											echo "<th>End Quarantine</th>";
+											echo "<td>" . $row["endQuarantine"] . "</td>";
 											echo "</tr>";
 
 											echo "<tr>";

@@ -1,7 +1,7 @@
 <?php
 $conn = include_once('config.php');
 session_start();
- 
+
 $FirstName = $_POST["Firstname"];
 $LastName = $_POST["Lastname"];
 $City = $_POST["City"];
@@ -12,8 +12,8 @@ $Email = $_POST["Email"];
 
 $VisitingDate = $_POST["VisitingDate"];
 $CarNumber = $_POST["CarNumber"];
-$UnitNumber = filter_input( INPUT_POST,"UnitNumber", FILTER_VALIDATE_INT);
-$Number_of_Adults_Guests = filter_input( INPUT_POST,"Number_of_Adults_Guests", FILTER_VALIDATE_INT);
+$UnitNumber = $_POST["UnitNumber"];
+$Number_of_Adults_Guests = filter_input(INPUT_POST, "Number_of_Adults_Guests", FILTER_VALIDATE_INT);
 
 
 
@@ -21,7 +21,7 @@ $Number_of_Adults_Guests = filter_input( INPUT_POST,"Number_of_Adults_Guests", F
 
 //mysqli_connect($host, $username, $password, $dbname);
 
-if (mysqli_connect_error()){
+if (mysqli_connect_error()) {
     die("Connection error: " . mysqli_connect_error());
 }
 
@@ -36,8 +36,3 @@ $stmt->bind_param("ssii", $VisitingDate, $CarNumber, $UnitNumber, $Number_of_Adu
 $stmt->execute();
 
 header("Location:../../resident/profile.php");
-
-?>
-
-
-

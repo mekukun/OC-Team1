@@ -1,11 +1,11 @@
 <?php
 include_once("config.php");
-
-$user_id = $_GET["userid"];
+session_start();
+if (empty($_SESSION['userid'])) {
+    header("Location: ../login.php");
+}
 
 //delete query
 mysqli_query($connection, "DELETE FROM Resident WHERE resident_id = '" . $_SESSION["userid"] . "'");
-header("Location: ../../login.php?action=account_deleted");
+header("Location: logout.php");
 mysqli_close($connection);
-
-?>
