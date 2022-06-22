@@ -67,6 +67,7 @@ if (empty($_SESSION['userid'])) {
 					<span>Quarantine Status</span>
 				</div>
 			</a>
+			
 		</div>
 		<hr />
 		<div class="bottom icontainer">
@@ -288,28 +289,28 @@ if (empty($_SESSION['userid'])) {
 
 			$harini = "" . $year . "-" . $month . "-" . $today;
 
-			$sql = "SELECT * FROM cov_report WHERE Block ='A' and DateCreated = '" . $harini . "'";
+			$sql = "SELECT * FROM cov_report WHERE Block ='A' and DateCreated = '" . $harini . "' AND (ReportStatus = 'In Progress' OR ReportStatus = 'Completed')";
 			// Count the number of cases in Block A
 			if ($result = mysqli_query($connection, $sql)) {
 				$rowcount = mysqli_num_rows($result);
 				$blockA = $rowcount;
 			}
 
-			$sql = "SELECT * FROM cov_report WHERE Block ='B' and DateCreated = '" . $harini . "'";
+			$sql = "SELECT * FROM cov_report WHERE Block ='B' and DateCreated = '" . $harini . "' AND (ReportStatus = 'In Progress' OR ReportStatus = 'Completed')";
 			// Count the number of cases in Block B
 			if ($result = mysqli_query($connection, $sql)) {
 				$rowcount = mysqli_num_rows($result);
 				$blockB = $rowcount;
 			}
 
-			$sql = "SELECT * FROM cov_report WHERE Block ='C' and DateCreated = '" . $harini . "'";
+			$sql = "SELECT * FROM cov_report WHERE Block ='C' and DateCreated = '" . $harini . "' AND (ReportStatus = 'In Progress' OR ReportStatus = 'Completed')";
 			// Count the number of cases in Block C
 			if ($result = mysqli_query($connection, $sql)) {
 				$rowcount = mysqli_num_rows($result);
 				$blockC = $rowcount;
 			}
 
-			$sql = "SELECT * FROM cov_report WHERE Block ='D' and DateCreated = '" . $harini . "'";
+			$sql = "SELECT * FROM cov_report WHERE Block ='D' and DateCreated = '" . $harini . "' AND (ReportStatus = 'In Progress' OR ReportStatus = 'Completed')";
 			// Count the number of cases in Block D
 			if ($result = mysqli_query($connection, $sql)) {
 				$rowcount = mysqli_num_rows($result);
