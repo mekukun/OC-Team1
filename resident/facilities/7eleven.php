@@ -19,7 +19,7 @@
     </div>
     <hr />
     <div class="icontainer">
-      <a href="../viewnearbyfacilities.html">
+      <a href="../viewnearbyfacilities.php">
         <div class="selected navcontrol">
           <i class="fa-solid fa-house-medical"></i>
           <span>View Nearby Facilities</span>
@@ -31,7 +31,7 @@
           <span>Register Visitor</span>
         </div>
       </a>
-      <a href="../reportcovquarantinestats.html">
+      <a href="../reportcovquarantinestats.php">
         <div class="navcontrol">
           <i class="fa-solid fa-bed"></i>
           <span>Quarantine Status</span>
@@ -80,48 +80,46 @@
         <!-- enter your code here -->
 
         <button id="backbtn" onclick="window.location.href='../viewnearbyfacilities.php'">BACK</button>
-     
-     <?php
-          include_once('../../assets/php/config.php');
-          session_start();
-          $num = 1;
-          $sql = "SELECT * FROM grocery WHERE grocery_id = '".$num."'";
-          $result = $connection->query($sql);
 
-          if ($result->num_rows > 0)
-          {
-            while ($row = $result->fetch_assoc())
-            {
-              
-            
+        <?php
+        include_once('../../assets/php/config.php');
+        session_start();
+        $num = 1;
+        $sql = "SELECT * FROM grocery WHERE grocery_id = '" . $num . "'";
+        $result = $connection->query($sql);
+
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+
+
         ?>
 
-        <div style="text-align:center;">
-          <img src="../../assets/img/7eleven.jpg" class="img-fluid" alt="Responsive image" height="400" width="400">
-        </div>
-        <br>
-        <p>
+            <div style="text-align:center;">
+              <img src="../../assets/img/7eleven.jpg" class="img-fluid" alt="Responsive image" height="400" width="400">
+            </div>
+            <br>
+            <p>
 
-        <strong>
+              <strong>
 
-        <?php echo $row["description"];?>
+                <?php echo $row["description"]; ?>
 
-        </strong>
-
-        <h4> <strong> Contact Us</strong> </h4>
-                <strong> 
-                <?php echo $row["contact"];?> 
-                </strong>
-            <h4> <strong> Address</strong> </h4>
-             <strong> 
-              <?php echo $row["address"];?>
               </strong>
-        </p>
-<?php
-            }
-          }
 
-  ?>
+            <h4> <strong> Contact Us</strong> </h4>
+            <strong>
+              <?php echo $row["contact"]; ?>
+            </strong>
+            <h4> <strong> Address</strong> </h4>
+            <strong>
+              <?php echo $row["address"]; ?>
+            </strong>
+            </p>
+        <?php
+          }
+        }
+
+        ?>
       </div>
     </div>
     </div>

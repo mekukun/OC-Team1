@@ -89,13 +89,13 @@ if (empty($_SESSION['userid'])) {
           <span>View Nearby Facilities</span>
         </div>
       </a>
-      <a href="registervisitor.html">
+      <a href="registervisitor.php">
         <div class="navcontrol">
           <i class="fa-solid fa-user-group"></i>
           <span>Register Visitor</span>
         </div>
       </a>
-      <a href="reportcovquarantinestats.html">
+      <a href="reportcovquarantinestats.php">
         <div class="navcontrol">
           <i class="fa-solid fa-bed"></i>
           <span>Quarantine Status</span>
@@ -113,7 +113,7 @@ if (empty($_SESSION['userid'])) {
         <div><a href="../TermsFAQ.html"><button>FAQ</button></a></div>
       </div>
       <div class="logout">
-        <a href="../login.php"><button><i class="fa-solid fa-right-from-bracket"></i>Logout</button></a>
+        <a href="../assets/php/logout.php"><button><i class="fa-solid fa-right-from-bracket"></i>Logout</button></a>
       </div>
     </div>
   </nav>
@@ -133,7 +133,7 @@ if (empty($_SESSION['userid'])) {
         </div>
         <div class="rightdash">
           <div class="status"><span>RESIDENT</span></div>
-          <a href="profile.html">
+          <a href="profile.php">
             <div><i class="fa-solid fa-user"></i><span>User</span></div>
           </a>
         </div>

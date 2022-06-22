@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (empty($_SESSION['userid'])) {
+  header("Location: ../login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +19,7 @@
   <script src="https://kit.fontawesome.com/c2eb2d7176.js" crossorigin="anonymous"></script>
   <!-- <script src="/assets/js/Visitor.js"></script> -->
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  
+
 </head>
 
 
@@ -21,19 +28,19 @@
     <div class="icontainer"><img src="../assets/img/logo.png" width="230" height="150"></div>
     <hr />
     <div class="icontainer">
-      <a href="viewnearbyfacilities.html">
+      <a href="viewnearbyfacilities.php">
         <div class="navcontrol">
           <i class="fa-solid fa-house-medical"></i>
           <span>View Nearby Facilities</span>
         </div>
       </a>
-      <a href="registervisitor.html">
+      <a href="registervisitor.php">
         <div class="selected navcontrol">
           <i class="fa-solid fa-user-group"></i>
           <span>Register Visitor</span>
         </div>
       </a>
-      <a href="reportcovquarantinestats.html">
+      <a href="reportcovquarantinestats.php">
         <div class="navcontrol">
           <i class="fa-solid fa-bed"></i>
           <span>Quarantine Status</span>
@@ -67,9 +74,9 @@
           </div>
           <div style="font-weight: bold;"><span>Register Visitor</span></div>
         </div>
-        <div class="rightdash"style="-ms-flex-align: center; align-self:flex-end;">
+        <div class="rightdash" style="-ms-flex-align: center; align-self:flex-end;">
           <div class="status"><span>LOW RISK</span></div>
-          <a href="profile.html">
+          <a href="profile.php">
             <div><i class="fa-solid fa-user"></i><span>User</span></div>
           </a>
         </div>
@@ -80,7 +87,7 @@
           <div class="leftdash2">
             <div class="formcontainer">
               <div class="title">Register Visitor</div>
-              <form action="..\assets\php\register-visitor.php" method="post" >
+              <form action="..\assets\php\register-visitor.php" method="post">
                 <div class="user-details">
 
                   <!-- Name -->
@@ -101,7 +108,7 @@
                     <div class="globe">
                       <div class="input-box">
                         <span class="details">City </span>
-                        <input class="ab" type="text" placeholder="Eg. Abu Dhabi" id="city" name="City" required >
+                        <input class="ab" type="text" placeholder="Eg. Abu Dhabi" id="city" name="City" required>
                       </div>
 
                       <div class="input-box">
@@ -140,7 +147,7 @@
                     <div class="globe">
                       <div class="input-box">
                         <span class="details">visiting Date</span>
-                        <input class="ab" type="date" placeholder="Date" id="checkIn" name="VisitingDate" required >
+                        <input class="ab" type="date" placeholder="Date" id="checkIn" name="VisitingDate" required>
                       </div>
 
                       <div class="input-box">
@@ -159,7 +166,7 @@
 
                       <div class="input-box">
                         <span class="details">Number of Adults Guests</span> <!-- Max 3 adults per room-->
-                        <input class="ab" type="number" min="1" placeholder="No.of adults" name="Number_of_Adults_Guests" id="guestNum" >
+                        <input class="ab" type="number" min="1" placeholder="No.of adults" name="Number_of_Adults_Guests" id="guestNum">
                       </div>
                     </div><br><br>
 

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (empty($_SESSION['userid'])) {
+  header("Location: ../login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +39,7 @@
       </a>
 
       <!-- Register Visitor Link -->
-      <a href="registervisitor.html">
+      <a href="registervisitor.php">
         <div class="navcontrol">
           <i class="fa-solid fa-user-group"></i>
           <span>Register Visitor</span>
@@ -64,7 +71,7 @@
 
       <!-- Logout Button -->
       <div class="logout">
-        <a href="../login.php"><button>
+        <a href="../assets/php/logout.php"><button>
             <i class="fa-solid fa-right-from-bracket"></i>Logout
           </button></a>
       </div>
@@ -94,7 +101,6 @@
 
       <?php
       include_once('../assets/php/config.php');
-      session_start();
 
       $sql = "SELECT * FROM resident WHERE resident_id = '" . $_SESSION["userid"] . "'";
       $result = $connection->query($sql);
