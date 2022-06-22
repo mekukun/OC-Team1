@@ -121,6 +121,10 @@ INSERT INTO `cov_report` (`ReportID`, `resident_id`, `DateCreated`, `Description
 (6, 1, '2022-06-22', 'I have cov-19', '2022-06-22', '09:06:53', 'Pending', 'Report Submission', 'B', 2, 'B234', ''),
 (7, 1, '2022-06-22', 'I have cov-19', '2022-06-22', '09:07:04', 'Pending', 'Report Submission', 'C', 2, 'C234', '');
 
+-- admin table
+INSERT INTO `admin` (`email`,`password`,`name`) VALUES ('m@gmail.com','M@tt3000','majd'), ('j@gmail.com','j@tt3000','Jal');
+INSERT INTO `resident` (`email`,`password`,`name`) VALUES ('r@gmail.com','r@tt3000','ror'), ('lal@gmail.com','l@tt3000','lal');
+
 -- admin_activity table
 INSERT INTO `admin_activity` (`AdminActivityID`, `ReportID`, `admin_id`, `Activity`, `ActivityDate`, `ActivityHour`) VALUES
 (1, 1, 1, 'Complete report', '2022-05-21', '09:08:20'),

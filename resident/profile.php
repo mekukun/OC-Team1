@@ -32,7 +32,7 @@
       </a>
 
       <!-- Register Visitor Link -->
-      <a href="registervisitor.php">
+      <a href="registervisitor.html">
         <div class="navcontrol">
           <i class="fa-solid fa-user-group"></i>
           <span>Register Visitor</span>
