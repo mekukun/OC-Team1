@@ -42,7 +42,7 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
                     <span>Manage Residents</span>
                 </div>
             </a>
-            <a href="managecovreport.php">
+            <a href="managecovreport.html">
                 <div class="navcontrol">
                     <i class="fa-solid fa-user-group"></i>
                     <span>Manage Cov-19 Reports</span>
@@ -78,9 +78,7 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
                 </div>
                 <div class="rightdash">
                     <div class="status"><span>ADMIN</span></div>
-                    <a href="profileadmin.php">
-                        <div><i class="fa-solid fa-user"></i><span>User</span></div>
-                    </a>
+                    <div><i class="fa-solid fa-user"></i><span>User</span></div>
                 </div>
             </div>
             <div class="px-4 container">

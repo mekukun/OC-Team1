@@ -78,9 +78,7 @@ if(isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['
                 </div>
                 <div class="rightdash">
                     <div class="status"><span>ADMIN</span></div>
-                    <a href="profileadmin.php">
-                        <div><i class="fa-solid fa-user"></i><span>User</span></div>
-                    </a>
+                    <div><i class="fa-solid fa-user"></i><span>User</span></div>
                 </div>
             </div>
             <div class="px-4">
