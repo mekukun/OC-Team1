@@ -116,11 +116,11 @@ ALTER TABLE `Booking_details` ADD FOREIGN KEY (`Booking_ID`) REFERENCES `visitor
 -- cov_report table
 INSERT INTO `cov_report` (`ReportID`, `resident_id`, `DateCreated`, `Description`, `LastActivityDate`, `LastActivityHour`, `ReportStatus`, `LastActivity`, `Block`, `FloorLevel`, `unit_no`, `Note`, `startQuarantine`, `endQuarantine`) VALUES
 (1, 1, '2022-06-20', 'First case of the week', '2022-06-20', '00:00:00', 'Completed', 'Report Closed', 'A', 4, 'A411', 'Patient has recovered', '2022-06-20', '2022-06-25'),
-(2, 0, '2022-06-21', 'No description', '2022-06-22', '00:00:00', 'Completed', 'Report Closed', 'B', 2, 'A209', 'Patient is allergic to peanut', '2022-06-21', '2022-06-26'),
-(3, 0, '2022-06-22', 'No description', '2022-06-20', '00:00:00', 'In Progress', 'Report Validation', 'C', 3, 'C301', 'No note', '2022-06-22', '2022-06-27'),
+(2, 1, '2022-06-21', 'No description', '2022-06-22', '00:00:00', 'Completed', 'Report Closed', 'B', 2, 'A209', 'Patient is allergic to peanut', '2022-06-21', '2022-06-26'),
+(3, 1, '2022-06-22', 'No description', '2022-06-20', '00:00:00', 'In Progress', 'Report Validation', 'C', 3, 'C301', 'No note', '2022-06-22', '2022-06-27'),
 (4, 1, '2022-06-21', 'Patient is waiting for evacuation', '2022-06-21', '00:00:00', 'In Progress', 'Report Validation', 'D', 1, 'D104', 'Need to provide extra medication', '2022-06-21', '2022-06-26'),
-(5, 0, '2022-06-17', 'No description', '2022-06-16', '00:00:00', 'Pending', 'Report Submission', 'B', 1, 'B106', 'No note', '2022-06-17', '2022-06-22'),
-(6, 0, '2022-06-20', 'Patient is having mild symptoms and requiring immediate attention', '2022-06-22', '00:00:00', 'Completed', 'Report Closed', 'C', 4, 'C421', 'No note', '2022-06-20', '2022-06-20'),
+(5, 1, '2022-06-17', 'No description', '2022-06-16', '00:00:00', 'Pending', 'Report Submission', 'B', 1, 'B106', 'No note', '2022-06-17', '2022-06-22'),
+(6, 1, '2022-06-20', 'Patient is having mild symptoms and requiring immediate attention', '2022-06-22', '00:00:00', 'Completed', 'Report Closed', 'C', 4, 'C421', 'No note', '2022-06-20', '2022-06-20'),
 (7, 1, '2022-06-17', 'Help', '2022-06-17', '00:00:00', 'Pending', 'Report Submission', 'A', 4, 'A411', "", '2022-06-17', '2022-06-22'),
 (8, 1, '2022-06-17', 'Help fast', '2022-06-17', '00:00:00', 'Pending', 'Report Submission', 'B', 2, 'B201', "", '2022-06-17', '2022-06-22'),
 (9, 1, '2022-06-17', 'Help fast', '2022-06-17', '00:00:00', 'Pending', 'Report Submission', 'C', 1, 'C111', "", '2022-06-17', '2022-06-22'),

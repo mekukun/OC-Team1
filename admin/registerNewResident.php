@@ -1,14 +1,8 @@
 <?php
 session_start();
-
-if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['userType'])) {
-    $adminID = $_SESSION['adminid'];
-    $email = $_SESSION['email'];
-    $userType = $_SESSION['userType'];
-} else {
+if (empty($_SESSION['adminid'])) {
     header("Location: ../login.php");
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,17 +24,11 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
 
 <body>
     <nav>
-        <div class="container">
-            <img src="../assets/img/logo.png" width="230" height="150">
+        <div class="bottom icontainer">
+            <img src="../assets/img/logo.png" width="230" height="100">
         </div>
         <hr />
-        <div class="container">
-            <a href="Display_visitors_details.php">
-                <div class="selected navcontrol">
-                    <i class="fa-solid fa-house-medical"></i>
-                    <span>Manage Visitors</span>
-                </div>
-            </a>
+        <div class="icontainer">
             <a href="manageresidents.php">
                 <div class="selected navcontrol">
                     <i class="fa-solid fa-house-medical"></i>
@@ -61,17 +49,23 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
             </a>
         </div>
         <hr />
-        <div class="bottom container">
+        <div class="bottom icontainer">
             <div class="profilebox">
-                <div><i class="fa-solid fa-circle-question"></i></div>
+                <div>
+                    <i class="fa-solid fa-circle-question"></i>
+                </div>
                 <div class="wordprofilebox">
                     <div style="font-weight: bold"><span>Need help?</span></div>
                     <div><span>Please check our FAQ</span></div>
                 </div>
-                <div><button>FAQ</button></div>
+                <div>
+                    <a href="../TermsFAQ.html"><button>FAQ</button></a>
+                </div>
             </div>
             <div class="logout">
-                <a href="../assets/php/logout.php"><button><i class="fa-solid fa-right-from-bracket"></i>Logout</button></a>
+                <a href="../assets/php/logout.php"><button>
+                        <i class="fa-solid fa-right-from-bracket"></i>Logout
+                    </button></a>
             </div>
         </div>
     </nav>

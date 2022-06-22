@@ -25,21 +25,29 @@ if (empty($_SESSION['userid'])) {
 
 <body>
   <nav>
-    <div class="icontainer"><img src="../assets/img/logo.png" width="230" height="150"></div>
+    <!-- Navigation Container -->
+    <div class="bottom icontainer" id="logo">
+      <img src="../assets/img/logo.png" width="230" height="100" />
+    </div>
     <hr />
     <div class="icontainer">
+      <!-- View Nearby Facilities Link -->
       <a href="viewnearbyfacilities.php">
         <div class="navcontrol">
           <i class="fa-solid fa-house-medical"></i>
           <span>View Nearby Facilities</span>
         </div>
       </a>
+
+      <!-- Register Visitor Link -->
       <a href="registervisitor.php">
         <div class="selected navcontrol">
           <i class="fa-solid fa-user-group"></i>
           <span>Register Visitor</span>
         </div>
       </a>
+
+      <!-- Quarantine Status -->
       <a href="reportcovquarantinestats.php">
         <div class="navcontrol">
           <i class="fa-solid fa-bed"></i>
