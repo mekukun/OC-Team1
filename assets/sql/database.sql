@@ -15,7 +15,7 @@ CREATE TABLE `resident` (
   `photo` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`resident_id`),
   UNIQUE KEY `email` (`email`)
-)
+);
 
 CREATE TABLE `Admin` (
 	`admin_id` INT NOT NULL AUTO_INCREMENT,
@@ -39,7 +39,7 @@ CREATE TABLE `cov_report` (
   `unit_no` varchar(255) NOT NULL,
   `Note` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ReportID`)
-)
+);
 
 CREATE TABLE `ADMIN_ACTIVITY` (
 	`AdminActivityID` INT NOT NULL AUTO_INCREMENT,
