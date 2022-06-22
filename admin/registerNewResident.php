@@ -1,11 +1,11 @@
-<?php 
+<?php
 session_start();
 
-if(isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['userType'])){
+if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['userType'])) {
     $adminID = $_SESSION['adminid'];
     $email = $_SESSION['email'];
     $userType = $_SESSION['userType'];
-}else{
+} else {
     header("Location: ../login.php");
 }
 
@@ -35,6 +35,12 @@ if(isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['
         </div>
         <hr />
         <div class="container">
+            <a href="Display_visitors_details.php">
+                <div class="selected navcontrol">
+                    <i class="fa-solid fa-house-medical"></i>
+                    <span>Manage Visitors</span>
+                </div>
+            </a>
             <a href="manageresidents.php">
                 <div class="selected navcontrol">
                     <i class="fa-solid fa-house-medical"></i>

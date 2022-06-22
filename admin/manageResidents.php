@@ -36,6 +36,12 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
         </div>
         <hr />
         <div class="container">
+            <a href="Display_visitors_details.php">
+                <div class="selected navcontrol">
+                    <i class="fa-solid fa-house-medical"></i>
+                    <span>Manage Visitors</span>
+                </div>
+            </a>
             <a href="manageresidents.php">
                 <div class="selected navcontrol">
                     <i class="fa-solid fa-house-medical"></i>

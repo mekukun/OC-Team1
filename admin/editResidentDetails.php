@@ -35,6 +35,12 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
         </div>
         <hr />
         <div class="container">
+            <a href="Display_visitors_details.php">
+                <div class="selected navcontrol">
+                    <i class="fa-solid fa-house-medical"></i>
+                    <span>Manage Visitors</span>
+                </div>
+            </a>
             <a href="./manageresidents.php">
                 <div class="selected navcontrol">
                     <i class="fa-solid fa-house-medical"></i>
@@ -118,9 +124,15 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
                         <div class="col-md-6 col-sm-12">
                             <label for="gender" class="form-label">Gender</label>
                             <select class="form-select" name="gender">
-                                <option value="" <?php if($res["gender"] == ""){ echo "selected";}?>>Choose your gender</option>
-                                <option value="female" <?php if($res["gender"] == "female"){ echo "selected";}?>>Female</option>
-                                <option value="male" <?php if($res["gender"] == "male"){ echo "selected";}?>>Male</option>
+                                <option value="" <?php if ($res["gender"] == "") {
+                                                        echo "selected";
+                                                    } ?>>Choose your gender</option>
+                                <option value="female" <?php if ($res["gender"] == "female") {
+                                                            echo "selected";
+                                                        } ?>>Female</option>
+                                <option value="male" <?php if ($res["gender"] == "male") {
+                                                            echo "selected";
+                                                        } ?>>Male</option>
                             </select>
                         </div>
                         <div class="col-md-6 col-sm-12">

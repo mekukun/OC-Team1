@@ -1,11 +1,11 @@
-<?php 
+<?php
 session_start();
 
-if(isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['userType'])){
+if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['userType'])) {
     $adminID = $_SESSION['adminid'];
     $email = $_SESSION['email'];
     $userType = $_SESSION['userType'];
-}else{
+} else {
     header("Location: ../login.php");
 }
 
@@ -36,6 +36,12 @@ if(isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['
         </div>
         <hr />
         <div class="container">
+            <a href="Display_visitors_details.php">
+                <div class="selected navcontrol">
+                    <i class="fa-solid fa-house-medical"></i>
+                    <span>Manage Visitors</span>
+                </div>
+            </a>
             <a href="./manageresidents.php">
                 <div class="selected navcontrol">
                     <i class="fa-solid fa-house-medical"></i>
@@ -145,11 +151,11 @@ if(isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['
                                 <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
                             </div>
                             <div class="modal-body">
-                                <p><?php echo $res['name']?> resident account will be deleted.</p>
+                                <p><?php echo $res['name'] ?> resident account will be deleted.</p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
-                                <a href="../assets/php/deleteResident.php?user_id=<?php echo $res['resident_id']?>"><button type="button" class="btn btn-danger">Yes</button></a>
+                                <a href="../assets/php/deleteResident.php?user_id=<?php echo $res['resident_id'] ?>"><button type="button" class="btn btn-danger">Yes</button></a>
                             </div>
                         </div>
                     </div>
