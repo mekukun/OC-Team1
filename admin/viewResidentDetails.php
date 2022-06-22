@@ -134,7 +134,7 @@ if(isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">No</button>
-                                <a href="deleteResident.php?user_id=<?php echo $res['resident_id']?>"><button type="button" class="btn btn-danger">Yes</button></a>
+                                <a href="../assets/php/deleteResident.php?user_id=<?php echo $res['resident_id']?>"><button type="button" class="btn btn-danger">Yes</button></a>
                             </div>
                         </div>
                     </div>
