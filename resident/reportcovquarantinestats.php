@@ -24,20 +24,21 @@ if (empty($_SESSION['userid'])) {
 			height: auto;
 			display: inline-block;
 		}
-		
+
 		divider2 {
 			width: 5px;
 			height: auto;
 			display: block;
 		}
+
 		.action_btn {
-		  width: 200px;
-		  margin: 0 auto;
-		  display: inline;
-		  padding: 1rem;
-		  background: linear-gradient(to right bottom, #5680e9, #8860d0);
-		  border: white;
-		  border-radius: 0.5rem;
+			width: 200px;
+			margin: 0 auto;
+			display: inline;
+			padding: 1rem;
+			background: linear-gradient(to right bottom, #5680e9, #8860d0);
+			border: white;
+			border-radius: 0.5rem;
 		}
 	</style>
 </head>
@@ -55,7 +56,7 @@ if (empty($_SESSION['userid'])) {
 					<span>View Nearby Facilities</span>
 				</div>
 			</a>
-			<a href="registervisitor.html">
+			<a href="registervisitor.php">
 				<div class="navcontrol">
 					<i class="fa-solid fa-user-group"></i>
 					<span>Register Visitor</span>
@@ -67,7 +68,7 @@ if (empty($_SESSION['userid'])) {
 					<span>Quarantine Status</span>
 				</div>
 			</a>
-			
+
 		</div>
 		<hr />
 		<div class="bottom icontainer">
@@ -112,33 +113,33 @@ if (empty($_SESSION['userid'])) {
 					<button class="action_btn" onclick="report()">
 						<span><b>Report</span>
 					</button>
-					
+
 					<div class="divider">
 					</div>
 
-					
+
 					<button class="action_btn" onclick="states()">
 						<span><b>Total Cases</b></span>
 					</button>
-					
+
 
 					<div class="divider">
 					</div>
 
-					
+
 					<button class="action_btn" onclick="daily()">
 						<span><b>Daily Statistics</b></span>
 					</button>
-					
+
 
 					<div class="divider">
 					</div>
 
-					
+
 					<button class="action_btn" onclick="weekly()">
 						<span><b>Weekly Statistics</b></span>
 					</button>
-					
+
 
 
 
@@ -264,14 +265,14 @@ if (empty($_SESSION['userid'])) {
 									<u>
 										<h6 style="font-weight:bold">Report Description</h4>
 									</u>
-									
+
 									<input type="text" id="description" name="description" style="height:100px; width:300px;" required>
 
 									<div class="divider2">
-									<br>
+										<br>
 									</div>
-									<input class="action_btn"type="submit" value="Submit">
-									
+									<input class="action_btn" type="submit" value="Submit">
+
 								</form>
 							</center>
 						</div>
