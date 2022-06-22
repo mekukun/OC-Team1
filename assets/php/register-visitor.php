@@ -32,7 +32,7 @@ $stmt1->execute();
 
 $stmt = $connection->prepare("INSERT INTO booking_details (VisitingDate, CarNumber, UnitNumber, Number_of_Adults_Guests) 
 VALUES (?, ?, ?, ?);");
-$stmt->bind_param("ssii", $VisitingDate, $CarNumber, $UnitNumber, $Number_of_Adults_Guests);
+$stmt->bind_param("sssi", $VisitingDate, $CarNumber, $UnitNumber, $Number_of_Adults_Guests);
 $stmt->execute();
 
 header("Location:../../resident/profile.php");
