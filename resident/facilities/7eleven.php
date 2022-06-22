@@ -25,7 +25,7 @@
           <span>View Nearby Facilities</span>
         </div>
       </a>
-      <a href="../registervisitor.html">
+      <a href="../registervisitor.php">
         <div class="navcontrol">
           <i class="fa-solid fa-user-group"></i>
           <span>Register Visitor</span>
@@ -49,7 +49,7 @@
         <div><button onclick="window.location.href='../../TermsFAQ.html#FAQ'">FAQ</button></div>
       </div>
       <div class="logout">
-        <a href="../../login.php"><button>
+        <a href="../../assets/php/logout.php"><button>
             <i class="fa-solid fa-right-from-bracket"></i>Logout
           </button></a>
       </div>
@@ -71,7 +71,7 @@
         </div>
         <div class="rightdash">
           <div class="status"><span>LOW RISK</span></div>
-          <a href="../profile.html">
+          <a href="../profile.php">
             <div><i class="fa-solid fa-user"></i><span>User</span></div>
           </a>
         </div>
