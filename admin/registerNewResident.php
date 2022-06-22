@@ -41,7 +41,7 @@ if(isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['
                     <span>Manage Residents</span>
                 </div>
             </a>
-            <a href="managecovreport.html">
+            <a href="managecovreport.php">
                 <div class="navcontrol">
                     <i class="fa-solid fa-user-group"></i>
                     <span>Manage Cov-19 Reports</span>
@@ -132,10 +132,29 @@ if(isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['
                     </div><br>
                     <div class="row">
                         <div class="col-6">
+                            <label for="gender" class="form-label">Gender</label>
+                            <select class="form-select" name="gender">
+                                <option value="">Choose your gender</option>
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
                             <label for="telNum" class="form-label">Telephone number</label>
                             <input type="text" class="form-control" id="telNum" name="tel_number">
                         </div>
-                        <div class="col-6">
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="block" class="form-label">Block Number</label>
+                            <input type="text" class="form-control" id="block" name="block">
+                        </div>
+                        <div class="col-4">
+                            <label for="level" class="form-label">Level</label>
+                            <input type="text" class="form-control" id="level" name="level">
+                        </div>
+                        <div class="col-4">
                             <label for="unit_no" class="form-label">Unit Number</label>
                             <input type="text" class="form-control" id="unit_no" name="unit_no">
                         </div>

@@ -42,7 +42,7 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
                     <span>Manage Residents</span>
                 </div>
             </a>
-            <a href="managecovreport.html">
+            <a href="managecovreport.php">
                 <div class="navcontrol">
                     <i class="fa-solid fa-user-group"></i>
                     <span>Manage Cov-19 Reports</span>
@@ -108,13 +108,14 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
                 <?php } ?>
                 <div class="row">
                     <div class="col">
-                        <?php $result1 = mysqli_query($connection, "SELECT resident_id,name,email,unit_no FROM resident");
+                        <?php $result1 = mysqli_query($connection, "SELECT resident_id,name,block,level,unit_no FROM resident");
                         if (mysqli_num_rows($result1) > 0) { ?>
                             <table class="table" id="dataTable">
                                 <thead>
                                     <tr>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Email</th>
+                                        <th scope="col">Block</th>
+                                        <th scope="col">Level</th>
                                         <th scope="col">Unit Number</th>
                                         <th scope="col">Actions</th>
                                     </tr>
@@ -124,7 +125,8 @@ if (isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION[
                                     while ($res1 = mysqli_fetch_array($result1)) { ?>
                                         <tr>
                                             <th><?php echo $res1['name'] ?></th>
-                                            <td><?php echo $res1['email'] ?></td>
+                                            <td><?php echo $res1['block'] ?></td>
+                                            <td><?php echo $res1['level'] ?></td>
                                             <td><?php echo $res1['unit_no'] ?></td>
                                             <td>
                                                 <a href="viewResidentDetails.php?user_id=<?php echo $res1['resident_id'] ?>"><button type="button" class="btn btn-primary">View

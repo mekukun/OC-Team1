@@ -5,7 +5,10 @@ $name = $_POST["name"];
 $email = $_POST["email"];
 $password = $_POST["password"];
 $rpassword = $_POST["rpassword"];
+$gender = $_POST["gender"];
 $tel_number = $_POST["tel_number"];
+$block = $_POST["block"];
+$level = $_POST["level"];
 $unit_no = $_POST["unit_no"];
 
 if(empty($name) || empty($email) || empty($password) || empty($rpassword)){
@@ -49,7 +52,7 @@ if(empty($name) || empty($email) || empty($password) || empty($rpassword)){
             $lastID = $lastID + 1;
         }
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        mysqli_query($connection, "INSERT INTO resident(resident_id,email,password,name,tel_number,unit_no) VALUES('$lastID','$email','$hashed_password','$name','$tel_number','$unit_no')");
+        mysqli_query($connection, "INSERT INTO resident(resident_id,email,password,name,tel_number,unit_no,gender,block,level) VALUES('$lastID','$email','$hashed_password','$name','$tel_number','$unit_no','$gender','$block','$level')");
 
         //Step 4. Process the results.
         //display success message & the new data can be viewed on index.php

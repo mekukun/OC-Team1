@@ -42,7 +42,7 @@ if(isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['
                     <span>Manage Residents</span>
                 </div>
             </a>
-            <a href="./managecovreport.html">
+            <a href="./managecovreport.php">
                 <div class="navcontrol">
                     <i class="fa-solid fa-user-group"></i>
                     <span>Manage Cov-19 Reports</span>
@@ -102,10 +102,25 @@ if(isset($_SESSION['adminid']) && isset($_SESSION['email']) && isset($_SESSION['
                     </div><br>
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
+                            <label for="gender" class="form-label">Gender</label>
+                            <textarea class="form-control" aria-label="gender" readonly><?php echo $res["gender"] ?></textarea>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
                             <label for="telNum" class="form-label">Telephone number</label>
                             <textarea class="form-control" aria-label="telNum" readonly><?php echo $res["tel_number"] ?></textarea>
                         </div>
-                        <div class="col-md-6 col-sm-12">
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12">
+                            <label for="block" class="form-label">Block Number</label>
+                            <textarea class="form-control" aria-label="block" readonly><?php echo $res["block"] ?></textarea>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <label for="level" class="form-label">Level</label>
+                            <textarea class="form-control" aria-label="level" readonly><?php echo $res["level"] ?></textarea>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
                             <label for="unit_no" class="form-label">Unit Number</label>
                             <textarea class="form-control" aria-label="unit_no" readonly><?php echo $res["unit_no"] ?></textarea>
                         </div>

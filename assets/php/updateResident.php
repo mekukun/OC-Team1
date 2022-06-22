@@ -4,7 +4,10 @@ include_once("config.php");
 $user_id = $_POST["user_id"];
 $name = $_POST["name"];
 $email = $_POST["email"];
+$gender = $_POST["gender"];
 $tel_number = $_POST["tel_number"];
+$block = $_POST["block"];
+$level = $_POST["level"];
 $unit_no = $_POST["unit_no"];
 
 if(empty($name) || empty($email)){
@@ -35,7 +38,7 @@ if(empty($name) || empty($email)){
     } else {
         //Step 3. Execute the SQL query.	
         //update data to database
-        mysqli_query($connection, "UPDATE resident SET email = '$email', name = '$name', tel_number = '$tel_number', unit_no = '$unit_no' WHERE resident_id = $user_id");
+        mysqli_query($connection, "UPDATE resident SET email = '$email', name = '$name', tel_number = '$tel_number', unit_no = '$unit_no', gender = '$gender', block = '$block', level = '$level' WHERE resident_id = $user_id");
 
         //Step 4. Process the results.
         //display success message & the new data can be viewed on index.php
